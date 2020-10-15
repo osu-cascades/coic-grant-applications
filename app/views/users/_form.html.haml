@@ -1,0 +1,33 @@
+= form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  %h2 Personal Information
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control'
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+  - if ['new', 'create'].include? action_name
+    %h3.mt-5 Initial Password
+    = render 'form_password_fields', f: f
+  - if current_user.admin?
+    %h3.mt-5 Role and Status
+    .form-group
+      = f.label :role
+      = f.select :role, User.roles.keys.map {|k| [k.capitalize, k]}, {}, class: 'form-control'
+    .form-group
+      = f.check_box :active
+      = f.label :active
+  = f.submit 'Save', class: 'form-control btn btn-primary'
+  - if ['edit', 'update'].include? action_name
+    %h3.mt-5 Update Password
+    = render 'form_password_fields', f: f
+    = f.submit 'Save new password', class: 'form-control btn btn-secondary'

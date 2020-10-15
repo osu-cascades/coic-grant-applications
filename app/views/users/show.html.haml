@@ -1,0 +1,9 @@
+- if editable_by_user?(@user, current_user)
+  = link_to 'Edit Profile', edit_user_path(@user), class: 'btn btn-primary float-right'
+%h1= @user
+
+%p= @user.email
+%p= "An #{@user.status} user with the #{@user.role} role."
+%p= "Signed in #{@user.sign_in_count} times since #{@user.created_at.localtime.to_s(:short)}."
+- if @user.current_sign_in_at
+  %p= "Last signed in at #{@user.current_sign_in_at.localtime.to_s(:short)} from #{@user.current_sign_in_ip}."

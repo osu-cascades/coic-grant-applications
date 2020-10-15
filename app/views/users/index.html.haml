@@ -1,0 +1,26 @@
+= link_to 'New User', new_user_path, class: 'btn btn-primary float-right'
+%h1 Users
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th{scope: 'col'} id
+      %th{scope: 'col'} Name
+      %th{scope: 'col'} Email Address
+      %th{scope: 'col'} Role
+      %th{scope: 'col'} Status
+      %th{scope: 'col'} Last Seen
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %th{scope: 'row'}= user.id
+        %td= link_to user, user
+        %td= user.email
+        %td= user.role
+        %td= user.status
+        %td= user.last_sign_in_at&.localtime&.to_s(:short)
+        %td
+          = link_to 'Edit', edit_user_path(user), class: 'btn btn-light btn-sm mr-4'
+          - unless current_user == user
+            = link_to 'Delete', "/admin/users/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn text-danger btn-sm'

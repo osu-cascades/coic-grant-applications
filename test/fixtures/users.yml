@@ -1,0 +1,19 @@
+admin:
+  first_name: Fake
+  last_name: Admin
+  email: fake@example.com
+  role: 'admin'
+  active: true
+
+guest:
+  first_name: Fake
+  last_name: Host
+  email: fake2@example.com
+  role: 'guest'
+  active: true
+
+unknown:
+  first_name: Unknown Fake
+  last_name: User
+  email: fake8@example.com
+  active: true

@@ -75,6 +75,24 @@ footer {
   }
 }
 
+table {
+  width: 100%;
+}
+
+#query-options {
+  width: 25%;
+}
+
+#query-table {
+  width: 70%;
+}
+
+#query-options, #query-table {
+  display: inline-block;
+  margin-top: 2rem;
+  vertical-align: top;
+}
+
 /* Authentication */
 
 body.sessions.new, body.registrations.new, body.registrations.create {

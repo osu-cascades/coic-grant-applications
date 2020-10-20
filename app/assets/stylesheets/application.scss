@@ -81,10 +81,15 @@ table {
 
 #query-options {
   width: 25%;
+  margin-right: 5em;
+}
+
+#query-options select, label, input {
+  margin-top: 3rem;
 }
 
 #query-table {
-  width: 70%;
+  width: 65%;
 }
 
 #query-options, #query-table {

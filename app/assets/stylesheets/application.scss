@@ -86,8 +86,8 @@ table {
   margin-right: 5em;
 }
 
-#query-options select, label, input {
-  margin-top: 3rem;
+#query-options * {
+  margin-top: 2rem;
 }
 
 #query-table {
@@ -98,6 +98,14 @@ table {
   display: inline-block;
   margin-top: 2rem;
   vertical-align: top;
+}
+
+.demo-header {
+  margin-bottom: 0rem;
+}
+
+.demo-options {
+  margin-top: 1rem;
 }
 
 /* Authentication */

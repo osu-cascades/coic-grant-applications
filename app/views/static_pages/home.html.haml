@@ -15,6 +15,26 @@
   %label{:for => 'zip-input'} Zip: 
   %input{:type => 'text', :id => 'Zip-input'}
 
+  %div{:id => 'demographic-options'}
+    %h4{:class => 'demo-header'} Race
+    %input{:type => 'checkbox', :id => 'demo-american-indian', :class => 'demo-option'}
+    %label{:for => 'demo-american-indian'} American Indian or Alaska Native 
+    %br
+    %input{:type => 'checkbox', :id => 'demo-asian', :class => 'demo-option'}
+    %label{:for => 'demo-asian'} Asian 
+    %br
+    %input{:type => 'checkbox', :id => 'demo-native-hawaiian', :class => 'demo-option'}
+    %label{:for => 'demo-native-hawaiian'} Native Hawaiian or Pacific Islander
+    %br
+    %input{:type => 'checkbox', :id => 'demo-white', :class => 'demo-option'}
+    %label{:for => 'demo-white'} White
+    %br
+    %input{:type => 'checkbox', :id => 'demo-other', :class => 'demo-option'}
+    %label{:for => 'demo-other'} Other
+    %br
+    %input{:type => 'checkbox', :id => 'demo-no-answer', :class => 'demo-option'}
+    %label{:for => 'demo-no-answer'} Prefer not to answer
+
 %div{:id => 'query-table'}
   %table
     %tr

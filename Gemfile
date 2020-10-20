@@ -19,6 +19,7 @@ gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sassc-rails', '~> 2.1.2'
 gem 'turbolinks', '~> 5.2.1'
 gem 'uglifier', '>= 4.2.0'
+gem 'tzinfo-data'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

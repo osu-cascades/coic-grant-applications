@@ -1,3 +1,9 @@
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1em;
+}
+
 #query-options {
   width: 25%;
   margin-right: 5em;
@@ -15,6 +21,10 @@
   display: inline-block;
   margin-top: 2rem;
   vertical-align: top;
+}
+
+.browse-table {
+  text-align: center;
 }
 
 /* Add a black background color to the top navigation */

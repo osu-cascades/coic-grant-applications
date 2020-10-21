@@ -8,19 +8,20 @@
     	<div class="topnav">
 	    	<a href="#signout">Signout</a>
 	    	<a href="#browse">Browse</a>
-			  <a class="active" href="#upload">Upload</a>
-			  <a  href="#query">Query</a>
+			  <a class="active" href="/upload">Upload</a>
+			  <a  href="/index">Query</a>
 		  
-		</div>
-    	<div id="file-upload">
-	        <label for="reports">Choose Report:</label>
+		</div><br><br>
 
-				<label for="ein">EIN:</label>
-	  		<input type="text" id="ein" name="ein"><br><br>
-	  		<label for="bin">BIN:</label>
-	  		<input type="text" id="bin" name="bin"><br><br>
-	  		<label for="zip">ZIP:</label>
-	  		<input type="text" id="zip" name="zip"><br><br>
+    	<div id="file-upload">
+
+    		<input type="text" id="file-select" name="file-select" onfocus="if (this.value=='select file') this.value = ''" type="text" value="select file">
+
+
+	  		<button type="button" id="browse">Browse Files...</button><br><br>
+
+	  		<button type="button" id="submit">Submit</button>
+
 
 	  </div>
 

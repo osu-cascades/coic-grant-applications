@@ -44,3 +44,21 @@
   background-color: #4CAF50;
   color: white;
 }
+
+#file-upload{
+	margin-top: 2rem;
+	width: 25%;
+	margin: auto;
+}
+
+#file-select{
+	float: left;
+}
+
+#browse{
+	float: right;
+}
+
+#submit{
+	float: center;
+}

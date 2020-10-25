@@ -2,20 +2,21 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title APP TITLE
+    %title COIC Grants Manager
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
     %nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
-      = link_to 'BRAND', root_url, class: 'navbar-brand'
+      = link_to 'COIC', root_url, class: 'navbar-brand'
       %button.navbar-toggler{type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbar', 'aria-controls': 'navbar', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation' }
         %span.navbar-toggler-icon
       #navbar.collapse.navbar-collapse
         %ul.navbar-nav.ml-auto
-          %li.nav-item= link_to 'A', '#', class: 'nav-link'
-          %li.nav-item= link_to 'B', '#', class: 'nav-link'
+          %li.nav-item= link_to 'Upload', '#', class: 'nav-link'
+          %li.nav-item= link_to 'Query', '#', class: 'nav-link'
+          %li.nav-item= link_to 'Browse', '#', class: 'nav-link'
           - if current_user&.admin?
             %li.nav-item= link_to 'Users', users_path, class: 'nav-link'
           - if user_signed_in?

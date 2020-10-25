@@ -1,1 +1,69 @@
-%h1 Home
+%div{:id => 'query-options'}
+  %select
+    %option{:value => 'All reports'} All Reports
+    %option{:value => 'Final report round 1'} Round 1
+    %option{:value => 'Final report round 2'} Round 2
+    %option{:value => 'Final report round 3'} Round 3
+    %option{:value => 'Final report round 4'} Round 4
+  %br
+  %label{:for => 'EIN-input'} EIN: 
+  %input{:type => 'text', :id => 'EIN-input'}
+  %br
+  %label{:for => 'BIN-input'} BIN: 
+  %input{:type => 'text', :id => 'BIN-input'}
+  %br
+  %label{:for => 'zip-input'} Zip: 
+  %input{:type => 'text', :id => 'Zip-input'}
+
+  %div{:id => 'demographic-options'}
+    %h4{:class => 'demo-header'} Race
+    %input{:type => 'checkbox', :id => 'demo-american-indian', :class => 'demo-option'}
+    %label{:for => 'demo-american-indian'} American Indian or Alaska Native 
+    %br
+    %input{:type => 'checkbox', :id => 'demo-asian', :class => 'demo-option'}
+    %label{:for => 'demo-asian'} Asian 
+    %br
+    %input{:type => 'checkbox', :id => 'demo-native-hawaiian', :class => 'demo-option'}
+    %label{:for => 'demo-native-hawaiian'} Native Hawaiian or Pacific Islander
+    %br
+    %input{:type => 'checkbox', :id => 'demo-white', :class => 'demo-option'}
+    %label{:for => 'demo-white'} White
+    %br
+    %input{:type => 'checkbox', :id => 'demo-other', :class => 'demo-option'}
+    %label{:for => 'demo-other'} Other
+    %br
+    %input{:type => 'checkbox', :id => 'demo-no-answer', :class => 'demo-option'}
+    %label{:for => 'demo-no-answer'} Prefer not to answer
+
+%div{:id => 'query-table'}
+  %table
+    %tr
+      %th Column 1
+      %th Column 2
+      %th Column 3
+      %th Column 4
+      %th Column 5
+    %tr
+      %td val1
+      %td val2
+      %td val3
+      %td val4
+      %td val5
+    %tr
+      %td val1
+      %td val2
+      %td val3
+      %td val4
+      %td val5
+    %tr
+      %td val1
+      %td val2
+      %td val3
+      %td val4
+      %td val5
+    %tr
+      %td val1
+      %td val2
+      %td val3
+      %td val4
+      %td val5

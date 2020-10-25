@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>COIC Grant Tracker</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+    	<div class="topnav">
+	    	<a href="/signout">Signout</a>
+	    	<a href="/browse">Browse</a>
+			<a href="/upload">Upload</a>
+			<a class="active" href="/index">Query</a>
+		  
+		</div>
+    	<div id="query-options">
+	        <label for="reports">Choose Report:</label>
+
+			<select name="reports" id="reports">
+				<option value="all">All Reports</option>
+				<option value="round1">Round 1</option>
+				<option value="round2">Round 2</option>
+				<option value="round3">Round 3</option>
+			</select><br><br>
+
+			<label for="ein">EIN:</label>
+	  		<input type="text" id="ein" name="ein"><br><br>
+	  		<label for="bin">BIN:</label>
+	  		<input type="text" id="bin" name="bin"><br><br>
+	  		<label for="zip">ZIP:</label>
+	  		<input type="text" id="zip" name="zip"><br><br>
+
+	  		<h4 class="demo-header">Race</h4>
+	  		<input type="checkbox" class="demo-option" id="demo-american-indian" name="demo-american-indian" value="demo-american-indian">
+			<label for="demo-american-indian"> American Indian or Alaska Native </label><br>
+			<input type="checkbox" class="demo-option" id="demo-asian" name="demo-asian" value="demo-asian">
+			<label for="demo-asian"> Asian </label><br>
+			<input type="checkbox" class="demo-option" id="demo-native-hawaiian" name="demo-native-hawaiian" value="demo-native-hawaiian">
+			<label for="demo-native-hawaiian"> Native Hawaiian or Pacific Islander </label><br>
+			<input type="checkbox" class="demo-option" id="demo-white" name="demo-white" value="demo-white">
+			<label for="demo-white"> White </label><br>
+			<input type="checkbox" class="demo-option" id="demo-other" name="demo-other" value="demo-other">
+			<label for="demo-other"> Other </label><br>
+			<input type="checkbox" class="demo-option" id="demo-no-answer" name="demo-no-answer" value="demo-no-answer">
+			<label for="demo-no-answer"> Prefer not to answer </label><br>
+		</div>
+
+		<div id="query-table">
+		<table>
+		<tr>
+			<td> Column 1 </td>
+			<td> Column 2 </td>
+			<td> Column 3 </td>
+			<td> Column 4 </td>
+			<td> Column 5 </td>
+	    </tr>
+	    <tr>
+			<td> val1 </td>
+			<td> val2 </td>
+			<td> val3 </td>
+			<td> val4 </td>
+			<td> val5 </td>
+	    </tr>
+
+	   <tr>    
+			<td> val1 </td>
+			<td> val2 </td>
+			<td> val3 </td>
+			<td> val4 </td>
+			<td> val5 </td>
+	    </tr>
+	   <tr>    
+			<td> val1 </td>
+			<td> val2 </td>
+			<td> val3 </td>
+			<td> val4 </td>
+			<td> val5 </td>
+	   </tr>
+	   <tr>    
+			<td> val1 </td>
+			<td> val2 </td>
+			<td> val3 </td>
+			<td> val4 </td>
+			<td> val5 </td>
+		</table>
+
+    </body>
+</html>

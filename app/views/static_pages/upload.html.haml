@@ -1,1 +1,6 @@
-%h1 Upload
+
+%input#file-select{:name => "file-select", :onfocus => "if (this.value=='select file') this.value = ''", :type => "text", :value => "select file"}/
+%button#browse{:type => "button"} Browse Files...
+%br/
+%br/
+%button#submit{:type => "button"} Submit

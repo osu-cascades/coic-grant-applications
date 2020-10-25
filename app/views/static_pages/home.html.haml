@@ -14,26 +14,50 @@
   %br
   %label{:for => 'zip-input'} Zip: 
   %input{:type => 'text', :id => 'Zip-input'}
+  %br
+  %label{:for => 'county-input'} County: 
+  %input{:type => 'text', :id => 'county-input'}
 
   %div{:id => 'demographic-options'}
     %h4{:class => 'demo-header'} Race
-    %input{:type => 'checkbox', :id => 'demo-american-indian', :class => 'demo-option'}
-    %label{:for => 'demo-american-indian'} American Indian or Alaska Native 
+    %input{:type => 'checkbox', :id => 'race-american-indian', :class => 'demo-option'}
+    %label{:for => 'race-american-indian'} American Indian or Alaska Native 
     %br
-    %input{:type => 'checkbox', :id => 'demo-asian', :class => 'demo-option'}
-    %label{:for => 'demo-asian'} Asian 
+    %input{:type => 'checkbox', :id => 'race-asian', :class => 'demo-option'}
+    %label{:for => 'race-asian'} Asian 
     %br
-    %input{:type => 'checkbox', :id => 'demo-native-hawaiian', :class => 'demo-option'}
-    %label{:for => 'demo-native-hawaiian'} Native Hawaiian or Pacific Islander
+    %input{:type => 'checkbox', :id => 'race-native-hawaiian', :class => 'demo-option'}
+    %label{:for => 'race-native-hawaiian'} Native Hawaiian or Pacific Islander
     %br
-    %input{:type => 'checkbox', :id => 'demo-white', :class => 'demo-option'}
-    %label{:for => 'demo-white'} White
+    %input{:type => 'checkbox', :id => 'race-white', :class => 'demo-option'}
+    %label{:for => 'race-white'} White
     %br
-    %input{:type => 'checkbox', :id => 'demo-other', :class => 'demo-option'}
-    %label{:for => 'demo-other'} Other
+    %input{:type => 'checkbox', :id => 'race-other', :class => 'demo-option'}
+    %label{:for => 'race-other'} Other
     %br
-    %input{:type => 'checkbox', :id => 'demo-no-answer', :class => 'demo-option'}
-    %label{:for => 'demo-no-answer'} Prefer not to answer
+    %input{:type => 'checkbox', :id => 'race-no-answer', :class => 'demo-option'}
+    %label{:for => 'race-no-answer'} Prefer not to answer
+
+    %h4{:class => 'demo-header'} Ethnicity
+    %input{:type => 'checkbox', :id => 'eth-non-hispanic-latino', :class => 'demo-option'}
+    %label{:for => 'eth-non-hispanic-latino'} Non-Hispanic Latino
+    %br
+    %input{:type => 'checkbox', :id => 'eth-hispanic-latino', :class => 'demo-option'}
+    %label{:for => 'eth-hispanic-latino'} Hispanic Latino
+    %br
+    %input{:type => 'checkbox', :id => 'eth-no-answer', :class => 'demo-option'}
+    %label{:for => 'eth-no-answer'} Prefer not to answer
+
+    %h4{:class => 'demo-header'} Gender
+    %input{:type => 'checkbox', :id => 'gen-female', :class => 'demo-option'}
+    %label{:for => 'gen-female'} Female
+    %br
+    %input{:type => 'checkbox', :id => 'gen-male', :class => 'demo-option'}
+    %label{:for => 'gen-male'} Male
+    %br
+    %input{:type => 'checkbox', :id => 'gen-no-answer', :class => 'demo-option'}
+    %label{:for => 'gen-no-answer'} Prefer not to answer
+    
 
 %div{:id => 'query-table'}
   %table
@@ -43,33 +67,51 @@
       %th Column 3
       %th Column 4
       %th Column 5
+      %th Column 6
+      %th Column 7
     %tr
       %td val1
       %td val2
       %td val3
       %td val4
       %td val5
+      %td val6
+      %td val7
     %tr
       %td val1
       %td val2
       %td val3
       %td val4
       %td val5
+      %td val6
+      %td val7
     %tr
       %td val1
       %td val2
       %td val3
       %td val4
       %td val5
+      %td val6
+      %td val7
     %tr
       %td val1
       %td val2
       %td val3
       %td val4
       %td val5
+      %td val6
+      %td val7
     %tr
       %td val1
       %td val2
       %td val3
       %td val4
       %td val5
+      %td val6
+      %td val7
+    
+
+%div{:id => 'query-results'}
+  %h3{:class => 'query-result-header'} Number of Applicants: ---
+  %h3{:class => 'query-result-header'}  Percentage of Applicants: ---
+  %h3{:class => 'query-result-header'}  Amount Rewarded: ---

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   root 'static_pages#home'
+  get '/browse', to: 'static_pages#browse'
+  get '/upload', to: 'static_pages#upload'
+  get '/query', to: 'static_pages#home'
 
   # Users
   # Using Devise RegistrationsController for public user creation/registration.

@@ -14,9 +14,9 @@
         %span.navbar-toggler-icon
       #navbar.collapse.navbar-collapse
         %ul.navbar-nav.ml-auto
-          %li.nav-item= link_to 'Upload', '#', class: 'nav-link'
-          %li.nav-item= link_to 'Query', '#', class: 'nav-link'
-          %li.nav-item= link_to 'Browse', '#', class: 'nav-link'
+          %li.nav-item= link_to 'Upload', '/upload', class: 'nav-link'
+          %li.nav-item= link_to 'Query', 'query', class: 'nav-link'
+          %li.nav-item= link_to 'Browse', '/browse', class: 'nav-link'
           - if current_user&.admin?
             %li.nav-item= link_to 'Users', users_path, class: 'nav-link'
           - if user_signed_in?

@@ -1,6 +1,23 @@
-
-%input#file-select{:name => "file-select", :onfocus => "if (this.value=='select file') this.value = ''", :type => "text", :value => "select file"}/
-%button#browse{:type => "button"} Browse Files...
-%br/
-%br/
-%button#submit{:type => "button"} Submit
+%div{:id => 'uploadOptions'}
+	%input#file-select{:name => "file-select", :onfocus => "if (this.value=='select file') this.value = ''", :type => "text", :value => "select file"}/
+	%button#browse{href: '#', onclick: 'popUp(); return false;', :type => "button"} Browse Files...
+	%br/
+	%br/
+	%button#submit{:type => "button"} Submit
+%div{:id => 'popupWindow'}
+	%div{:id => 'popupContent'}
+		%table
+			%h1 Documents
+			%tr
+				%td Name
+				%td Date Modified
+			%tr
+				%td Round 1
+				%td 10/24/2020
+			%tr
+				%td Round 2
+				%td 10/15/2020
+			%tr
+				%td Round 3
+				%td 10/10/2020
+		%button#close{href: '#', onclick: 'closePopUp(); return false;', :type => "button"} Select File

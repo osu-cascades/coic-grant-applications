@@ -267,7 +267,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
-    wdm (0.1.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -314,7 +313,6 @@ DEPENDENCIES
   turbolinks (~> 5.2.1)
   tzinfo-data
   uglifier (>= 4.2.0)
-  wdm
   web-console (>= 3.7.0)
   webdrivers
 

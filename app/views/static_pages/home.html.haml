@@ -13,10 +13,30 @@
   %input{:type => 'text', :id => 'BIN-input'}
   %br
   %label{:for => 'zip-input'} Zip: 
-  %input{:type => 'text', :id => 'Zip-input'}
+  %input{:type => 'text', :id => 'zip-input'}
   %br
   %label{:for => 'county-input'} County: 
   %input{:type => 'text', :id => 'county-input'}
+  %br
+  %label{:for => 'city-input'} City: 
+  %input{:type => 'text', :id => 'city-input'}
+  %br
+  %h4{:class => 'demo-header'} Business Type
+  %input{:type => 'checkbox', :id => 'bt-sole', :class => 'demo-option'}
+  %label{:for => 'bt-sole'} Sole
+  %br
+  %input{:type => 'checkbox', :id => 'bt-prop', :class => 'demo-option'}
+  %label{:for => 'bt-prop'} PropPartnership
+  %br
+  %input{:type => 'checkbox', :id => 'bt-corp', :class => 'demo-option'}
+  %label{:for => 'bt-corp'} Corporation
+  %br
+  %input{:type => 'checkbox', :id => 'bt-llc', :class => 'demo-option'}
+  %label{:for => 'bt-llc'} LLC
+  %br
+  %input{:type => 'checkbox', :id => 'bt-501', :class => 'demo-option'}
+  %label{:for => 'bt-501'} 501(c)(3)
+  %br
 
   %div{:id => 'demographic-options'}
     %h4{:class => 'demo-header'} Race

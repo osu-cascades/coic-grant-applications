@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :uploads
   root 'static_pages#home'
   get '/browse', to: 'static_pages#browse'
-  get '/upload', to: 'static_pages#upload'
+  get '/upload', to: 'uploads#index'
   get '/query', to: 'static_pages#home'
 
   # Users

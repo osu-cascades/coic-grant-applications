@@ -1,0 +1,9 @@
+%h1 Upload Spreadsheet
+
+= render 'form'
+
+= form_tag import_companies_path, multipart: true do
+  = file_field_tag :file 
+  = submit_tag "Upload Companies"
+
+= link_to 'Back', companies_path

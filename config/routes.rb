@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :companies do 
+    collection { post :import }
+  end
+  
   resources :uploads
   root 'static_pages#home'
   get '/browse', to: 'static_pages#browse'
   get '/upload', to: 'uploads#index'
   get '/query', to: 'static_pages#home'
+  get '/company', to: 'companies#index'
 
   # Users
   # Using Devise RegistrationsController for public user creation/registration.

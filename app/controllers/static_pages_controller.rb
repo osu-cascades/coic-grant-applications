@@ -7,4 +7,6 @@ class StaticPagesController < ApplicationController
 
   def upload; end
 
+  def company; end
+
 end

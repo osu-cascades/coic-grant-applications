@@ -33,11 +33,6 @@ class UploadsController < ApplicationController
       if @upload.save
         format.html { redirect_to @upload, notice: 'Upload was successfully created.' }
         format.json { render :show, status: :created, location: @upload }
-        # csv = CSV.new(@upload.data)
-        # CSV.parse(@upload.data) do |row|
-        #   csv << row
-        # end
-        # Company.import(csv)
       else
         format.html { render :new }
         format.json { render json: @upload.errors, status: :unprocessable_entity }

@@ -25,6 +25,7 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
+    params[:upload][:data] = CSV(params[:upload][:data].tempfile).read.to_s
     @upload = Upload.new(upload_params)
 
     respond_to do |format|
@@ -70,6 +71,6 @@ class UploadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def upload_params
-      params.fetch(:upload, {})
+      params.require(:upload).permit(:title, :data)
     end
 end

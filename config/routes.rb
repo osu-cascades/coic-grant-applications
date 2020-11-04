@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :uploads
   root 'static_pages#home'
-  get '/browse', to: 'static_pages#browse'
+  get '/browse', to: 'companies#index'
   get '/upload', to: 'uploads#index'
   get '/query', to: 'static_pages#home'
   get '/company', to: 'companies#index'

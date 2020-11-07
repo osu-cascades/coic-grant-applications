@@ -1,8 +1,9 @@
 class Company < ApplicationRecord
 
-  def self.import(file)
+  def self.import(file, round)
     CSV.foreach(file.path, headers: true) do |row|
       c = Company.new
+      c.round = round
       c.business_name = row["Business Name"]
       c.ein = row["EIN"]
       c.bin = row["BIN"]

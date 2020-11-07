@@ -25,7 +25,7 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
-    Company.import(params[:upload][:data].tempfile)
+    Company.import(params[:upload][:data].tempfile, params[:upload][:round])
     params[:upload][:data] = CSV(params[:upload][:data].tempfile).read.join(",")
     @upload = Upload.new(upload_params)
 
@@ -72,6 +72,6 @@ class UploadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def upload_params
-      params.require(:upload).permit(:title, :data)
+      params.require(:upload).permit(:title, :data, :round)
     end
 end

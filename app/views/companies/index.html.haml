@@ -3,22 +3,20 @@
 %table
   %thead
     %tr
-      %th
-      %th
-      %th
+      %th Business Name
+      %th ein
+      %th bin
+      %th NAICS 
+      %th Round
 
   %tbody
-    %tr
-      %td Business Name
-      %td ein
-      %td bin
-      %td NAICS 
     - @companies.each do |company|
       %tr
         %td= company.business_name
         %td= company.ein
         %td= company.bin
         %td= company.naics
+        %td= company.round
         %td= link_to 'Show', company
         %td= link_to 'Edit', edit_company_path(company)
         %td= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }

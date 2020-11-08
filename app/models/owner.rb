@@ -1,13 +1,13 @@
 class Owner < ApplicationRecord
   def self.import(demographic_file)
-    CSV.foreach(round_file.path, headers: true) do |row|
+    CSV.foreach(demographic_file.path, headers: true) do |row|
         o = Owner.new
-        o.bin = row["BIN"]
-        o.name = row["Name"]
-        o.percent_ownership = row["% Ownership"]
-        o.race = row["Race"]
-        o.ethnicity = row["Ethnicity"]
-        o.gender = row["Gender"]
+        o.bin = row["Business Identification Number (BIN issued by Oregon Employment Department)"] || "n/a"
+        o.name = row["Name"] || "n/a"
+        o.percent_ownership = row["% Ownership"] || "n/a"
+        o.race = row["Race"] || "n/a"
+        o.ethnicity = row["Ethnicity"] || "n/a"
+        o.gender = row["Gender"] || "n/a"
         o.save
       end
     end

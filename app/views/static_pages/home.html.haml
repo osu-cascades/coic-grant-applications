@@ -101,53 +101,22 @@
 %div{:id => 'query-table'}
   %table
     %tr
-      %th Column 1
-      %th Column 2
-      %th Column 3
-      %th Column 4
+      %th EIN
+      %th Round Number
+      %th Jobs Retained
+      %th Amount Approved
       %th Column 5
       %th Column 6
       %th Column 7
-    %tr
-      %td val1
-      %td val2
-      %td val3
-      %td val4
-      %td val5
-      %td val6
-      %td val7
-    %tr
-      %td val1
-      %td val2
-      %td val3
-      %td val4
-      %td val5
-      %td val6
-      %td val7
-    %tr
-      %td val1
-      %td val2
-      %td val3
-      %td val4
-      %td val5
-      %td val6
-      %td val7
-    %tr
-      %td val1
-      %td val2
-      %td val3
-      %td val4
-      %td val5
-      %td val6
-      %td val7
-    %tr
-      %td val1
-      %td val2
-      %td val3
-      %td val4
-      %td val5
-      %td val6
-      %td val7
+    - @applications.each do |application|  
+      %tr
+        %td= application.ein
+        %td= application.round
+        %td= application.jobs_retained
+        %td= application.amount_approved
+        %td= get_owner(application.ein).name
+        %td val6
+        %td val7
     
 
 %div{:id => 'query-results'}

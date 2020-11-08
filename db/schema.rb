@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_07_232835) do
+ActiveRecord::Schema.define(version: 2020_11_08_005802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
-    t.string "bin", null: false
     t.string "round", null: false
     t.string "jobs_retained", null: false
     t.string "amount_approved", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ein"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(version: 2020_11_07_232835) do
   end
 
   create_table "owners", force: :cascade do |t|
-    t.string "bin", null: false
     t.string "name", null: false
     t.string "percent_ownership", null: false
     t.string "race", null: false
@@ -47,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_232835) do
     t.string "gender", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ein"
   end
 
   create_table "uploads", force: :cascade do |t|

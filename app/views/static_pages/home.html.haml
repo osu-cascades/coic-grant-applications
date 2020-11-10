@@ -123,15 +123,16 @@
       %th Jobs Retained
       %th Amount Approved
       %th Owner
-      %th % Ownership
+      
     - @applications.each do |application|  
       %tr
         %td= get_company(application.ein).business_name
+        %td= get_company(application.ein).city
+        %td= get_company(application.ein).zip
+        %td= get_company(application.ein).county
         %td= application.ein
         %td= application.round
         %td= application.jobs_retained
-        %td= application.amount_approved
         %td= get_owner(application.ein).name
-        %td= get_owner(application.ein).percent_ownership
 
 

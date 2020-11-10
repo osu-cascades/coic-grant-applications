@@ -1,46 +1,40 @@
-%div{:id => 'query-options'}
-  %select
-    %option{:value => 'All reports'} All Reports
-    %option{:value => 'Final report round 1'} Round 1
-    %option{:value => 'Final report round 2'} Round 2
-    %option{:value => 'Final report round 3'} Round 3
-    %option{:value => 'Final report round 4'} Round 4
+%div{:class => 'query-options'}
+  %div{:class => 'query-input'}
+    %label{:for => 'business-name'} Business Name: 
+    %input{:type => 'text', :id => 'business-name'}
+  %div{:class => 'query-input'}
+    %label{:for => 'business-size'} Business Size: 
+    %input{:type => 'text', :id => 'business-size'}
+  %div{:class => 'query-input'}
+    %label{:for => 'percent-ownership'} Percent Ownership:
+    %input{:type => 'text', :id => 'percent-ownership'}
   %br
-  %label{:for => 'business-name'} Business Name: 
+  %div{:class => 'query-input'}
+    %label{:for => 'jobs-retained'} Jobs Retained: 
+    %input{:type => 'text', :id => 'jobs-retained'}
+  %div{:class => 'query-input'}
+    %label{:for => 'EIN-input'} EIN: 
+    %input{:type => 'text', :id => 'EIN-input'}
+  %div{:class => 'query-input'}
+    %label{:for => 'BIN-input'} BIN: 
+    %input{:type => 'text', :id => 'BIN-input'}
+  %div{:class => 'query-input'}
+    %label{:for => 'NAICS-input'} NAICS: 
+    %input{:type => 'text', :id => 'NAICS-input'}
   %br
-  %input{:type => 'text', :id => 'business-name'}
-  %br
-  %label{:for => 'business-size'} Business Size: 
-  %br
-  %input{:type => 'text', :id => 'business-size'}
-  %br
-  %label{:for => 'percent-ownership'} Percent Ownership:
-  %br
-  %input{:type => 'text', :id => 'percent-ownership'}
-  %br
-  %label{:for => 'jobs-retained'} Jobs Retained: 
-  %br
-  %input{:type => 'text', :id => 'jobs-retained'}
-  %br
-  %label{:for => 'EIN-input'} EIN: 
-  %input{:type => 'text', :id => 'EIN-input'}
-  %br
-  %label{:for => 'BIN-input'} BIN: 
-  %input{:type => 'text', :id => 'BIN-input'}
-  %br
-  %label{:for => 'NAICS-input'} NAICS: 
-  %input{:type => 'text', :id => 'NAICS-input'}
-  %br
-  %label{:for => 'zip-input'} Zip: 
-  %input{:type => 'text', :id => 'zip-input'}
-  %br
-  %label{:for => 'county-input'} County: 
-  %input{:type => 'text', :id => 'county-input'}
-  %br
-  %label{:for => 'city-input'} City: 
-  %input{:type => 'text', :id => 'city-input'}
-  %br
+  %div{:class => 'query-input'}
+    %label{:for => 'zip-input'} Zip: 
+    %input{:type => 'text', :id => 'zip-input'}
+  %div{:class => 'query-input'}
+    %label{:for => 'county-input'} County: 
+    %input{:type => 'text', :id => 'county-input'}
+  %div{:class => 'query-input'}
+    %label{:for => 'city-input'} City: 
+    %input{:type => 'text', :id => 'city-input'}
+
+%div{:class => 'demographic-options'}
   %h4{:class => 'demo-header'} Business Type
+  %br
   %input{:type => 'checkbox', :id => 'bt-sole', :class => 'demo-option'}
   %label{:for => 'bt-sole'} Sole
   %br
@@ -57,51 +51,73 @@
   %label{:for => 'bt-501'} 501(c)(3)
   %br
 
-  %div{:id => 'demographic-options'}
-    %h4{:class => 'demo-header'} Race
-    %input{:type => 'checkbox', :id => 'race-american-indian', :class => 'demo-option'}
-    %label{:for => 'race-american-indian'} American Indian or Alaska Native 
-    %br
-    %input{:type => 'checkbox', :id => 'race-asian', :class => 'demo-option'}
-    %label{:for => 'race-asian'} Asian 
-    %br
-    %input{:type => 'checkbox', :id => 'race-native-hawaiian', :class => 'demo-option'}
-    %label{:for => 'race-native-hawaiian'} Native Hawaiian or Pacific Islander
-    %br
-    %input{:type => 'checkbox', :id => 'race-white', :class => 'demo-option'}
-    %label{:for => 'race-white'} White
-    %br
-    %input{:type => 'checkbox', :id => 'race-other', :class => 'demo-option'}
-    %label{:for => 'race-other'} Other
-    %br
-    %input{:type => 'checkbox', :id => 'race-no-answer', :class => 'demo-option'}
-    %label{:for => 'race-no-answer'} Prefer not to answer
+%div{:class => 'demographic-options'}
+  %h4{:class => 'demo-header'} Race
+  %br
+  %input{:type => 'checkbox', :id => 'race-american-indian', :class => 'demo-option'}
+  %label{:for => 'race-american-indian'} American Indian or Alaska Native 
+  %br
+  %input{:type => 'checkbox', :id => 'race-asian', :class => 'demo-option'}
+  %label{:for => 'race-asian'} Asian 
+  %br
+  %input{:type => 'checkbox', :id => 'race-native-hawaiian', :class => 'demo-option'}
+  %label{:for => 'race-native-hawaiian'} Native Hawaiian or Pacific Islander
+  %br
+  %input{:type => 'checkbox', :id => 'race-white', :class => 'demo-option'}
+  %label{:for => 'race-white'} White
+  %br
+  %input{:type => 'checkbox', :id => 'race-other', :class => 'demo-option'}
+  %label{:for => 'race-other'} Other
+  %br
+  %input{:type => 'checkbox', :id => 'race-no-answer', :class => 'demo-option'}
+  %label{:for => 'race-no-answer'} Prefer not to answer
+  
+%div{:class => 'demographic-options'}
+  %h4{:class => 'demo-header'} Ethnicity
+  %br
+  %input{:type => 'checkbox', :id => 'eth-non-hispanic-latino', :class => 'demo-option'}
+  %label{:for => 'eth-non-hispanic-latino'} Non-Hispanic Latino
+  %br
+  %input{:type => 'checkbox', :id => 'eth-hispanic-latino', :class => 'demo-option'}
+  %label{:for => 'eth-hispanic-latino'} Hispanic Latino
+  %br
+  %input{:type => 'checkbox', :id => 'eth-no-answer', :class => 'demo-option'}
+  %label{:for => 'eth-no-answer'} Prefer not to answer
 
-    %h4{:class => 'demo-header'} Ethnicity
-    %input{:type => 'checkbox', :id => 'eth-non-hispanic-latino', :class => 'demo-option'}
-    %label{:for => 'eth-non-hispanic-latino'} Non-Hispanic Latino
-    %br
-    %input{:type => 'checkbox', :id => 'eth-hispanic-latino', :class => 'demo-option'}
-    %label{:for => 'eth-hispanic-latino'} Hispanic Latino
-    %br
-    %input{:type => 'checkbox', :id => 'eth-no-answer', :class => 'demo-option'}
-    %label{:for => 'eth-no-answer'} Prefer not to answer
+%div{:class => 'demographic-options'}
+  %h4{:class => 'demo-header'} Gender
+  %br
+  %input{:type => 'checkbox', :id => 'gen-female', :class => 'demo-option'}
+  %label{:for => 'gen-female'} Female
+  %br
+  %input{:type => 'checkbox', :id => 'gen-male', :class => 'demo-option'}
+  %label{:for => 'gen-male'} Male
+  %br
+  %input{:type => 'checkbox', :id => 'gen-no-answer', :class => 'demo-option'}
+  %label{:for => 'gen-no-answer'} Prefer not to answer
 
-    %h4{:class => 'demo-header'} Gender
-    %input{:type => 'checkbox', :id => 'gen-female', :class => 'demo-option'}
-    %label{:for => 'gen-female'} Female
-    %br
-    %input{:type => 'checkbox', :id => 'gen-male', :class => 'demo-option'}
-    %label{:for => 'gen-male'} Male
-    %br
-    %input{:type => 'checkbox', :id => 'gen-no-answer', :class => 'demo-option'}
-    %label{:for => 'gen-no-answer'} Prefer not to answer
+%div{:id => 'rounds-drop-down'}
+  %select
+    %option{:value => 'All reports'} All Reports
+    %option{:value => 'Final report round 1'} Round 1
+    %option{:value => 'Final report round 2'} Round 2
+    %option{:value => 'Final report round 3'} Round 3
+    %option{:value => 'Final report round 4'} Round 4
+
+%button{:id => 'query-submit'} Submit Query
+
+%h3{:class => 'query-result-header'} Number of Applicants: ---
+%h3{:class => 'query-result-header'}  Percentage of Applicants: ---
+%h3{:class => 'query-result-header'}  Amount Rewarded: ---
     
 
 %div{:id => 'query-table'}
   %table
     %tr
       %th Business Name
+      %th City
+      %th Zip Code
+      %th County
       %th EIN
       %th Round Number
       %th Jobs Retained
@@ -127,3 +143,14 @@
   %h3{:class => 'query-result-header'}  Amount Rewarded: ---
 
 %button{:id => 'query-submit'} Submit Query
+
+    - @applications.each do |application|  
+      %tr
+        %td= get_company(application.ein).business_name
+        %td= get_company(application.ein).city
+        %td= get_company(application.ein).zip
+        %td= get_company(application.ein).county
+        %td= application.ein
+        %td= application.round
+        %td= application.jobs_retained
+        %td= application.amount_approved

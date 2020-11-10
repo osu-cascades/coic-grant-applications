@@ -81,46 +81,53 @@ table {
   border-spacing: 1.5em;
 }
 
-#query-options {
-  width: 30%;
-  margin-right: 3em;
-  overflow-y: scroll;
+#rounds-drop-down{
+  display: inline;
+  width: 10%;
 }
 
-#query-options * {
+#query-options {
+  display: inline-block;
+  width: 40%;
+  margin-top: 1rem;
+}
+
+.query-input{
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+label{
+  font-size: small;
+}
+
+.demographic-options{
+  display: inline-block;
+  vertical-align: top;
+  width: 23%;
+  text-align: left;
   margin-top: 2rem;
 }
 
 #query-table {
-  width: 50%;
+  width: 100%;
   overflow: scroll;
-  margin-right: 3em;
-}
-
-#query-results {
-  width: 10%;
-  text-align: left;
-}
-
-#query-options, #query-table, #query-results {
-  display: inline-block;
-  margin-top: 2rem;
-  vertical-align: top;
-  height: 30rem;
+  margin-top: 3em;
 }
 
 .query-result-header {
-  display: block;
+  display: inline;
   font-size: 1rem;
   padding: 2rem;
 }
 
 .demo-header {
+  display: inline;
   margin-bottom: 0rem;
 }
 
 .demo-options {
-  margin-top: 1rem;
+  margin: 1rem, 1rem, 0rem, 0.2rem;
 }
 
 #query-submit {

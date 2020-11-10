@@ -101,22 +101,26 @@
 %div{:id => 'query-table'}
   %table
     %tr
+      %th Business Name
+      %th City
+      %th Zip Code
+      %th County
       %th EIN
       %th Round Number
       %th Jobs Retained
       %th Amount Approved
-      %th Column 5
-      %th Column 6
-      %th Column 7
+
     - @applications.each do |application|  
       %tr
+        %td= get_company(application.ein).business_name
+        %td= get_company(application.ein).city
+        %td= get_company(application.ein).zip
+        %td= get_company(application.ein).county
         %td= application.ein
         %td= application.round
         %td= application.jobs_retained
         %td= application.amount_approved
-        %td= get_owner(application.ein).name
-        %td val6
-        %td val7
+      
     
 
 %div{:id => 'query-results'}

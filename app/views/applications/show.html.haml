@@ -1,5 +1,19 @@
 %p#notice= notice
 
+%table
+  %tr
+    %th Round
+    %th Jobs Retained
+    %th Amount Approved
+    %th EIN
+    %th Date Uploaded
+  - @applications.each do |application|
+	  %tr
+	    %td= @application.round
+	    %td= @application.jobs_retained
+	    %td= @application.amount_approved
+	    %td= @application.ein
+	    %td= @application.created_at
 
 = link_to 'Edit', edit_application_path(@application)
 \|

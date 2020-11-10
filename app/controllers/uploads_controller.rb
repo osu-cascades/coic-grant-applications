@@ -11,6 +11,8 @@ class UploadsController < ApplicationController
   # GET /uploads/1
   # GET /uploads/1.json
   def show
+    @companies = Company.all
+    @applications = Application.all
   end
 
   # GET /uploads/new

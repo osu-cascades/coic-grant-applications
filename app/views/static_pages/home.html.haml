@@ -123,7 +123,7 @@
       %th Jobs Retained
       %th Amount Approved
       %th Owner
-      
+
     - @applications.each do |application|  
       %tr
         %td= get_company(application.ein).business_name
@@ -133,6 +133,7 @@
         %td= application.ein
         %td= application.round
         %td= application.jobs_retained
+        %td= application.amount_approved
         %td= get_owner(application.ein).name
 
 

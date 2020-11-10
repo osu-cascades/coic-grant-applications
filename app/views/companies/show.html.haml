@@ -1,5 +1,26 @@
 %p#notice= notice
 
+%table
+  %tr
+    %th Business Name
+    %th EIN
+    %th BIN
+    %th NAICS
+    %th Zip
+    %th County
+    %th City
+    %th Business Type
+    %th Business Size
+  %tr
+    %td= @company.business_name
+    %td= @company.ein
+    %td= @company.bin
+    %td= @company.naics
+    %td= @company.zip
+    %td= @company.county
+    %td= @company.city
+    %td= @company.business_type
+    %td= @company.business_size
 
 = link_to 'Edit', edit_company_path(@company)
 \|

@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_11_08_005802) do
     t.string "county"
     t.string "city"
     t.string "business_type"
-    t.string "business_size"
+    t.string "business_type"
   end
 
   create_table "owners", force: :cascade do |t|

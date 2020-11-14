@@ -16,6 +16,7 @@
         %td= company.ein
         %td= company.bin
         %td= company.naics
+        %td= get_application(company.ein).round
         %td= link_to 'Show', company
         %td= link_to 'Edit', edit_company_path(company)
         %td= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }

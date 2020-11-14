@@ -2,4 +2,30 @@
 
 = render 'form'
 
+%div{:id => 'uploadOptions'}
+	%button#browse{href: '#', onclick: 'popUp(); return false;', :type => "button"} File Format Info
+
+%div{:id => 'popupWindow'}
+	%div{:id => 'popupContent'}
+		%h1 Required Header Names
+		%p Please take care to match exact spelling and capitalization. Order does not matter.
+		%table
+			%tr
+				%td Business Name
+				%td EIN
+				%td NAICS
+				%td BIN
+				%td Zip
+				%td City
+				%td County
+				%td Business Type (select one)
+				%td Name
+				%td % Ownership
+				%td Race
+				%td Ethnicity
+				%td Gender
+				%td Jobs Retained
+				%td Amount of Award
+		%button#close{href: '#', onclick: 'closePopUp(); return false;', :type => "button"} Close
+
 = link_to 'Back', uploads_path

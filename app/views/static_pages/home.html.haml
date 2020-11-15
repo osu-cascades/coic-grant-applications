@@ -1,4 +1,11 @@
 %div{:class => 'query-options'}
+  =form_tag(new_query_path, method: :get) do
+    =label_tag(:jobs_retained, "Jobs Retained")
+    =text_field_tag(:jobs_retained, params[:jobs_retained])
+    =label_tag(:business_name, "Business Name")
+    =text_field_tag(:business_name, params[:business_name])
+    =submit_tag ("Submit Query")
+
   %div{:class => 'query-input'}
     %label{:for => 'business-name'} Business Name: 
     %input{:type => 'text', :id => 'business-name'}

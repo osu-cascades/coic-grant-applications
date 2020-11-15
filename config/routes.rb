@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/query', to: 'static_pages#home'
   get '/company', to: 'companies#index'
 
+  get '/new_query', to: 'static_pages#home'
+  
   # Users
   # Using Devise RegistrationsController for public user creation/registration.
   devise_for :users, controllers: { registrations: 'registrations' }

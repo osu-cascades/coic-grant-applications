@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @companies = Company.all
-    @applications = Application.filter(jobs_retained: params[:jobs_retained], business_name: params[:business_name]) || Application.all
+    @applications = Application.filter(jobs_retained: params[:jobs_retained], business_name: params[:business_name], amount_approved: params[:amount_approved], ein: params[:ein], bin: params[:bin], naics: params[:naics], zip: params[:zip], county: params[:county], city: params[:city]) || Application.all
     @owners = Owner.all
   end
 

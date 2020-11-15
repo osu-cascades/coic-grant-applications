@@ -4,11 +4,25 @@
     =text_field_tag(:jobs_retained, params[:jobs_retained])
     =label_tag(:business_name, "Business Name")
     =text_field_tag(:business_name, params[:business_name])
+    =label_tag(:amount_approved, "Amount of Award")
+    =text_field_tag(:amount_approved, params[:amount_approved])
+    %br
+    =label_tag(:ein, "EIN")
+    =text_field_tag(:ein, params[:ein])
+    =label_tag(:bin, "BIN")
+    =text_field_tag(:bin, params[:bin])
+    =label_tag(:naics, "NAICS")
+    =text_field_tag(:naics, params[:naics])
+    %br
+    =label_tag(:zip, "ZIP")
+    =text_field_tag(:zip, params[:zip])
+    =label_tag(:county, "County")
+    =text_field_tag(:county, params[:county])
+    =label_tag(:city, "City")
+    =text_field_tag(:city, params[:city])
+    %br
     =submit_tag ("Submit Query")
 
-  %div{:class => 'query-input'}
-    %label{:for => 'business-name'} Business Name: 
-    %input{:type => 'text', :id => 'business-name'}
   %div{:class => 'query-input'}
     %label{:for => 'business-size'} Business Size: 
     %input{:type => 'text', :id => 'business-size'}
@@ -16,29 +30,7 @@
     %label{:for => 'percent-ownership'} Percent Ownership:
     %input{:type => 'text', :id => 'percent-ownership'}
   %br
-  %div{:class => 'query-input'}
-    %label{:for => 'jobs-retained'} Jobs Retained: 
-    %input{:type => 'text', :id => 'jobs-retained'}
-  %div{:class => 'query-input'}
-    %label{:for => 'EIN-input'} EIN: 
-    %input{:type => 'text', :id => 'EIN-input'}
-  %div{:class => 'query-input'}
-    %label{:for => 'BIN-input'} BIN: 
-    %input{:type => 'text', :id => 'BIN-input'}
-  %div{:class => 'query-input'}
-    %label{:for => 'NAICS-input'} NAICS: 
-    %input{:type => 'text', :id => 'NAICS-input'}
-  %br
-  %div{:class => 'query-input'}
-    %label{:for => 'zip-input'} Zip: 
-    %input{:type => 'text', :id => 'zip-input'}
-  %div{:class => 'query-input'}
-    %label{:for => 'county-input'} County: 
-    %input{:type => 'text', :id => 'county-input'}
-  %div{:class => 'query-input'}
-    %label{:for => 'city-input'} City: 
-    %input{:type => 'text', :id => 'city-input'}
-
+  
 %div{:class => 'demographic-options'}
   %h4{:class => 'demo-header'} Business Type
   %br
@@ -126,6 +118,7 @@
       %th Zip Code
       %th County
       %th EIN
+      %th NAICS
       %th Round Number
       %th Jobs Retained
       %th Amount Approved
@@ -138,6 +131,7 @@
         %td= get_company(application.ein).zip
         %td= get_company(application.ein).county
         %td= application.ein
+        %td= application.naics
         %td= application.round
         %td= application.jobs_retained
         %td= application.amount_approved

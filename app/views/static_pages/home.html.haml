@@ -134,7 +134,7 @@
     - @applications.each do |application|  
       %tr
         %td= get_company(application.ein).business_name
-        %td= get_company(application.ein).city
+        %td= application.city
         %td= get_company(application.ein).zip
         %td= get_company(application.ein).county
         %td= application.ein

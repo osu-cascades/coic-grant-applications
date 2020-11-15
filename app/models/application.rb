@@ -16,4 +16,16 @@ class Application < ApplicationRecord
       a.save
     end
   end
+
+  def self.filter(attributes)
+    attributes.select {|k,v| v.present?}.reduce(all) do |scope, (key, value)|
+      case key.to_sym
+      when :business_name, :jobs_retained
+        scope.where(key => value)
+      else
+        scope
+      end
+    end
+  end
+    
 end

@@ -57,24 +57,20 @@
     =check_box_tag(:ethnicity_no_answer)
     =label_tag(:ethnicity_no_answer, "Prefer not to answer")
     %br
+    %h4{:class => 'demo-header'} Gender:
+    =check_box_tag(:female)
+    =label_tag(:female, "Female")
+    =check_box_tag(:male)
+    =label_tag(:male, "Male")
+    =check_box_tag(:gender_no_answer)
+    =label_tag(:gender_no_answer, "Prefer not to answer")
+    %br
     =submit_tag ("Submit Query")
   
   %div{:class => 'query-input'}
     %label{:for => 'percent-ownership'} Percent Ownership:
     %input{:type => 'text', :id => 'percent-ownership'}
   %br
-
-%div{:class => 'demographic-options'}
-  %h4{:class => 'demo-header'} Gender
-  %br
-  %input{:type => 'checkbox', :id => 'gen-female', :class => 'demo-option'}
-  %label{:for => 'gen-female'} Female
-  %br
-  %input{:type => 'checkbox', :id => 'gen-male', :class => 'demo-option'}
-  %label{:for => 'gen-male'} Male
-  %br
-  %input{:type => 'checkbox', :id => 'gen-no-answer', :class => 'demo-option'}
-  %label{:for => 'gen-no-answer'} Prefer not to answer
 
 %div{:id => 'rounds-drop-down'}
   %select

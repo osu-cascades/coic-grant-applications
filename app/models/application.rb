@@ -11,6 +11,7 @@ class Application < ApplicationRecord
       a.city = row["City"]
       a.naics = row["NAICS"]
       a.business_type = row["Business Type"]
+      a.business_size = row["Number of Employees"]
       a.round = round_number
       a.jobs_retained = row["Jobs Retained"]
       a.amount_approved = row["Amount of Award"]
@@ -21,7 +22,7 @@ class Application < ApplicationRecord
   def self.filter(attributes)
     attributes.select {|k,v| v.present?}.reduce(all) do |scope, (key, value)|
       case key.to_sym
-      when :business_name, :jobs_retained, :amount_approved, :ein, :bin, :naics, :zip, :county, :city
+      when :business_name, :jobs_retained, :amount_approved, :ein, :bin, :naics, :zip, :county, :city, :business_size
         scope.where(key => value)
       else
         scope

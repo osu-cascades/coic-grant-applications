@@ -21,11 +21,11 @@
     =label_tag(:city, "City")
     =text_field_tag(:city, params[:city])
     %br
+    =label_tag(:business_size, "Business Size")
+    =text_field_tag(:business_size, params[:business_size])
+    %br
     =submit_tag ("Submit Query")
-
-  %div{:class => 'query-input'}
-    %label{:for => 'business-size'} Business Size: 
-    %input{:type => 'text', :id => 'business-size'}
+  
   %div{:class => 'query-input'}
     %label{:for => 'percent-ownership'} Percent Ownership:
     %input{:type => 'text', :id => 'percent-ownership'}
@@ -120,6 +120,7 @@
       %th Round Number
       %th Jobs Retained
       %th Amount Approved
+      %th Number Of Employees
       %th Owner
 
     - @applications.each do |application|  
@@ -133,6 +134,7 @@
         %td= application.round
         %td= application.jobs_retained
         %td= application.amount_approved
+        %td= application.business_size
         %td= get_owner(application.ein).name
 
 

@@ -103,10 +103,8 @@
     %option{:value => 'Final report round 3'} Round 3
     %option{:value => 'Final report round 4'} Round 4
 
-%button{:id => 'query-submit'} Submit Query
-
-%h3{:class => 'query-result-header'} Number of Applicants: ---
-%h3{:class => 'query-result-header'}  Percentage of Applicants: ---
+%h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()
+%h3{:class => 'query-result-header'} Percentage of Applicants: ---
 %h3{:class => 'query-result-header'}  Amount Rewarded: ---
     
 

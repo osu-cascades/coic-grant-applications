@@ -13,6 +13,8 @@
     =text_field_tag(:bin, params[:bin])
     =label_tag(:naics, "NAICS")
     =text_field_tag(:naics, params[:naics])
+    =label_tag(:business_size, "Business Size")
+    =text_field_tag(:business_size, params[:business_size])
     %br
     =label_tag(:zip, "ZIP")
     =text_field_tag(:zip, params[:zip])
@@ -21,33 +23,23 @@
     =label_tag(:city, "City")
     =text_field_tag(:city, params[:city])
     %br
-    =label_tag(:business_size, "Business Size")
-    =text_field_tag(:business_size, params[:business_size])
+    %h4{:class => 'demo-header'} Business Type:
+    =check_box_tag(:sole)
+    =label_tag(:sole, "Sole")
+    =check_box_tag(:prop_partnership)
+    =label_tag(:prop_partnership, "Prop Partnership")
+    =check_box_tag(:corporation)
+    =label_tag(:corporation, "Corporation")
+    =check_box_tag(:llc)
+    =label_tag(:llc, "LLC")
+    =check_box_tag(:c3)
+    =label_tag(:c3, "501(c)(3)")
     %br
     =submit_tag ("Submit Query")
   
   %div{:class => 'query-input'}
     %label{:for => 'percent-ownership'} Percent Ownership:
     %input{:type => 'text', :id => 'percent-ownership'}
-  %br
-  
-%div{:class => 'demographic-options'}
-  %h4{:class => 'demo-header'} Business Type
-  %br
-  %input{:type => 'checkbox', :id => 'bt-sole', :class => 'demo-option'}
-  %label{:for => 'bt-sole'} Sole
-  %br
-  %input{:type => 'checkbox', :id => 'bt-prop', :class => 'demo-option'}
-  %label{:for => 'bt-prop'} PropPartnership
-  %br
-  %input{:type => 'checkbox', :id => 'bt-corp', :class => 'demo-option'}
-  %label{:for => 'bt-corp'} Corporation
-  %br
-  %input{:type => 'checkbox', :id => 'bt-llc', :class => 'demo-option'}
-  %label{:for => 'bt-llc'} LLC
-  %br
-  %input{:type => 'checkbox', :id => 'bt-501', :class => 'demo-option'}
-  %label{:for => 'bt-501'} 501(c)(3)
   %br
 
 %div{:class => 'demographic-options'}

@@ -35,6 +35,20 @@
     =check_box_tag(:c3)
     =label_tag(:c3, "501(c)(3)")
     %br
+    %h4{:class => 'demo-header'} Race:
+    =check_box_tag(:american_indian)
+    =label_tag(:american_indian, "American Indian or Alaska Native")
+    =check_box_tag(:asian)
+    =label_tag(:asian, "Asian")
+    =check_box_tag(:native_hawaiian)
+    =label_tag(:native_hawaiian, "Native Hawaiian or Pacific Islander")
+    =check_box_tag(:white)
+    =label_tag(:white, "White")
+    =check_box_tag(:other)
+    =label_tag(:other, "Other")
+    =check_box_tag(:no_answer)
+    =label_tag(:no_answer, "Prefer not to answer")
+    %br
     =submit_tag ("Submit Query")
   
   %div{:class => 'query-input'}
@@ -42,27 +56,6 @@
     %input{:type => 'text', :id => 'percent-ownership'}
   %br
 
-%div{:class => 'demographic-options'}
-  %h4{:class => 'demo-header'} Race
-  %br
-  %input{:type => 'checkbox', :id => 'race-american-indian', :class => 'demo-option'}
-  %label{:for => 'race-american-indian'} American Indian or Alaska Native 
-  %br
-  %input{:type => 'checkbox', :id => 'race-asian', :class => 'demo-option'}
-  %label{:for => 'race-asian'} Asian 
-  %br
-  %input{:type => 'checkbox', :id => 'race-native-hawaiian', :class => 'demo-option'}
-  %label{:for => 'race-native-hawaiian'} Native Hawaiian or Pacific Islander
-  %br
-  %input{:type => 'checkbox', :id => 'race-white', :class => 'demo-option'}
-  %label{:for => 'race-white'} White
-  %br
-  %input{:type => 'checkbox', :id => 'race-other', :class => 'demo-option'}
-  %label{:for => 'race-other'} Other
-  %br
-  %input{:type => 'checkbox', :id => 'race-no-answer', :class => 'demo-option'}
-  %label{:for => 'race-no-answer'} Prefer not to answer
-  
 %div{:class => 'demographic-options'}
   %h4{:class => 'demo-header'} Ethnicity
   %br

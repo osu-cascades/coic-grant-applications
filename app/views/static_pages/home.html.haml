@@ -46,8 +46,16 @@
     =label_tag(:white, "White")
     =check_box_tag(:other)
     =label_tag(:other, "Other")
-    =check_box_tag(:no_answer)
-    =label_tag(:no_answer, "Prefer not to answer")
+    =check_box_tag(:race_no_answer)
+    =label_tag(:race_no_answer, "Prefer not to answer")
+    %br
+    %h4{:class => 'demo-header'} Ethnicity:
+    =check_box_tag(:non_hispanic_latino)
+    =label_tag(:non_hispanic_latino, "Non-Hispanic Latino")
+    =check_box_tag(:hispanic_latino)
+    =label_tag(:hispanic_latino, "Hispanic Latino")
+    =check_box_tag(:ethnicity_no_answer)
+    =label_tag(:ethnicity_no_answer, "Prefer not to answer")
     %br
     =submit_tag ("Submit Query")
   

@@ -101,13 +101,12 @@ label{
   font-size: small;
 }
 
-.demographic-options{
-  display: inline-block;
-  vertical-align: top;
-  width: 23%;
+.query-options-row{
+  display: block;
+  width: 100%;
   text-align: left;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #query-table {
@@ -124,8 +123,8 @@ label{
 
 .demo-header {
   display: inline;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .demo-options {

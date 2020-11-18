@@ -2,9 +2,8 @@ class Company < ApplicationRecord
 
   def self.import(round_file)
     CSV.foreach(round_file.path, headers: true) do |row|
-      c = Company.new
+      c = Company.find_or_initialize_by(ein: row["EIN"])
       c.business_name = row["Business Name"]
-      c.ein = row["EIN"]
       c.bin = row["BIN"]
       c.naics = row["NAICS"]
       c.zip = row["Zip"]

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :trackable, :recoverable,
+  devise :database_authenticatable, :trackable, :recoverable,
          :rememberable, :validatable
 
   enum role: [:guest, :admin]

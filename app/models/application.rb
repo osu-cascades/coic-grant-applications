@@ -1,5 +1,7 @@
 class Application < ApplicationRecord
 
+  belongs_to :company
+
   def self.import(round_file, round_number)
     CSV.foreach(round_file.path, headers: true) do |row|
       a = Application.new

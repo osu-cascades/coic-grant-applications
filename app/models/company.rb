@@ -1,5 +1,7 @@
 class Company < ApplicationRecord
 
+  has_many :applications
+
   def self.import(round_file)
     CSV.foreach(round_file.path, headers: true) do |row|
       c = Company.find_or_initialize_by(ein: row["EIN"])

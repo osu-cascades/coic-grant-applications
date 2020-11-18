@@ -15,6 +15,8 @@ class Application < ApplicationRecord
       a.round = round_number
       a.jobs_retained = row["Jobs Retained"]
       a.amount_approved = row["Amount of Award"]
+      company = Company.find_by(ein: a.ein)
+      a.company_id = company.id
       a.save
     end
   end

@@ -101,10 +101,10 @@
 
     - @applications.each do |application|  
       %tr
-        %td= get_company(application.ein).business_name
+        %td= Company.find(application.company_id).business_name
         %td= application.city
-        %td= get_company(application.ein).zip
-        %td= get_company(application.ein).county
+        %td= Company.find(application.company_id).zip
+        %td= Company.find(application.company_id).county
         %td= application.ein
         %td= application.naics
         %td= application.round

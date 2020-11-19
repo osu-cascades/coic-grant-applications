@@ -2,6 +2,13 @@ class Owner < ApplicationRecord
 
   has_and_belongs_to_many :companies, :uniq => true,  join_table: 'companies_owners'
 
+  scope :asian, -> { where("race = 'Asian'") }
+  scope :american_indian, -> { where("race = 'American Indian or Alaska Native'") }
+  scope :native_hawaiian, -> { where("race = 'Native Hawaiian or Pacific Islander'") }
+  scope :white, -> { where("race = 'White'") }
+  scope :other, -> { where("race = 'Other'") }
+  scope :race_no_answer, -> { where("race = 'Prefer not to answer'") }
+
   def self.import(demographic_file)
     CSV.foreach(demographic_file.path, headers: true) do |row|
         o = Owner.new

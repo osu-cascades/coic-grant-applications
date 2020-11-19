@@ -2,8 +2,6 @@ class Application < ApplicationRecord
 
   belongs_to :company
 
-  
-
   def self.import(round_file, round_number)
     CSV.foreach(round_file.path, headers: true) do |row|
       a = Application.new
@@ -30,6 +28,19 @@ class Application < ApplicationRecord
       case key.to_sym
       when :business_name, :jobs_retained, :amount_approved, :ein, :bin, :naics, :zip, :county, :city, :business_size
         scope.where(key => value)
+        
+      when :american_indian, :asian, :native_hawaiian, :white, :other, :race_no_answer
+        #scope.joins(:companies).joins(:owners).where(owners: {key => "White"})
+        races = {
+          :american_indian => "American Indian or Alaska Native",
+          :asian => "Asian",
+          :native_hawaiian => "Native Hawaiian or Pacific Islander",
+          :white => "White",
+          :other => "Other", 
+          :race_no_answer => "Prefer not to answer"
+        }
+        
+        scope.joins(company: :owners).where('owners.race' => races[key])
       else
         scope
       end

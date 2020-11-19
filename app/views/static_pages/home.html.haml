@@ -101,10 +101,10 @@
 
     - @applications.each do |application|  
       %tr
-        %td= application.company.business_name
+        %td= application.business_name
         %td= application.city
-        %td= application.company.zip
-        %td= application.company.county
+        %td= application.zip
+        %td= application.county
         %td= application.ein
         %td= application.naics
         %td= application.round

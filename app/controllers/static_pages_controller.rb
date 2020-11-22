@@ -3,37 +3,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @companies = Company.all
-
-    @applications = Application.filter({
-      :jobs_retained => params[:jobs_retained],
-      :business_name => params[:business_name],
-      :amount_approved => params[:amount_approved], 
-      :ein => params[:ein],
-      :bin => params[:bin], 
-      :naics => params[:naics], 
-      :zip => params[:zip],
-      :county => params[:county], 
-      :city => params[:city],
-      :business_size => params[:business_size], 
-      :asian => params[:asian], 
-      :white => params[:white], 
-      :american_indian => params[:american_indian], 
-      :native_hawaiian => params[:native_hawaiian],
-      :other => params[:other], 
-      :race_no_answer => params[:race_no_answer],
-      :non_hispanic_latino => params[:non_hispanic_latino],
-      :hispanic_latino => params[:hispanic_latino],
-      :ethnicity_no_answer => params[:ethnicity_no_answer],
-      :female => params[:female],
-      :male => params[:male],
-      :gender_no_answer => params[:gender_no_answer],
-      :sole => params[:sole],
-      :prop_partnership => params[:prop_partnership],
-      :corporation => params[:corporation],
-      :llc => params[:llc],
-      :c3 => params[:c3]
-    }) || Application.all
-    
+    @applications = Application.filter(params) || Application.all
     @owners = Owner.all
   end
 

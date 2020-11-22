@@ -1,12 +1,12 @@
 module PagesHelper
 
-  def get_owner_names(owners)
-    owner_names = ''
+  def get_owner_race(owners)
+    owner_races = ''
     owners.each do |o|
-      owner_names += o.race + ", "
+      owner_races += o.race + ", "
     end
 
-    return owner_names
+    return owner_races
   end
   
 end

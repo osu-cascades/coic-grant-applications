@@ -24,27 +24,48 @@ class Application < ApplicationRecord
   end
 
   def self.filter(attributes)
-    attributes.select {|k,v| v.present?}.reduce(all) do |scope, (key, value)|
-      case key.to_sym
-      when :business_name, :jobs_retained, :amount_approved, :ein, :bin, :naics, :zip, :county, :city, :business_size
-        scope.where(key => value)
-        
-      when :american_indian, :asian, :native_hawaiian, :white, :other, :race_no_answer
-        #scope.joins(:companies).joins(:owners).where(owners: {key => "White"})
-        races = {
-          :american_indian => "American Indian or Alaska Native",
-          :asian => "Asian",
-          :native_hawaiian => "Native Hawaiian or Pacific Islander",
-          :white => "White",
-          :other => "Other", 
-          :race_no_answer => "Prefer not to answer"
-        }
-        
-        scope.joins(company: :owners).where('owners.race' => races[key])
-      else
-        scope
+    race_query = create_race_query(attributes)
+    puts(race_query)
+    applications = Application.joins(company: :owners).where(race_query)
+    applications = filter_business_attributes(applications, attributes)
+    return applications
+  end
+
+  def self.filter_business_attributes(applications, attributes)
+    filtered_applications = []
+
+    applications.each do |app|
+      if !attributes[:city].present? || app.city == attributes[:city]
+        filtered_applications << app
       end
     end
+
+    return filtered_applications
+  end
+
+  def self.create_race_query(attributes)
+    race_query = ""
+
+    races = {
+      :american_indian => "American Indian or Alaska Native",
+      :asian => "Asian",
+      :native_hawaiian => "Native Hawaiian or Pacific Islander",
+      :white => "White",
+      :other => "Other", 
+      :race_no_answer => "Prefer not to answer"
+    }
+
+    races.each do |key, value|
+      if attributes[key].present?
+        if race_query.empty?
+          race_query += "owners.race = " + "'" + value + "'"
+        else
+          race_query += " OR owners.race = " + "'" + value + "'"
+        end
+      end
+    end
+  
+    return race_query
   end
 
 end

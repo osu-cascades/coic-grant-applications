@@ -35,8 +35,33 @@ class Application < ApplicationRecord
     filtered_applications = []
 
     applications.each do |app|
-      if !attributes[:city].present? || app.city == attributes[:city]
+      if attributes[:city].present? && app.city != attributes[:city]
+        next
+      elsif attributes[:business_name].present? && app.business_name != attributes[:business_name]
+        next
+      elsif attributes[:jobs_retained].present? && app.jobs_retained != attributes[:jobs_retained]
+        next
+      elsif attributes[:amount_approved].present? && app.amount_approved != attributes[:amount_approved]
+        next
+      elsif attributes[:ein].present? && app.ein != attributes[:ein]
+        next
+      elsif attributes[:bin].present? && app.bin != attributes[:bin]
+        next
+      elsif attributes[:naics].present? && app.naics != attributes[:naics]
+        next
+      elsif attributes[:zip].present? && app.zip != attributes[:zip]
+        next
+      elsif attributes[:county].present? && app.county != attributes[:county]
+        next
+      elsif attributes[:city].present? && app.city != attributes[:city]
+        next
+      elsif attributes[:business_type].present? && app.business_type != attributes[:business_type]
+        next
+      elsif attributes[:business_size].present? && app.business_size != attributes[:business_size]
+        next
+      else
         filtered_applications << app
+        
       end
     end
 

@@ -88,6 +88,7 @@
   %table
     %tr
       %th Business Name
+      %th Business Type
       %th City
       %th Zip Code
       %th County
@@ -104,6 +105,7 @@
     - @applications.each do |application|  
       %tr
         %td= application.business_name
+        %td= application.business_type
         %td= application.city
         %td= application.zip
         %td= application.county

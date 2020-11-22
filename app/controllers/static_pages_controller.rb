@@ -26,7 +26,12 @@ class StaticPagesController < ApplicationController
       :ethnicity_no_answer => params[:ethnicity_no_answer],
       :female => params[:female],
       :male => params[:male],
-      :gender_no_answer => params[:gender_no_answer]
+      :gender_no_answer => params[:gender_no_answer],
+      :sole => params[:sole],
+      :prop_partnership => params[:prop_partnership],
+      :corporation => params[:corporation],
+      :llc => params[:llc],
+      :c3 => params[:c3]
     }) || Application.all
     
     @owners = Owner.all

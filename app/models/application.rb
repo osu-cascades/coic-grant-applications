@@ -25,8 +25,20 @@ class Application < ApplicationRecord
 
   def self.filter(attributes)
     race_query = create_race_query(attributes)
+    ethnicity_query = create_ethnicity_query(attributes)
+    owner_query = ""
+    if !ethnicity_query.empty?
+      owner_query << ethnicity_query
+    end
+    if !race_query.empty?
+      if !owner_query.empty?
+      owner_query << " AND " + race_query
+      else
+        owner_query << race_query
+      end
+    end
     puts(race_query)
-    applications = Application.joins(company: :owners).where(race_query)
+    applications = Application.joins(company: :owners).where(owner_query)
     applications = filter_business_attributes(applications, attributes)
     return applications
   end
@@ -91,6 +103,28 @@ class Application < ApplicationRecord
     end
   
     return race_query
+  end
+
+  def self.create_ethnicity_query(attributes)
+    ethnicity_query = ""
+
+    ethnicities = {
+      :non_hispanic_latino => "Non-Hispanic/Latino",
+      :hispanic_latino => "Hispanic/Latino",
+      :ethnicity_no_answer => "n/a",
+    }
+
+    ethnicities.each do |key, value|
+      if attributes[key].present?
+        if ethnicity_query.empty?
+          ethnicity_query += "owners.ethnicity = " + "'" + value + "'"
+        else
+          ethnicity_query += " OR owners.ethnicity = " + "'" + value + "'"
+        end
+      end
+    end
+  
+    return ethnicity_query
   end
 
 end

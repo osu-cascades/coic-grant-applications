@@ -97,7 +97,8 @@
       %th Jobs Retained
       %th Amount Approved
       %th Number Of Employees
-      %th Owner
+      %th Owner Race
+      %th Owner Ethnicity
 
     - @applications.each do |application|  
       %tr
@@ -112,5 +113,5 @@
         %td= application.amount_approved
         %td= application.business_size
         %td= get_owner_race(application.company.owners)
-
+        %td= get_owner_ethnicity(application.company.owners)
 

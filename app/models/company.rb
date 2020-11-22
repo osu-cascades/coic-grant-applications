@@ -6,13 +6,13 @@ class Company < ApplicationRecord
   def self.import(round_file)
     CSV.foreach(round_file.path, headers: true) do |row|
       c = Company.find_or_initialize_by(ein: row["EIN"])
-      c.business_name = row["Business Name"]
-      c.bin = row["BIN"]
-      c.naics = row["NAICS"]
-      c.zip = row["Zip"]
-      c.county = 'default'
-      c.city = row["City"]
-      c.business_type = row["Business Type (select one)"]
+      c.business_name = row["Business Name"] || "n/a"
+      c.bin = row["BIN"] || "n/a"
+      c.naics = row["NAICS"] || "n/a"
+      c.zip = row["Zip"] || "n/a"
+      c.county = row["County"] || "n/a"
+      c.city = row["City"] || "n/a"
+      c.business_type = row["Business Type (select one)"] || "n/a"
       c.save
     end
   end

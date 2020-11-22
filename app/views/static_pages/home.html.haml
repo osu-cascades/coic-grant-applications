@@ -99,6 +99,7 @@
       %th Number Of Employees
       %th Owner Race
       %th Owner Ethnicity
+      %th Owner Gender
 
     - @applications.each do |application|  
       %tr
@@ -114,4 +115,5 @@
         %td= application.business_size
         %td= get_owner_race(application.company.owners)
         %td= get_owner_ethnicity(application.company.owners)
+        %td= get_owner_gender(application.company.owners)
 

@@ -18,4 +18,12 @@ module PagesHelper
 		return owner_ethnicities
 	end
   
+	def get_owner_gender(owners)
+		owner_gender = ''
+		owners.each do |o|
+			owner_gender += o.gender + ", "
+		end
+
+		return owner_gender
+	end
 end

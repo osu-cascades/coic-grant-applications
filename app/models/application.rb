@@ -26,6 +26,7 @@ class Application < ApplicationRecord
   def self.filter(attributes)
     race_query = create_race_query(attributes)
     ethnicity_query = create_ethnicity_query(attributes)
+    gender_query = create_gender_query(attributes)
     owner_query = ""
     if !ethnicity_query.empty?
       owner_query << ethnicity_query
@@ -35,6 +36,13 @@ class Application < ApplicationRecord
       owner_query << " AND " + race_query
       else
         owner_query << race_query
+      end
+    end
+    if !gender_query.empty?
+      if !owner_query.empty?
+      owner_query << " AND " + gender_query
+      else
+        owner_query << gender_query
       end
     end
     puts(race_query)
@@ -125,6 +133,28 @@ class Application < ApplicationRecord
     end
   
     return ethnicity_query
+  end
+
+  def self.create_gender_query(attributes)
+    gender_query = ""
+
+    genders = {
+      :female => "Female",
+      :male => "Male",
+      :gender_no_answer => "prefer not to answer",
+    }
+
+    genders.each do |key, value|
+      if attributes[key].present?
+        if gender_query.empty?
+          gender_query += "owners.gender = " + "'" + value + "'"
+        else
+          gender_query += " OR owners.gender = " + "'" + value + "'"
+        end
+      end
+    end
+  
+    return gender_query
   end
 
 end

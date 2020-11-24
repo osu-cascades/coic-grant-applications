@@ -8,7 +8,7 @@ class Application < ApplicationRecord
       a.business_name = row["Business Name"] || "n/a"
       a.bin = row["BIN"] || "n/a"
       a.zip = row["Zip Code"] || "n/a"
-      a.county = 'default' || "n/a"
+      a.county = row["County"] || "n/a"
       a.city = row["City"] || "n/a"
       a.naics = row["NAICS"] || "n/a"
       a.business_type = row["Business Type"] || "n/a"

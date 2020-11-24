@@ -114,8 +114,8 @@
         %td= application.jobs_retained
         %td= application.amount_approved
         %td= application.business_size
-        %td= get_percent_ownership(application.company.owners)
-        %td= get_owner_race(application.company.owners)
-        %td= get_owner_ethnicity(application.company.owners)
-        %td= get_owner_gender(application.company.owners)
+        %td= get_owner_attributes(application.company.owners, :percent_ownership)
+        %td= get_owner_attributes(application.company.owners, :race)
+        %td= get_owner_attributes(application.company.owners, :ethnicity)
+        %td= get_owner_attributes(application.company.owners, :gender)
 

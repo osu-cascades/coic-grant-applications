@@ -1,50 +1,14 @@
 module PagesHelper
 
-  def get_owner_race(owners)
-    owner_races = ''
+  def get_owner_attributes(owners, attr)
+    owner_attributes = ''
     owners.each_with_index do |owner, index|
-      owner_races += owner.race
+      owner_attributes += owner.send(attr)
       if index < owners.length() - 1
-        owner_races += ", "
+        owner_attributes += ", "
       end
     end
 
-    return owner_races
-  end
-
-	def get_owner_ethnicity(owners)
-		owner_ethnicities = ''
-		owners.each_with_index do |owner, index|
-      owner_ethnicities += owner.ethnicity
-      if index < owners.length() - 1
-        owner_ethnicities += ", "
-      end
-		end
-
-		return owner_ethnicities
-	end
-  
-	def get_owner_gender(owners)
-		owner_genders = ''
-		owners.each_with_index do |owner, index|
-      owner_genders += owner.gender
-      if index < owners.length() - 1
-        owner_genders += ", "
-      end
-		end
-
-		return owner_genders
-  end
-  
-  def get_percent_ownership(owners)
-    owner_percent_ownerships = ""
-    owners.each_with_index do |owner, index|
-      owner_percent_ownerships += owner.percent_ownership
-      if index < owners.length() - 1
-        owner_percent_ownerships += ", "
-      end
-    end
-
-    return owner_percent_ownerships
+    return owner_attributes
   end
 end

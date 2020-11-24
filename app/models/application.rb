@@ -63,21 +63,11 @@ class Application < ApplicationRecord
   def self.filter_business_attributes(applications, attributes)
     filtered_applications = []
     business_types = []
-    if attributes[:sole].present?
-      business_types << "Sole Proprietorship"
-    end
-    if attributes[:prop_partnership].present?
-      business_types << "Partnership"
-    end
-    if attributes[:corporation].present?
-      business_types << "Corporation"
-    end
-    if attributes[:llc].present?
-      business_types << "LLC"
-    end
-    if attributes[:c3].present?
-      business_types << "501(c)3"
-    end
+    business_types << "Sole Proprietorship" if attributes[:sole].present?
+    business_types << "Partnership" if attributes[:prop_partnership].present?
+    business_types << "Corporation" if attributes[:corporation].present?
+    business_types << "LLC" if attributes[:llc].present?
+    business_types << "501(c)3" if attributes[:c3].present?
 
     applications.each do |app|
       if attributes[:city].present? && app.city != attributes[:city]
@@ -101,6 +91,8 @@ class Application < ApplicationRecord
       elsif attributes[:city].present? && app.city != attributes[:city]
         next
       elsif attributes[:business_size].present? && app.business_size != attributes[:business_size]
+        next
+      elsif attributes[:round].present? && app.round != attributes[:round]
         next
       elsif business_types.length() > 0 && !business_types.include?(app.business_type)
         next

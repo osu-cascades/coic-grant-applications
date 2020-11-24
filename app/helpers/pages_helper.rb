@@ -34,5 +34,17 @@ module PagesHelper
 		end
 
 		return owner_genders
-	end
+  end
+  
+  def get_percent_ownership(owners)
+    owner_percent_ownerships = ""
+    owners.each_with_index do |owner, index|
+      owner_percent_ownerships += owner.percent_ownership
+      if index < owners.length() - 1
+        owner_percent_ownerships += ", "
+      end
+    end
+
+    return owner_percent_ownerships
+  end
 end

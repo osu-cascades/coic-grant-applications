@@ -43,7 +43,7 @@ class Application < ApplicationRecord
         owner_query << gender_query
       end
     end
-    puts(race_query)
+
     applications = Application.joins(company: :owners).where(owner_query)
     applications = filter_business_attributes(applications, attributes)
     return applications

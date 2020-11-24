@@ -1,6 +1,9 @@
 %div{:class => 'query-options'}
   =form_tag(new_query_path, method: :get) do
     %div{:class => 'query-options-row'}
+      =label_tag(:round, "Round")
+      =text_field_tag(:round, params[:round])
+    %div{:class => 'query-options-row'}
       =label_tag(:jobs_retained, "Jobs Retained")
       =text_field_tag(:jobs_retained, params[:jobs_retained])
       =label_tag(:business_name, "Business Name")
@@ -68,14 +71,6 @@
       =text_field_tag(:percent_ownership, params[:percent_ownership])
     %div{:class => 'query-options-row'}
       =submit_tag ("Submit Query")
-
-%div{:id => 'rounds-drop-down'}
-  %select
-    %option{:value => 'All reports'} All Reports
-    %option{:value => 'Final report round 1'} Round 1
-    %option{:value => 'Final report round 2'} Round 2
-    %option{:value => 'Final report round 3'} Round 3
-    %option{:value => 'Final report round 4'} Round 4
 
 %h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()
 %h3{:class => 'query-result-header'} Percentage of Applicants: ---

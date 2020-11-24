@@ -22,4 +22,10 @@ module PagesHelper
 
     return sum.round(2).to_s
   end
+
+  def percentage_of_applicants(applications)
+    #can be replaced with Application.all.length() when we prevent duplication correctly.
+    all_applications = Application.find(Application.all.map(&:id).uniq)
+    return ((applications.length().to_f / all_applications.length().to_f) * 100).round(2).to_s
+  end
 end

@@ -73,7 +73,7 @@
       =submit_tag ("Submit Query")
 
 %h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()
-%h3{:class => 'query-result-header'} Percentage of Applicants: ---
+%h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"
 %h3{:class => 'query-result-header'}= "Amount Rewarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
     
 

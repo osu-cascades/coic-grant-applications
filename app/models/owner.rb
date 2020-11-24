@@ -15,10 +15,7 @@ class Owner < ApplicationRecord
 
         max_owners.times do |i|
           if row["Business Owner Name #{i}"]
-            o = Owner.new
-            o.ein = row["Employer Identification Number (Federal EIN)"] || "n/a"
-            o.name = row["Business Owner Name #{i}"] || "n/a"
-
+            o = Owner.find_or_initialize_by(ein: row["Employer Identification Number (Federal EIN)"], name: row["Business Owner Name #{i}"])
             o.percent_ownership = row["% Ownership #{i}"] || "n/a"
             o.percent_ownership = "0" unless o.percent_ownership !~ /\D/
 
@@ -29,7 +26,7 @@ class Owner < ApplicationRecord
 
             companies = Company.where(ein: o.ein)
             companies.each do |c|
-              c.owners << o
+              c.owners << o unless c.owners.include?(o)
               # I'm not sure if this is needed, I'm getting duplicate
               #values when including it
               # o.companies << c

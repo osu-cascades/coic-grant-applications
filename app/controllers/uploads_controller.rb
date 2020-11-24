@@ -27,7 +27,7 @@ class UploadsController < ApplicationController
   def create
     Company.import(params[:upload][:data].tempfile)
     Application.import(params[:upload][:data].tempfile, params[:upload][:round])
-    Owner.import(params[:upload][:demographic_data].tempfile)
+    Owner.import(params[:upload][:data].tempfile)
     params[:upload][:data] = CSV(params[:upload][:data].tempfile).read.join(",")
     @upload = Upload.new(upload_params)
 

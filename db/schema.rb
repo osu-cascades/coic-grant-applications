@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2020_11_18_015327) do
     t.string "city"
     t.string "business_type"
     t.string "business_size"
+    t.string "street_address"
+    t.string "amount_requested"
+    t.string "number_of_employees"
   end
 
   create_table "companies_owners", id: false, force: :cascade do |t|
@@ -70,8 +73,12 @@ ActiveRecord::Schema.define(version: 2020_11_18_015327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.bigint "user_id"
+    t.string "ein"
+    t.string "bin"
     t.string "data"
     t.string "round"
+    t.index ["user_id"], name: "index_uploads_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

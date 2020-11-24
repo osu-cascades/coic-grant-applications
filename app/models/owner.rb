@@ -9,8 +9,8 @@ class Owner < ApplicationRecord
   scope :other, -> { where("race = 'Other'") }
   scope :race_no_answer, -> { where("race = 'Prefer not to answer'") }
 
-  def self.import(demographic_file)
-    CSV.foreach(demographic_file.path, headers: true) do |row|
+  def self.import(round_file)
+    CSV.foreach(round_file.path, headers: true) do |row|
         max_owners = 3
 
         max_owners.times do |i|

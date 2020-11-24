@@ -26,9 +26,11 @@ class Application < ApplicationRecord
     ethnicity_query = create_ethnicity_query(attributes)
     gender_query = create_gender_query(attributes)
     owner_query = ""
+
     if !ethnicity_query.empty?
       owner_query << ethnicity_query
     end
+
     if !race_query.empty?
       if !owner_query.empty?
       owner_query << " AND " + race_query
@@ -36,11 +38,20 @@ class Application < ApplicationRecord
         owner_query << race_query
       end
     end
+
     if !gender_query.empty?
       if !owner_query.empty?
       owner_query << " AND " + gender_query
       else
         owner_query << gender_query
+      end
+    end
+
+    if attributes[:percent_ownership].present? 
+      if !owner_query.empty?
+        owner_query << " AND " + "CAST(owners.percent_ownership as INT) >= " + attributes[:percent_ownership]
+      else
+        owner_query << "CAST(owners.percent_ownership as INT) >= " + attributes[:percent_ownership]
       end
     end
 

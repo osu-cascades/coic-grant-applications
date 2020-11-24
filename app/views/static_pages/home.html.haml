@@ -64,7 +64,7 @@
       =check_box_tag(:gender_no_answer)
       =label_tag(:gender_no_answer, "Prefer not to answer")
     %div{:class => 'query-options-row'}
-      =label_tag(:percent_ownership, "Percent Ownership")
+      =label_tag(:percent_ownership, "Percent Ownership >=")
       =text_field_tag(:percent_ownership, params[:percent_ownership])
     %div{:class => 'query-options-row'}
       =submit_tag ("Submit Query")

@@ -18,7 +18,10 @@ class Owner < ApplicationRecord
             o = Owner.new
             o.ein = row["Employer Identification Number (Federal EIN)"] || "n/a"
             o.name = row["Business Owner Name #{i}"] || "n/a"
+
             o.percent_ownership = row["% Ownership #{i}"] || "n/a"
+            o.percent_ownership = "0" unless o.percent_ownership !~ /\D/
+
             o.race = row["Race #{i}"] || "n/a"
             o.ethnicity = row["Ethnicity #{i}"] || "n/a"
             o.gender = row["Gender #{i}"] || "n/a"

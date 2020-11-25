@@ -59,6 +59,7 @@ class UploadsController < ApplicationController
   # DELETE /uploads/1
   # DELETE /uploads/1.json
   def destroy
+    Application.where(round: @upload.round).destroy_all
     @upload.destroy
     respond_to do |format|
       format.html { redirect_to uploads_url, notice: 'Upload was successfully destroyed.' }

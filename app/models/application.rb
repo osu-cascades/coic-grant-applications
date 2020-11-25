@@ -74,7 +74,7 @@ class Application < ApplicationRecord
         next
       elsif attributes[:business_name].present? && app.business_name != attributes[:business_name]
         next
-      elsif attributes[:jobs_retained].present? && app.jobs_retained != attributes[:jobs_retained]
+      elsif attributes[:jobs_retained].present? && app.jobs_retained[/^[^\-]+/].to_i < attributes[:jobs_retained].to_i
         next
       elsif attributes[:amount_approved].present? && app.amount_approved != attributes[:amount_approved]
         next

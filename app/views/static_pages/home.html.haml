@@ -4,12 +4,12 @@
       =label_tag(:round, "Round")
       =text_field_tag(:round, params[:round])
     %div{:class => 'query-options-row'}
-      =label_tag(:jobs_retained, "Jobs Retained")
-      =text_field_tag(:jobs_retained, params[:jobs_retained])
       =label_tag(:business_name, "Business Name")
       =text_field_tag(:business_name, params[:business_name])
       =label_tag(:business_size, "Number of Employees")
       =text_field_tag(:business_size, params[:business_size])
+      =label_tag(:jobs_retained, "Jobs Retained >=")
+      =text_field_tag(:jobs_retained, params[:jobs_retained])
     %div{:class => 'query-options-row'}
       =label_tag(:ein, "EIN")
       =text_field_tag(:ein, params[:ein])

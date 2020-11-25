@@ -71,11 +71,12 @@
       =label_tag(:percent_ownership, "Percent Ownership >=")
       =text_field_tag(:percent_ownership, params[:percent_ownership])
     %div{:class => 'query-options-row'}
-      =submit_tag ("Submit Query")
+      =submit_tag("Submit Query")
 
-%h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()
-%h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"
-%h3{:class => 'query-result-header'}= "Amount Rewarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
+%div{:id => 'query-results'}
+  %h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()
+  %h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"
+  %h3{:class => 'query-result-header'}= "Amount Rewarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
     
 
 %div{:id => 'query-table'}

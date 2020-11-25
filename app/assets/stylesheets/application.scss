@@ -98,7 +98,7 @@ table {
 }
 
 label{
-  font-size: small;
+  font-size: medium;
 }
 
 .query-options-row{
@@ -115,10 +115,20 @@ label{
   margin-top: 3em;
 }
 
+#query-results {
+  margin-top: 4rem;
+  text-align: center;
+}
+
 .query-result-header {
   display: inline;
   font-size: 1.2rem;
   padding: 2rem;
+  font-weight: bold;
+}
+
+.query-options button {
+  background-color: blue;
 }
 
 .demo-header {

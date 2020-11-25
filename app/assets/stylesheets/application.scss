@@ -105,8 +105,8 @@ label{
   display: block;
   width: 100%;
   text-align: left;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 #query-table {
@@ -127,8 +127,11 @@ label{
   font-weight: bold;
 }
 
-.query-options button {
+.submit-button {
   background-color: blue;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.2rem;
 }
 
 .demo-header {

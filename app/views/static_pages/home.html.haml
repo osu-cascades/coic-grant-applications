@@ -71,7 +71,7 @@
       =label_tag(:percent_ownership, "Percent Ownership >=")
       =text_field_tag(:percent_ownership, params[:percent_ownership])
     %div{:class => 'query-options-row'}
-      =submit_tag("Submit Query")
+      =submit_tag("Submit Query", :class => 'submit-button')
 
 %div{:id => 'query-results'}
   %h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()

@@ -97,7 +97,7 @@ class Application < ApplicationRecord
       elsif business_types.length() > 0 && !business_types.include?(app.business_type)
         next
       else
-        filtered_applications << app
+        filtered_applications << app unless filtered_applications.include?(app)
         
       end
     end

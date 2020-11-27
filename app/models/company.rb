@@ -7,7 +7,7 @@ class Company < ApplicationRecord
     CSV.foreach(round_file.path, headers: true) do |row|
       c = Company.find_or_initialize_by(ein: row["Employer Identification Number (Federal EIN)"])
       c.business_name = row["Business Name"] || "n/a"
-      c.bin = row["BIN"] || "n/a"
+      c.bin = row["Business Identification Number (BIN issued by Oregon Employment Department)"] || "n/a"
       c.naics = row["NAICS"] || "n/a"
       c.zip = row["Zip"] || "n/a"
       c.county = row["County"] || "n/a"

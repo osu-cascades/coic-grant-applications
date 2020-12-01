@@ -12,7 +12,7 @@ class Company < ApplicationRecord
       c.zip = row["Zip"] || "n/a"
       c.county = row["County"] || "n/a"
       c.city = row["City"] || "n/a"
-      c.business_type = row["Business Type (select one)"] || "n/a"
+      c.business_type = row["Business Type"] || "n/a"
       c.save
     end
   end

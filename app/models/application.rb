@@ -158,7 +158,7 @@ class Application < ApplicationRecord
     genders = {
       :female => "Female",
       :male => "Male",
-      :gender_no_answer => "prefer not to answer",
+      :gender_no_answer => "Prefer not to answer",
     }
 
     genders.each do |key, value|

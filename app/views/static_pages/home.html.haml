@@ -74,9 +74,9 @@
       =submit_tag("Submit Query", :class => 'submit-button')
 
 %div{:id => 'query-results'}
-  %h3{:class => 'query-result-header'}= "Number of Applicants: " + @applications.length().to_s()
+  %h3{:class => 'query-result-header'}= "Number of Awards: " + @applications.length().to_s()
   %h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"
-  %h3{:class => 'query-result-header'}= "Amount Rewarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
+  %h3{:class => 'query-result-header'}= "Amount Awarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
     
 
 %div{:id => 'query-table'}

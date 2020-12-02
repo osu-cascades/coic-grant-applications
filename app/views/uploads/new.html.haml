@@ -9,6 +9,7 @@
 	%div{:id => 'popupContent'}
 		%h1 Required Header Names
 		%p Please take care to match exact spelling and capitalization. Order does not matter.
+		
 		%table
 			%tr
 				%td Business Name
@@ -36,6 +37,9 @@
 				%td Gender 2
 				%td Gender 3
 				%td Total $ Approved:
+		
+		%p Each row MUST have an EIN value and at least 1 owner.
+		%p If no owner information is available, use "n/a" in the "Business Owner Name 1" column. The other owner columns can be blank.
 		%button#close{href: '#', onclick: 'closePopUp(); return false;', :type => "button"} Close
 
 = link_to 'Back', uploads_path

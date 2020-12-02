@@ -9,7 +9,7 @@ class Company < ApplicationRecord
       c.business_name = row["Business Name"] || "n/a"
       c.bin = row["Business Identification Number (BIN issued by Oregon Employment Department)"] || "n/a"
       c.naics = row["NAICS"] || "n/a"
-      c.zip = row["Zip"] || "n/a"
+      c.zip = row["Zip Code"] || "n/a"
       c.county = row["County"] || "n/a"
       c.city = row["City"] || "n/a"
       c.business_type = row["Business Type"] || "n/a"

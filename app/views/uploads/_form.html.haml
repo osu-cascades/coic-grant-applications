@@ -5,15 +5,19 @@
       %ul
         - @upload.errors.full_messages.each do |message|
           %li= message
-  .field 
-    =f.label :title
-    =f.text_field :title
-  .field 
-    =f.label :data
-    =f.file_field :data
-  .field 
-    =f.label :round
-    =f.text_field :round
+  %div{:class => 'query-options-row'}
+    .field 
+      =f.label :title, :id => 'text-field-label'
+      =f.text_field :title
+    %br
+    .field 
+      =f.label :round, :id => 'text-field-label'
+      =f.text_field :round
+    %br
+    .field 
+      =f.label :data
+      =f.file_field :data
 
   .actions
     = f.submit 'Save'
+  %br

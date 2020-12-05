@@ -90,7 +90,7 @@ class Application < ApplicationRecord
         next
       elsif attributes[:city].present? && app.city != attributes[:city]
         next
-      elsif attributes[:business_size].present? && app.business_size != attributes[:business_size]
+      elsif attributes[:business_size].present? && (app.business_size[/^[^\-]+/].to_i < attributes[:business_size][/^[^\-]+/].to_i || app.business_size[/\d?\-?(\d+)/].to_i > attributes[:business_size].to_i)
         next
       elsif attributes[:round].present? && app.round != attributes[:round]
         next

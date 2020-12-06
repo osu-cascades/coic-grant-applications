@@ -184,11 +184,6 @@ class Application < ApplicationRecord
     biz_min = biz_range[0].to_i
     biz_range[1] ? biz_max = biz_range[1].to_i : biz_max = biz_min
 
-    logger.debug("biz_min: " + biz_min.to_s)
-    logger.debug("biz_max: " + biz_max.to_s)
-    logger.debug("query_min: " + query_min.to_s)
-    logger.debug("query_max: " + query_max.to_s)
-
     return biz_min >= query_min && biz_max <= query_max  
   end
 

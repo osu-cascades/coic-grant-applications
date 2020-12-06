@@ -174,8 +174,6 @@ class Application < ApplicationRecord
   end
 
   def self.in_range(query_range, business_range)
-    range_max = 100000000
-
     query_range = query_range.split("-")
     query_min = query_range[0].to_i
     query_range[1] ? query_max = query_range[1].to_i : query_max = query_min

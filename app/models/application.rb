@@ -90,7 +90,7 @@ class Application < ApplicationRecord
         next
       elsif attributes[:city].present? && app.city != attributes[:city]
         next
-      elsif attributes[:business_size].present? && (app.business_size[/^[^\-]+/].to_i < attributes[:business_size][/^[^\-]+/].to_i || app.business_size[/\d?\-?(\d+)/].to_i > attributes[:business_size].to_i)
+      elsif attributes[:business_size].present? && !self.in_range(attributes[:business_size], app.business_size) 
         next
       elsif attributes[:round].present? && app.round != attributes[:round]
         next
@@ -98,7 +98,6 @@ class Application < ApplicationRecord
         next
       else
         filtered_applications << app unless filtered_applications.include?(app)
-        
       end
     end
 
@@ -172,6 +171,25 @@ class Application < ApplicationRecord
     end
   
     return gender_query
+  end
+
+  def self.in_range(query_range, business_range)
+    range_max = 100000000
+
+    query_range = query_range.split("-")
+    query_min = query_range[0].to_i
+    query_range[1] ? query_max = query_range[1].to_i : query_max = query_min
+    
+    biz_range = business_range.split("-")
+    biz_min = biz_range[0].to_i
+    biz_range[1] ? biz_max = biz_range[1].to_i : biz_max = biz_min
+
+    logger.debug("biz_min: " + biz_min.to_s)
+    logger.debug("biz_max: " + biz_max.to_s)
+    logger.debug("query_min: " + query_min.to_s)
+    logger.debug("query_max: " + query_max.to_s)
+
+    return biz_min >= query_min && biz_max <= query_max  
   end
 
 end

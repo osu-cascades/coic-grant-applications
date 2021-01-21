@@ -21,10 +21,31 @@ class Application < ApplicationRecord
     end
   end
 
-  def self.filter(attributes)
-    race_query = create_race_query(attributes)
-    ethnicity_query = create_ethnicity_query(attributes)
-    gender_query = create_gender_query(attributes)
+  def self.filter(params)
+    ethnicities = {
+      :non_hispanic_latino => "Non-Hispanic/Latino",
+      :hispanic_latino => "Hispanic/Latino",
+      :ethnicity_no_answer => "n/a",
+    }
+  
+    genders = {
+      :female => "Female",
+      :male => "Male",
+      :gender_no_answer => "Prefer not to answer",
+    }
+  
+    races = {
+      :american_indian => "American Indian or Alaska Native",
+      :asian => "Asian",
+      :native_hawaiian => "Native Hawaiian or Pacific Islander",
+      :white => "White",
+      :other => "Other", 
+      :race_no_answer => "Prefer not to answer"
+    }
+
+    race_query = create_query(params, races, "race")
+    ethnicity_query = create_query(params, ethnicities, "ethnicity")
+    gender_query = create_query(params, genders, "gender")
     owner_query = ""
 
     if !ethnicity_query.empty?
@@ -47,17 +68,34 @@ class Application < ApplicationRecord
       end
     end
 
-    if attributes[:percent_ownership].present? 
+    if params[:percent_ownership].present? 
       if !owner_query.empty?
-        owner_query << " AND " + "CAST(owners.percent_ownership as INT) >= " + attributes[:percent_ownership]
+        owner_query << " AND " + "CAST(owners.percent_ownership as INT) >= " + params[:percent_ownership]
       else
-        owner_query << "CAST(owners.percent_ownership as INT) >= " + attributes[:percent_ownership]
+        owner_query << "CAST(owners.percent_ownership as INT) >= " + params[:percent_ownership]
       end
     end
 
     applications = Application.joins(company: :owners).where(owner_query)
-    applications = filter_business_attributes(applications, attributes)
+    applications = filter_business_attributes(applications, params)
     return applications
+  end
+
+  def self.create_query(params, category, attribute)
+    query = ""
+
+    category.each do |key, value|
+      if params[key].present?
+        if query.empty?
+          query += "owners." + attribute + " = " + "'" + value + "'"
+        else
+          query += " OR owners." + attribute + " = " + "'" + value + "'"
+        end
+      end
+    end
+
+    return query
+
   end
 
   def self.filter_business_attributes(applications, attributes)
@@ -102,75 +140,6 @@ class Application < ApplicationRecord
     end
 
     return filtered_applications
-  end
-
-  def self.create_race_query(attributes)
-    race_query = ""
-
-    races = {
-      :american_indian => "American Indian or Alaska Native",
-      :asian => "Asian",
-      :native_hawaiian => "Native Hawaiian or Pacific Islander",
-      :white => "White",
-      :other => "Other", 
-      :race_no_answer => "Prefer not to answer"
-    }
-
-    races.each do |key, value|
-      if attributes[key].present?
-        if race_query.empty?
-          race_query += "owners.race = " + "'" + value + "'"
-        else
-          race_query += " OR owners.race = " + "'" + value + "'"
-        end
-      end
-    end
-  
-    return race_query
-  end
-
-  def self.create_ethnicity_query(attributes)
-    ethnicity_query = ""
-
-    ethnicities = {
-      :non_hispanic_latino => "Non-Hispanic/Latino",
-      :hispanic_latino => "Hispanic/Latino",
-      :ethnicity_no_answer => "n/a",
-    }
-
-    ethnicities.each do |key, value|
-      if attributes[key].present?
-        if ethnicity_query.empty?
-          ethnicity_query += "owners.ethnicity = " + "'" + value + "'"
-        else
-          ethnicity_query += " OR owners.ethnicity = " + "'" + value + "'"
-        end
-      end
-    end
-  
-    return ethnicity_query
-  end
-
-  def self.create_gender_query(attributes)
-    gender_query = ""
-
-    genders = {
-      :female => "Female",
-      :male => "Male",
-      :gender_no_answer => "Prefer not to answer",
-    }
-
-    genders.each do |key, value|
-      if attributes[key].present?
-        if gender_query.empty?
-          gender_query += "owners.gender = " + "'" + value + "'"
-        else
-          gender_query += " OR owners.gender = " + "'" + value + "'"
-        end
-      end
-    end
-  
-    return gender_query
   end
 
   def self.in_range(query_range, business_range)

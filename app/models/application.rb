@@ -43,9 +43,32 @@ class Application < ApplicationRecord
       :race_no_answer => "Prefer not to answer"
     }
 
-    race_query = create_query(params, races, "race")
-    ethnicity_query = create_query(params, ethnicities, "ethnicity")
-    gender_query = create_query(params, genders, "gender")
+    business_types = {
+      :sole => "Sole Proprietorship",
+      :prop_partnership => "Partnership",
+      :corporation => "Corporation", 
+      :llc => "LLC"
+    }
+
+    range_params = [:business_size, :jobs_retained]
+
+    exact_match_params = [
+      :city, 
+      :business_name,
+      :amount_approved,
+      :ein,
+      :bin,
+      :naics,
+      :zip,
+      :county,
+      :city,
+      :round
+    ]
+
+    race_query = create_checkbox_query(params, races, "race", "owners")
+    ethnicity_query = create_checkbox_query(params, ethnicities, "ethnicity", "owners")
+    gender_query = create_checkbox_query(params, genders, "gender", "owners")
+    business_type_query = create_checkbox_query(params, business_types, "business_type", "applications")
     owner_query = ""
 
     if !ethnicity_query.empty?
@@ -76,20 +99,27 @@ class Application < ApplicationRecord
       end
     end
 
-    applications = Application.joins(company: :owners).where(owner_query)
+    if !business_type_query.empty?
+      application_query = business_type_query + " AND " + self.create_application_query(params, exact_match_params)
+    else
+      application_query = self.create_application_query(params, exact_match_params)
+    end
+
+
+    applications = Application.joins(company: :owners).where(application_query).where(owner_query).distinct
     applications = filter_business_attributes(applications, params)
     return applications
   end
 
-  def self.create_query(params, category, attribute)
+  def self.create_checkbox_query(params, category, attribute, table)
     query = ""
 
     category.each do |key, value|
       if params[key].present?
         if query.empty?
-          query += "owners." + attribute + " = " + "'" + value + "'"
+          query += table + "." + attribute + " = " + "'" + value + "'"
         else
-          query += " OR owners." + attribute + " = " + "'" + value + "'"
+          query += " OR " + table + "." + attribute + " = " + "'" + value + "'"
         end
       end
     end
@@ -98,44 +128,34 @@ class Application < ApplicationRecord
 
   end
 
+  def self.create_application_query(params, attributes)
+    query = ""
+
+    attributes.each do |a|
+      value = params[a]
+
+      if value.present?
+        if query.empty?
+          query += "applications." + a.to_s + " = " + "'" + value + "'"
+        else
+          query += " OR applications." + a.to_s + " = " + "'" + value + "'"
+        end
+      end
+
+    end    
+
+    return query
+  end
+
   def self.filter_business_attributes(applications, attributes)
     filtered_applications = []
-    business_types = []
-    business_types << "Sole Proprietorship" if attributes[:sole].present?
-    business_types << "Partnership" if attributes[:prop_partnership].present?
-    business_types << "Corporation" if attributes[:corporation].present?
-    business_types << "LLC" if attributes[:llc].present?
-    business_types << "501(c)3" if attributes[:c3].present?
-
     applications.each do |app|
-      if attributes[:city].present? && app.city != attributes[:city]
-        next
-      elsif attributes[:business_name].present? && app.business_name != attributes[:business_name]
-        next
-      elsif attributes[:jobs_retained].present? && app.jobs_retained[/^[^\-]+/].to_i < attributes[:jobs_retained].to_i
-        next
-      elsif attributes[:amount_approved].present? && app.amount_approved != attributes[:amount_approved]
-        next
-      elsif attributes[:ein].present? && app.ein != attributes[:ein]
-        next
-      elsif attributes[:bin].present? && app.bin != attributes[:bin]
-        next
-      elsif attributes[:naics].present? && app.naics != attributes[:naics]
-        next
-      elsif attributes[:zip].present? && app.zip != attributes[:zip]
-        next
-      elsif attributes[:county].present? && app.county != attributes[:county]
-        next
-      elsif attributes[:city].present? && app.city != attributes[:city]
+      if attributes[:jobs_retained].present? && app.jobs_retained[/^[^\-]+/].to_i < attributes[:jobs_retained].to_i
         next
       elsif attributes[:business_size].present? && !self.in_range(attributes[:business_size], app.business_size) 
         next
-      elsif attributes[:round].present? && app.round != attributes[:round]
-        next
-      elsif business_types.length() > 0 && !business_types.include?(app.business_type)
-        next
       else
-        filtered_applications << app unless filtered_applications.include?(app)
+        filtered_applications << app
       end
     end
 

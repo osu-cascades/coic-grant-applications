@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     @connection = ActiveRecord::Base.connection
 
     @companies = @connection.exec_query("SELECT * FROM companies")
-    @applications = Application.filter(params) || @connection.exec_query("SELECT * FROM applications")
+    @applications = Application.filter(params)
     @owners = @connection.exec_query("SELECT * FROM owners")
   end
 

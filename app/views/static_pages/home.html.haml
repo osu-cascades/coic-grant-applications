@@ -114,9 +114,10 @@
         %td= application.jobs_retained
         %td= application.amount_approved
         %td= application.business_size
-        %td= get_owner_attributes(application.company.owners, :name)
-        %td= get_owner_attributes(application.company.owners, :percent_ownership)
-        %td= get_owner_attributes(application.company.owners, :race)
-        %td= get_owner_attributes(application.company.owners, :ethnicity)
-        %td= get_owner_attributes(application.company.owners, :gender)
+        -# Running joins for each result, causing loading issues
+        -# %td= get_owner_attributes(application.company.owners, :name)
+        -# %td= get_owner_attributes(application.company.owners, :percent_ownership)
+        -# %td= get_owner_attributes(application.company.owners, :race)
+        -# %td= get_owner_attributes(application.company.owners, :ethnicity)
+        -# %td= get_owner_attributes(application.company.owners, :gender)
 

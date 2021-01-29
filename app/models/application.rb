@@ -22,6 +22,9 @@ class Application < ApplicationRecord
   end
 
   def self.filter(params)
+
+    #return [] if params[:round].empty?
+
     ethnicities = {
       :non_hispanic_latino => "Non-Hispanic/Latino",
       :hispanic_latino => "Hispanic/Latino",
@@ -101,14 +104,14 @@ class Application < ApplicationRecord
 
     application_query = self.create_application_query(params, exact_match_params)
 
-    if !application_query.empty?
+    if !application_query.empty? && !business_type_query.empty?
       application_query = business_type_query + " AND " + application_query
-    else
+    elsif !business_type_query.empty?
       application_query = business_type_query
     end
 
 
-    applications = Application.joins(company: :owners).where(application_query).where(owner_query).distinct
+    applications = Application.joins(company: :owners).where(application_query).where(owner_query)
     applications = filter_business_attributes(applications, params)
     return applications
   end

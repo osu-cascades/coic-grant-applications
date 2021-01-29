@@ -99,10 +99,12 @@ class Application < ApplicationRecord
       end
     end
 
-    if !business_type_query.empty?
-      application_query = business_type_query + " AND " + self.create_application_query(params, exact_match_params)
+    application_query = self.create_application_query(params, exact_match_params)
+
+    if !application_query.empty?
+      application_query = business_type_query + " AND " + application_query
     else
-      application_query = self.create_application_query(params, exact_match_params)
+      application_query = business_type_query
     end
 
 

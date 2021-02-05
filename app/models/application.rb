@@ -111,7 +111,9 @@ class Application < ApplicationRecord
     end
 
 
-    applications = Application.joins(company: :owners).where(application_query).where(owner_query).distinct
+    #applications = Application.joins(company: :owners).where(application_query).where(owner_query).distinct
+    applications = Application.joins(company: :owners).includes(company: :owners).where(application_query).where(owner_query).distinct
+    
     applications = filter_business_attributes(applications, params)
     return applications
   end

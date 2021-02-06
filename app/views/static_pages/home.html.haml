@@ -119,10 +119,4 @@
         %td= application.company.owners.pluck(:race).join ','
         %td= application.company.owners.pluck(:ethnicity).join ','
         %td= application.company.owners.pluck(:gender).join ','
-        -# Running joins for each result, causing loading issues
-        -# %td= get_owner_attributes(application.company.owners, :name)
-        -# %td= get_owner_attributes(application.company.owners, :percent_ownership)
-        -# %td= get_owner_attributes(application.company.owners, :race)
-        -# %td= get_owner_attributes(application.company.owners, :ethnicity)
-        -# %td= get_owner_attributes(application.company.owners, :gender)
 

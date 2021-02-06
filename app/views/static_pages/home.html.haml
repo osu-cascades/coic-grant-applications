@@ -114,9 +114,9 @@
         %td= application.jobs_retained
         %td= application.amount_approved
         %td= application.business_size
-        %td= application.company.owners.pluck(:name).join ','
-        %td= application.company.owners.pluck(:percent_ownership).join ','
-        %td= application.company.owners.pluck(:race).join ','
-        %td= application.company.owners.pluck(:ethnicity).join ','
-        %td= application.company.owners.pluck(:gender).join ','
+        %td= application.company.owners.pluck(:name).join(",\n")
+        %td= application.company.owners.pluck(:percent_ownership).join(",\n")
+        %td= application.company.owners.pluck(:race).join(",\n")
+        %td= application.company.owners.pluck(:ethnicity).join(",\n")
+        %td= application.company.owners.pluck(:gender).join(",\n")
 

@@ -1,9 +1,12 @@
 %h1 New upload
 
+%div{:id => 'uploadOptions'}
+	%p{:id => 'uploadMessage'} Before you upload please make sure to review the required header names and field types. 
+	%button{href: '#', onclick: 'popUp(); return false;', :type => "button", :id => 'uploadButton'} File Format Info
+
+
 = render 'form'
 
-%div{:id => 'uploadOptions'}
-	%button#browse{href: '#', onclick: 'popUp(); return false;', :type => "button"} File Format Info
 
 %div{:id => 'popupWindow'}
 	%div{:id => 'popupContent'}
@@ -40,6 +43,7 @@
 		
 		%p Each row MUST have an EIN value and at least 1 owner.
 		%p If no owner information is available, use "n/a" in the "Business Owner Name 1" column. The other owner columns can be blank.
+		/ %button_to{"DownloadHeader", DownloadHeader(@DownloadHeader), method: :DownloadHeader} Download Headers Template
 		%button#close{href: '#', onclick: 'closePopUp(); return false;', :type => "button"} Close
 
 = link_to 'Back', uploads_path

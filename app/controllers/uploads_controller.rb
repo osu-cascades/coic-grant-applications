@@ -12,6 +12,10 @@ class UploadsController < ApplicationController
   def show
   end
 
+  def DownloadHeader
+    send_file 'template.csv', type: 'csv', status: 202
+  end
+
   # GET /uploads/new
   def new
     @upload = Upload.new

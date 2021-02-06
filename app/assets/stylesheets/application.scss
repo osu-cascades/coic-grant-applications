@@ -258,3 +258,19 @@ body.sessions.new, body.registrations.new, body.registrations.create {
   text-decoration: none;
   cursor: pointer;
 }
+
+#uploadButton {
+    color: #ffffff!important;
+    border-width: 0px!important;
+    border-color: #ffffff;
+    border-radius: 20px;
+    font-weight: 600!important;
+    background-color: #b7d824;
+    margin-bottom: 20px;
+}
+
+#uploadMessage {
+    font-weight: 600!important;
+    text-transform: uppercase!important;
+    color: #0187b7!important;
+}

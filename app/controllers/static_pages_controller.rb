@@ -1,11 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @connection = ActiveRecord::Base.connection
-
-    @companies = @connection.exec_query("SELECT * FROM companies")
     @applications = Application.filter(params)
-    @owners = @connection.exec_query("SELECT * FROM owners")
   end
 
   def new_query_params

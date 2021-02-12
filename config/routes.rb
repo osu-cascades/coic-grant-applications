@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/company', to: 'companies#index'
 
   get '/new_query', to: 'static_pages#home'
+
+  #match 'DownloadHeader', to: 'home#DownloadHeader', as: 'DownloadHeader', via: :get
   
   # Users
   # Using Devise RegistrationsController for public user creation/registration.

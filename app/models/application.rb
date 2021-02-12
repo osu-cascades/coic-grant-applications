@@ -50,7 +50,8 @@ class Application < ApplicationRecord
       :sole => "Sole Proprietorship",
       :prop_partnership => "Partnership",
       :corporation => "Corporation", 
-      :llc => "LLC"
+      :llc => "LLC",
+      :c3 => "501(c)(3)"
     }
 
     range_params = [:business_size, :jobs_retained]

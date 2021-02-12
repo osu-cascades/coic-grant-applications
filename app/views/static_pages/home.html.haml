@@ -102,7 +102,7 @@
 
     - @applications.each do |application|  
       %tr
-        %td= link_to application.round, edit_application_path(application)
+        %td= application.round
         %td= link_to application.business_name, edit_company_path(application.company)
         %td= application.business_type
         %td= application.city

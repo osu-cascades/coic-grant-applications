@@ -112,6 +112,8 @@ class Query < ApplicationRecord
     attributes.each do |a|
         value = params[a]  
         if value.present?
+          value = value.gsub(/\'/, "''")
+
           if query.empty?
               query += "applications." + a.to_s + " = " + "'" + value + "'"
           else
@@ -119,6 +121,9 @@ class Query < ApplicationRecord
           end
         end  
     end 
+
+    
+
     return query
   end
   

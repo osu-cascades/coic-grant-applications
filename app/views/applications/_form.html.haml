@@ -5,6 +5,42 @@
       %ul
         - @application.errors.full_messages.each do |message|
           %li= message
-
+  %div{:class => 'edit-options-row'}
+    =label_tag(:round, "Round", :id => 'text-field-label')
+    =text_field_tag(:round, @application.try(:round))
+  %div{:class => 'edit-options-row'}
+    =label_tag(:business_name, "Business Name", :id => 'text-field-label')
+    =text_field_tag(:business_name, @application.try(:business_name))
+    =label_tag(:business_size, "Number of Employees", :id => 'text-field-label')
+    =text_field_tag(:business_size, @application.try(:business_size))
+    =label_tag(:jobs_retained, "Jobs Retained >=", :id => 'text-field-label')
+    =text_field_tag(:jobs_retained, @application.try(:jobs_retained))
+  %div{:class => 'edit-options-row'}
+    =label_tag(:ein, "EIN", :id => 'text-field-label')
+    =text_field_tag(:ein, @application.try(:ein))
+    =label_tag(:bin, "BIN", :id => 'text-field-label')
+    =text_field_tag(:bin, @application.try(:bin))
+    =label_tag(:naics, "NAICS", :id => 'text-field-label')
+    =text_field_tag(:naics, @application.try(:naics))
+  %div{:class => 'edit-options-row'}
+    =label_tag(:zip, "ZIP", :id => 'text-field-label')
+    =text_field_tag(:zip, @application.try(:zip))
+    =label_tag(:county, "County", :id => 'text-field-label')
+    =text_field_tag(:county, @application.try(:county))
+    =label_tag(:city, "City", :id => 'text-field-label')
+    =text_field_tag(:city, @application.try(:city))
+  %div{:class => 'edit-check-options-row'}
+  %h4{:class => 'demo-header'} Business Type:
+  =check_box_tag(:sole, params[:sole], @application.business_type == "Sole Proprietorship")
+  =label_tag(:sole, "Sole prop")
+  =check_box_tag(:prop_partnership, params[:prop_partnership], @application.business_type == "Prop Partnership")
+  =label_tag(:prop_partnership, "Prop Partnership")
+  =check_box_tag(:corporation, params[:corporation],@application.business_type == "Corporation")
+  =label_tag(:corporation, "Corporation")
+  =check_box_tag(:llc, params[:llc], @application.business_type == "LLC")
+  =label_tag(:llc, "LLC")
+  =check_box_tag(:c3, params[:c3], @application.business_type == "501(c)(3)")
+  =label_tag(:c3, "501(c)(3)")
+  %div{:class => 'edit-check-options-row'}
   .actions
     = f.submit 'Save'

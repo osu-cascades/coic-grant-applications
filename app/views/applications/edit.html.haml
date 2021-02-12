@@ -1,7 +1,7 @@
-%h1 Editing application
+%h1 Editing #{@application.business_name} Round #{@application.round}
 
 = render 'form'
 
-= link_to 'Show', @application
+/ = link_to 'Show', @application
 \|
-= link_to 'Back', applications_path
+= link_to 'Back', companies_path

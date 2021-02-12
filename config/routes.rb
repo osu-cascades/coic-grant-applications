@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   get '/upload', to: 'uploads#index'
   get '/query', to: 'queires#show'
   get '/company', to: 'companies#index'
-
   get '/new_query', to: 'queries#show'
   
   # Users

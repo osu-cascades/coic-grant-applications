@@ -10,6 +10,7 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
+    @applications = Query.filter(params)
   end
 
   # GET /queries/new
@@ -64,11 +65,9 @@ class QueriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_query
-      @query = Query.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def query_params
-      params.fetch(:query, {})
     end
 end

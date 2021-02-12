@@ -1,6 +1,121 @@
-%p#notice= notice
+%div{:class => 'query-options'}
+  =form_tag(root_path, method: :get) do
+    %div{:class => 'query-options-row'}
+      =label_tag(:round, "Round", :id => 'text-field-label')
+      =text_field_tag(:round, params[:round])
+    %div{:class => 'query-options-row'}
+      =label_tag(:business_name, "Business Name", :id => 'text-field-label')
+      =text_field_tag(:business_name, params[:business_name])
+      =label_tag(:business_size, "Number of Employees", :id => 'text-field-label')
+      =text_field_tag(:business_size, params[:business_size])
+      =label_tag(:jobs_retained, "Jobs Retained >=", :id => 'text-field-label')
+      =text_field_tag(:jobs_retained, params[:jobs_retained])
+    %div{:class => 'query-options-row'}
+      =label_tag(:ein, "EIN", :id => 'text-field-label')
+      =text_field_tag(:ein, params[:ein])
+      =label_tag(:bin, "BIN", :id => 'text-field-label')
+      =text_field_tag(:bin, params[:bin])
+      =label_tag(:naics, "NAICS", :id => 'text-field-label')
+      =text_field_tag(:naics, params[:naics])
+    %div{:class => 'query-options-row'}
+      =label_tag(:zip, "ZIP", :id => 'text-field-label')
+      =text_field_tag(:zip, params[:zip])
+      =label_tag(:county, "County", :id => 'text-field-label')
+      =text_field_tag(:county, params[:county])
+      =label_tag(:city, "City", :id => 'text-field-label')
+      =text_field_tag(:city, params[:city])
+    %div{:class => 'query-check-options-row'}
+      %h4{:class => 'demo-header'} Business Type:
+      =check_box_tag(:sole)
+      =label_tag(:sole, "Sole prop")
+      =check_box_tag(:prop_partnership)
+      =label_tag(:prop_partnership, "Prop Partnership")
+      =check_box_tag(:corporation)
+      =label_tag(:corporation, "Corporation")
+      =check_box_tag(:llc)
+      =label_tag(:llc, "LLC")
+      =check_box_tag(:c3)
+      =label_tag(:c3, "501(c)(3)")
+    %div{:class => 'query-check-options-row'}
+      %h4{:class => 'demo-header'} Race:
+      =check_box_tag(:american_indian, params[:american_indian], params[:american_indian].present?)
+      =label_tag(:american_indian, "American Indian or Alaska Native")
+      =check_box_tag(:asian, params[:asian], params[:asian].present? )
+      =label_tag(:asian, "Asian")
+      =check_box_tag(:native_hawaiian, params[:native_hawaiian], params[:native_hawaiian].present?)
+      =label_tag(:native_hawaiian, "Native Hawaiian or Pacific Islander")
+      =check_box_tag(:white, params[:white], params[:white].present?)
+      =label_tag(:white, "White")
+      =check_box_tag(:other, params[:other], params[:other].present?)
+      -# =check_box_tag(:other, params[:other], checked: params[:other].exists?) check if other key exists
+      =label_tag(:other, "Other")
+      =check_box_tag(:race_no_answer, params[:race_no_answer], params[:race_no_answer].present?)
+      =label_tag(:race_no_answer, "Prefer not to answer")
+    %div{:class => 'query-check-options-row'}
+      %h4{:class => 'demo-header'} Ethnicity:
+      =check_box_tag(:non_hispanic_latino, params[:non_hispanic_latino], params[:non_hispanic_latino].present?)
+      =label_tag(:non_hispanic_latino, "Non-Hispanic Latino")
+      =check_box_tag(:hispanic_latino, params[:hispanic_latino], params[:hispanic_latino].present?)
+      =label_tag(:hispanic_latino, "Hispanic Latino")
+      =check_box_tag(:ethnicity_no_answer, params[:ethnicity_no_answer], params[:ethnicity_no_answer].present?)
+      =label_tag(:ethnicity_no_answer, "Prefer not to answer")
+    %div{:class => 'query-check-options-row'}
+      %h4{:class => 'demo-header'} Gender:
+      =check_box_tag(:female, params[:female], params[:female].present?)
+      =label_tag(:female, "Female")
+      =check_box_tag(:male, params[:male], params[:male].present?)
+      =label_tag(:male, "Male")
+      =check_box_tag(:gender_no_answer, params[:gender_no_answer], params[:gender_no_answer].present?)
+      =label_tag(:gender_no_answer, "Prefer not to answer")
+    %div{:class => 'query-options-row'}
+      =label_tag(:percent_ownership, "Percent Ownership >=", :id => 'text-field-label')
+      =text_field_tag(:percent_ownership, params[:percent_ownership])
+    %div{:class => 'query-options-row'}
+      =submit_tag("Submit Query", :class => 'submit-button')
 
+%div{:id => 'query-results'}
+  %h3{:class => 'query-result-header'}= "Number of Awards: " + @applications.length().to_s()
+  %h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"
+  %h3{:class => 'query-result-header'}= "Amount Awarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
+    
 
-= link_to 'Edit', edit_query_path(@query)
-\|
-= link_to 'Back', queries_path
+%div{:id => 'query-table'}
+  %table
+    %tr
+      %th Round Number
+      %th Business Name
+      %th Business Type
+      %th City
+      %th Zip Code
+      %th County
+      %th EIN
+      %th BIN
+      %th NAICS
+      %th Jobs Retained
+      %th Amount Awarded
+      %th Number Of Employees
+      %th Owner Name
+      %th % Ownership
+      %th Owner Race
+      %th Owner Ethnicity
+      %th Owner Gender
+
+    - @applications.each do |application|  
+      %tr
+        %td= application.round
+        %td= link_to application.business_name, edit_company_path(application.company)
+        %td= application.business_type
+        %td= application.city
+        %td= application.zip
+        %td= application.county
+        %td= application.ein
+        %td= application.bin
+        %td= application.naics
+        %td= application.jobs_retained
+        %td= application.amount_approved
+        %td= application.business_size
+        %td= application.company.owners.pluck(:name).join(",\n")
+        %td= application.company.owners.pluck(:percent_ownership).join(",\n")
+        %td= application.company.owners.pluck(:race).join(",\n")
+        %td= application.company.owners.pluck(:ethnicity).join(",\n")
+        %td= application.company.owners.pluck(:gender).join(",\n")

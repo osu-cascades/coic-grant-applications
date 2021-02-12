@@ -8,13 +8,13 @@ Rails.application.routes.draw do
   end
   
   resources :uploads
-  root 'static_pages#home'
+  root 'queries#show'
   get '/browse', to: 'companies#index'
   get '/upload', to: 'uploads#index'
-  get '/query', to: 'static_pages#home'
+  get '/query', to: 'queires#show'
   get '/company', to: 'companies#index'
 
-  get '/new_query', to: 'static_pages#home'
+  get '/new_query', to: 'queries#show'
   
   # Users
   # Using Devise RegistrationsController for public user creation/registration.

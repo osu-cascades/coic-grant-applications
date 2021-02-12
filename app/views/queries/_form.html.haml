@@ -1,0 +1,10 @@
+= form_for @query do |f|
+  - if @query.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@query.errors.count, "error")} prohibited this query from being saved:"
+      %ul
+        - @query.errors.full_messages.each do |message|
+          %li= message
+
+  .actions
+    = f.submit 'Save'

@@ -5,6 +5,40 @@
       %ul
         - @owner.errors.full_messages.each do |message|
           %li= message
+  %div{:class => 'edit-check-options-row'}
+    %h4{:class => 'demo-header'} Race:
+    =check_box_tag(:american_indian, params[:american_indian], @owner.race == "American Indian or Alaska Native")
+    =label_tag(:american_indian, "American Indian or Alaska Native")
+    =check_box_tag(:asian, params[:asian], @owner.race == "Asian" )
+    =label_tag(:asian, "Asian")
+    =check_box_tag(:native_hawaiian, params[:native_hawaiian], @owner.race == "Native Hawaiian or Pacific Islander")
+    =label_tag(:native_hawaiian, "Native Hawaiian or Pacific Islander")
+    =check_box_tag(:white, params[:white], @owner.race == "White")
+    =label_tag(:white, "White")
+    =check_box_tag(:other, params[:other],  @owner.race == "Other")
+    -# =check_box_tag(:other, params[:other], checked: params[:other].exists?) check if other key exists
+    =label_tag(:other, "Other")
+    =check_box_tag(:race_no_answer, params[:race_no_answer], @owner.race == "Prefer not to answer")
+    =label_tag(:race_no_answer, "Prefer not to answer")
+  %div{:class => 'edit-check-options-row'}
+    %h4{:class => 'demo-header'} Ethnicity:
+    =check_box_tag(:non_hispanic_latino, params[:non_hispanic_latino], @owner.ethnicity == "Non-Hispanic/Latino")
+    =label_tag(:non_hispanic_latino, "Non-Hispanic Latino")
+    =check_box_tag(:hispanic_latino, params[:hispanic_latino], @owner.ethnicity == "Hispanic/Latino")
+    =label_tag(:hispanic_latino, "Hispanic Latino")
+    =check_box_tag(:ethnicity_no_answer, params[:ethnicity_no_answer], @owner.ethnicity == "n/a")
+    =label_tag(:ethnicity_no_answer, "Prefer not to answer")
+  %div{:class => 'edit-check-options-row'}
+    %h4{:class => 'demo-header'} Gender:
+    =check_box_tag(:female, params[:female], @owner.gender == "Female")
+    =label_tag(:female, "Female")
+    =check_box_tag(:male, params[:male], @owner.gender == "Male")
+    =label_tag(:male, "Male")
+    =check_box_tag(:gender_no_answer, params[:gender_no_answer], @owner.gender == "Prefer not to answer")
+    =label_tag(:gender_no_answer, "Prefer not to answer")
+  %div{:class => 'edit-options-row'}
+    =label_tag(:percent_ownership, "Percent Ownership >=", :id => 'text-field-label')
+    =text_field_tag(:percent_ownership, @owner.try(:percent_ownership))
 
   .actions
     = f.submit 'Save'

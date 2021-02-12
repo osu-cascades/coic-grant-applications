@@ -82,6 +82,7 @@
 %div{:id => 'query-table'}
   %table
     %tr
+      %th Round Number
       %th Business Name
       %th Business Type
       %th City
@@ -90,7 +91,6 @@
       %th EIN
       %th BIN
       %th NAICS
-      %th Round Number
       %th Jobs Retained
       %th Amount Awarded
       %th Number Of Employees
@@ -102,6 +102,7 @@
 
     - @applications.each do |application|  
       %tr
+        %td= link_to application.round, edit_application_path(application)
         %td= link_to application.business_name, edit_company_path(application.company)
         %td= application.business_type
         %td= application.city
@@ -110,7 +111,6 @@
         %td= application.ein
         %td= application.bin
         %td= application.naics
-        %td= application.round
         %td= application.jobs_retained
         %td= application.amount_approved
         %td= application.business_size

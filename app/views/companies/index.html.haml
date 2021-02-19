@@ -1,5 +1,10 @@
 %h1 Listing companies
 
+=form_tag(companies_path, method: :get) do
+  %div{:class => 'edit-options-row'}
+    =text_field_tag(:search, params[:search])
+    =submit_tag("search", :class => 'search-button')
+
 %table
   %thead
     %tr
@@ -18,5 +23,4 @@
         %td= link_to 'Show', company
         /%td= link_to 'Edit', edit_company_path(company)
         %td= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure? This will delete all applications for this company.' }
-
 %br

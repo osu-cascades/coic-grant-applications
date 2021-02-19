@@ -17,4 +17,16 @@ class Company < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    if search
+      if Company.find_by(business_name: search) != nil
+        Company.find_by(business_name: search)
+      else
+        Company.all
+      end
+    else
+      Company.all
+    end
+  end
+
 end

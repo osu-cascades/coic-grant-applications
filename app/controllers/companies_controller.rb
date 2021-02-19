@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+
   end
 
   # POST /companies
@@ -77,6 +78,7 @@ class CompaniesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def company_params
-      params.fetch(:company, {})
+      #params.fetch(:company, {})
+      params.require(:company).permit(:city, :business_name, :business_size, :ein, :bin, :naics, :zip, :county, :sole)
     end
 end

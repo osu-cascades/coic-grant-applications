@@ -1,4 +1,4 @@
-= form_for @company do |f|
+= form_with(model: @company) do |f|
   - if @company.errors.any?
     #error_explanation
       %h2= "#{pluralize(@company.errors.count, "error")} prohibited this company from being saved:"
@@ -8,23 +8,23 @@
 
   %div{:class => 'edit-options-row'}
     =label_tag(:business_name, "Business Name", :id => 'text-field-label')
-    =text_field_tag(:business_name, @company.try(:business_name))
+    =f.text_field(:business_name)
     =label_tag(:business_size, "Number of Employees", :id => 'text-field-label')
-    =text_field_tag(:business_size, @company.try(:business_size))
+    =f.text_field(:business_size)
   %div{:class => 'edit-options-row'}
     =label_tag(:ein, "EIN", :id => 'text-field-label')
-    =text_field_tag(:ein, @company.try(:ein))
+    =f.text_field(:ein)
     =label_tag(:bin, "BIN", :id => 'text-field-label')
-    =text_field_tag(:bin, @company.try(:bin))
+    =f.text_field(:bin)
     =label_tag(:naics, "NAICS", :id => 'text-field-label')
-    =text_field_tag(:naics, @company.try(:naics))
+    =f.text_field(:naics)
   %div{:class => 'edit-options-row'}
     =label_tag(:zip, "ZIP", :id => 'text-field-label')
-    =text_field_tag(:zip, @company.try(:zip))
+    =f.text_field(:zip)
     =label_tag(:county, "County", :id => 'text-field-label')
-    =text_field_tag(:county, @company.try(:county))
+    =f.text_field(:county)
     =label_tag(:city, "City", :id => 'text-field-label')
-    =text_field_tag(:city, @company.try(:city))
+    =f.text_field(:city)
   %div{:class => 'edit-check-options-row'}
   %h4{:class => 'demo-header'} Business Type:
   =check_box_tag(:sole, params[:sole], @company.business_type == "Sole Proprietorship")

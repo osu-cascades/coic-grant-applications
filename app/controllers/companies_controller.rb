@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+    @sorted = @companies.sort_by &:business_name
   end
 
   # GET /companies/1

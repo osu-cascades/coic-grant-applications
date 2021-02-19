@@ -9,7 +9,7 @@
       %th NAICS 
 
   %tbody
-    - @companies.each do |company|
+    - @sorted.each do |company|
       %tr
         %td= company.business_name
         %td= company.ein

@@ -70,6 +70,7 @@ class ApplicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def application_params
-      params.fetch(:application, {})
+      #params.fetch(:application, {})
+      params.require(:application).permit(:round, :business_name, :business_size, :jobs_retained, :ein, :bin, :naics, :zip, :county, :city)
     end
 end

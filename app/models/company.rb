@@ -19,8 +19,8 @@ class Company < ApplicationRecord
 
   def self.search(search)
     if search
-      if Company.find_by(business_name: search) != nil
-        Company.find_by(business_name: search)
+      if Company.where('business_name LIKE ?', "%#{search}%") != nil
+        Company.where('business_name LIKE ?', "%#{search}%")
       else
         Company.all
       end

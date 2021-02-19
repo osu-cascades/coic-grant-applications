@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/company', to: 'companies#index'
 
   get '/new_query', to: 'static_pages#home'
+  get '/download.csv', to: 'uploads#download'
 
   #match 'DownloadHeader', to: 'home#DownloadHeader', as: 'DownloadHeader', via: :get
   

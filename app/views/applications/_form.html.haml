@@ -31,16 +31,16 @@
     =f.text_field(:city)
   %div{:class => 'edit-check-options-row'}
   %h4{:class => 'demo-header'} Business Type:
-  =check_box_tag(:sole, params[:sole], @application.business_type == "Sole Proprietorship")
-  =label_tag(:sole, "Sole prop")
-  =check_box_tag(:prop_partnership, params[:prop_partnership], @application.business_type == "Prop Partnership")
-  =label_tag(:prop_partnership, "Prop Partnership")
-  =check_box_tag(:corporation, params[:corporation],@application.business_type == "Corporation")
-  =label_tag(:corporation, "Corporation")
-  =check_box_tag(:llc, params[:llc], @application.business_type == "LLC")
-  =label_tag(:llc, "LLC")
-  =check_box_tag(:c3, params[:c3], @application.business_type == "501(c)(3)")
-  =label_tag(:c3, "501(c)(3)")
+  =f.check_box(:business_type)
+  =label_tag(:business_type, "Sole Proprietorship")
+  =f.check_box(:business_type)
+  =label_tag(:business_type, "Prop Partnership")
+  =f.check_box(:business_type)
+  =label_tag(:business_type, "Corporation")
+  =check_box_tag(:business_type)
+  =label_tag(:business_type, "LLC")
+  =check_box_tag(:business_type)
+  =label_tag(:business_type, "501(c)(3)")
   %div{:class => 'edit-check-options-row'}
   .actions
     = f.submit 'Save'

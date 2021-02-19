@@ -12,8 +12,9 @@ class UploadsController < ApplicationController
   def show
   end
 
-  def DownloadHeader
-    send_file 'template.csv', type: 'csv', status: 202
+  def download
+    @results = "Total $ Approved:,Business Name,Business Type,Telephone,Street Address,City,Zip Code,County,Employer Identification Number (Federal EIN),Business Identification Number (BIN issued by Oregon Employment Department),NAICS,Contact Name,Title,Phone,Email,Number of Employees,Jobs Retained,Business Demographics,Business Owner Name 1,Business Owner Name 2,Business Owner Name 3,% Ownership 1,% Ownership 2,% Ownership 3,Race 1,Race 2,Race 3,Ethnicity 1,Ethnicity 2,Ethnicity 3,Gender 1,Gender 2,Gender 3"
+    send_data(@results, :filename => "headers.csv")
   end
 
   # GET /uploads/new

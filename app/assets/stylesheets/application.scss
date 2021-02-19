@@ -263,10 +263,16 @@ body.sessions.new, body.registrations.new, body.registrations.create {
 
 /* The Close Button */
 #close {
-  color: #aaaaaa;
   float: right;
-  font-size: 28px;
   font-weight: bold;
+  border-width: 0px!important;
+  border-radius: 20px;
+  font-weight: 600!important;
+  background-color:#aaaaaa;
+  font-size: 20px;
+  padding: .3em 1em;
+  line-height: 1.7em!important;;
+  margin-bottom: 20px;
 }
 
 #close:hover,
@@ -286,7 +292,20 @@ body.sessions.new, body.registrations.new, body.registrations.create {
     margin-bottom: 20px;
 }
 
-#uploadMessage {
+#downloadButton {
+    color: #ffffff!important;
+    border-width: 0px!important;
+    border-color: #ffffff;
+    border-radius: 20px;
+    font-weight: 600!important;
+    background-color: #b7d824;
+    font-size: 20px;
+    padding: .3em 1em;
+    line-height: 1.7em!important;;
+    margin-bottom: 20px;
+}
+
+#uploadMessage, #headers{
     font-weight: 600!important;
     text-transform: uppercase!important;
     color: #0187b7!important;

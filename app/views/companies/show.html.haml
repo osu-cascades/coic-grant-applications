@@ -58,7 +58,7 @@
     %th City
     %th Business Type
     %th 
-  - @company.applications.each do |application|
+  - @applications.each do |application|
     %tr
       %td= application.round
       %td= application.jobs_retained

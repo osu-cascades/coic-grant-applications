@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     # @applications = Application.all
+    @applications = Application.where(ein: @company.ein).or(Application.where(business_name: @company.business_name))
   end
 
   # GET /companies/new

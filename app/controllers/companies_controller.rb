@@ -4,8 +4,9 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Array(Company.search(params[:search]))
-    @sorted = @companies.sort_by &:business_name
+    @companies = Company.search(params[:search])
+    @sorted = @companies.order(:business_name)
+    
   end
 
   # GET /companies/1

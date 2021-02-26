@@ -82,6 +82,6 @@ class CompaniesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def company_params
       #params.fetch(:company, {})
-      params.require(:company).permit(:search,:city, :business_name, :business_size, :ein, :bin, :naics, :zip, :county, :sole)
+      params.require(:company).permit(:search,:city, :business_name, :business_type, :business_size, :ein, :bin, :naics, :zip, :county)
     end
 end

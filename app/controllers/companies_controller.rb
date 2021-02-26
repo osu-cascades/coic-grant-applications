@@ -4,12 +4,16 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = Company.search(params[:search])
+    @sorted = @companies.order(:business_name)
+    
   end
 
   # GET /companies/1
   # GET /companies/1.json
   def show
+    # @applications = Application.all
+    @applications = Application.where(ein: @company.ein).or(Application.where(business_name: @company.business_name))
   end
 
   # GET /companies/new
@@ -19,6 +23,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+
   end
 
   # POST /companies
@@ -76,6 +81,7 @@ class CompaniesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def company_params
-      params.fetch(:company, {})
+      #params.fetch(:company, {})
+      params.require(:company).permit(:search,:city, :business_name, :business_size, :ein, :bin, :naics, :zip, :county, :sole)
     end
 end

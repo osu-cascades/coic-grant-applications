@@ -1,5 +1,7 @@
 %p#notice= notice
 
+%h2= @company.business_name
+
 %table
   %tr
     %th Business Name
@@ -10,6 +12,7 @@
     %th County
     %th City
     %th Business Type
+    %th 
   %tr
     %td= @company.business_name
     %td= @company.ein
@@ -19,7 +22,55 @@
     %td= @company.county
     %td= @company.city
     %td= @company.business_type
+    %td= link_to 'Edit', edit_company_path(@company)
 
--# = link_to 'Edit', edit_company_path(@company)
+%h3= "Owners"
+
+%table
+  %tr
+    %th Owner Name
+    %th Percent Ownership
+    %th Race
+    %th Ethnicity
+    %th Gender
+    %th 
+  - @company.owners.each do |owner|
+    %tr
+      %td= owner.name
+      %td= owner.percent_ownership
+      %td= owner.race
+      %td= owner.ethnicity
+      %td= owner.gender
+      %td= link_to 'Edit', edit_owner_path(owner)
+
+%h3= "Applications" 
+
+%table
+  %tr
+    %th Round
+    %th Jobs Retained
+    %th Amount Approved
+    %th EIN
+    %th BIN
+    %th NAICS
+    %th Zip
+    %th County
+    %th City
+    %th Business Type
+    %th 
+  - @applications.each do |application|
+    %tr
+      %td= application.round
+      %td= application.jobs_retained
+      %td= application.amount_approved
+      %td= application.ein
+      %td= application.bin
+      %td= application.naics
+      %td= application.zip
+      %td= application.county
+      %td= application.city
+      %td= application.business_type
+      %td= link_to 'Edit', edit_application_path(application)
+
 \|
 = link_to 'Back', companies_path

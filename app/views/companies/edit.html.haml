@@ -1,6 +1,6 @@
-%h1 Editing company
+%h1 Editing #{@company.business_name}
 
-= render 'form'
+= render 'form', company: @company
 
 = link_to 'Show', @company
 \|

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get '/upload', to: 'uploads#index'
   get '/query', to: 'queires#show'
   get '/company', to: 'companies#index'
-  get '/new_query', to: 'queries#show'
+
+  get '/new_query', to: 'static_pages#home'
+  get '/download.csv', to: 'uploads#download'
+
+  #match 'DownloadHeader', to: 'home#DownloadHeader', as: 'DownloadHeader', via: :get
   
   # Users
   # Using Devise RegistrationsController for public user creation/registration.

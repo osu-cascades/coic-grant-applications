@@ -12,38 +12,12 @@
 	%div{:id => 'popupContent'}
 		%h1 Required Header Names
 		%p Please take care to match exact spelling and capitalization. Order does not matter.
+		= link_to 'Export Headers', "/download.csv", id: 'downloadButton'
 		
-		%table
-			%tr
-				%td Business Name
-				%td Employer Identification Number (Federal EIN)
-				%td NAICS
-				%td Business Identification Number (BIN issued by Oregon Employment Department)
-				%td Zip Code
-				%td City
-				%td County
-				%td Business Type
-				%td Jobs Retained
-				%td Business Owner Name 1
-				%td Business Owner Name 2
-				%td Business Owner Name 3
-				%td % Ownership 1
-				%td % Ownership 2
-				%td % Ownership 3
-				%td Race 1
-				%td Race 2
-				%td Race 3
-				%td Ethnicity 1
-				%td Ethnicity 2
-				%td Ethnicity 3
-				%td Gender 1
-				%td Gender 2
-				%td Gender 3
-				%td Total $ Approved:
+		%p#headers Total $ Approved:, Business Name, Business Type, Telephone, Street Address, City, Zip Code, County,Employer Identification Number (Federal EIN), Business Identification Number (BIN issued by Oregon Employment Department), NAICS, Contact Name, Title, Phone, Email, Number of Employees, Jobs Retained, Business Demographics, Business Owner Name 1, Business Owner Name 2, Business Owner Name 3, % Ownership 1, % Ownership 2, % Ownership 3, Race 1, Race 2, Race 3, Ethnicity 1, Ethnicity 2, Ethnicity 3, Gender 1, Gender 2, Gender 3
 		
 		%p Each row MUST have an EIN value and at least 1 owner.
 		%p If no owner information is available, use "n/a" in the "Business Owner Name 1" column. The other owner columns can be blank.
-		/ %button_to{"DownloadHeader", DownloadHeader(@DownloadHeader), method: :DownloadHeader} Download Headers Template
 		%button#close{href: '#', onclick: 'closePopUp(); return false;', :type => "button"} Close
 
 = link_to 'Back', uploads_path

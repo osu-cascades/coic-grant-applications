@@ -1,10 +1,43 @@
-= form_for @company do |f|
+= form_with(model: @company) do |f|
   - if @company.errors.any?
     #error_explanation
       %h2= "#{pluralize(@company.errors.count, "error")} prohibited this company from being saved:"
       %ul
         - @company.errors.full_messages.each do |message|
           %li= message
+
+  %div{:class => 'edit-options-row'}
+    =label_tag(:business_name, "Business Name", :id => 'text-field-label')
+    =f.text_field(:business_name)
+    =label_tag(:business_size, "Number of Employees", :id => 'text-field-label')
+    =f.text_field(:business_size)
+  %div{:class => 'edit-options-row'}
+    =label_tag(:ein, "EIN", :id => 'text-field-label')
+    =f.text_field(:ein)
+    =label_tag(:bin, "BIN", :id => 'text-field-label')
+    =f.text_field(:bin)
+    =label_tag(:naics, "NAICS", :id => 'text-field-label')
+    =f.text_field(:naics)
+  %div{:class => 'edit-options-row'}
+    =label_tag(:zip, "ZIP", :id => 'text-field-label')
+    =f.text_field(:zip)
+    =label_tag(:county, "County", :id => 'text-field-label')
+    =f.text_field(:county)
+    =label_tag(:city, "City", :id => 'text-field-label')
+    =f.text_field(:city)
+  %div{:class => 'edit-check-options-row'}
+  %h4{:class => 'demo-header'} Business Type:
+  =check_box_tag(:sole, params[:sole], @company.business_type == "Sole Proprietorship")
+  =label_tag(:sole, "Sole prop")
+  =check_box_tag(:prop_partnership, params[:prop_partnership], @company.business_type == "Prop Partnership")
+  =label_tag(:prop_partnership, "Prop Partnership")
+  =check_box_tag(:corporation, params[:corporation],@company.business_type == "Corporation")
+  =label_tag(:corporation, "Corporation")
+  =check_box_tag(:llc, params[:llc], @company.business_type == "LLC")
+  =label_tag(:llc, "LLC")
+  =check_box_tag(:c3, params[:c3], @company.business_type == "501(c)(3)")
+  =label_tag(:c3, "501(c)(3)")
+  %div{:class => 'edit-check-options-row'}
 
   .actions
     = f.submit 'Save'

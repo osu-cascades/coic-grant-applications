@@ -2,6 +2,8 @@ require 'test_helper'
 
 class ApplicationsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    get '/users/sign_in'
+    sign_in users(:admin)
     @application = applications(:one)
   end
 

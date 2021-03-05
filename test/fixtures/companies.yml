@@ -4,13 +4,13 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {
-  created_at: DateTime.now,
-  updated_at: DateTime.now,
-  busniess_name: "test",
-  ein: "test",
+one: 
+  created_at: DateTime.now
+  updated_at: DateTime.now
+  business_name: "test"
+  ein: "test"
   bin: "test"
-}
+
 # column: value
 #
 two: {}

@@ -18,7 +18,7 @@ class QueriesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @applications.to_csv }
+      format.csv { send_data Query.to_csv(@applications) }
     end
   end
 

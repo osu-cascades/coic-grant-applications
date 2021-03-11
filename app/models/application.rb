@@ -32,14 +32,16 @@ class Application < ApplicationRecord
   #     end
   #   end
   # end
-  def self.to_csv
-    column_names = %w{round business_name business_size business_type jobs_retained ein bin naics zip county city}
-    CSV.generate do |csv|
-      csv << column_names
-      all.each do |result|
-        csv << result.attributes.values_at(*column_names)
-      end
-    end
-  end
+  # def self.to_csv
+  #   column_names = %w{round business_name business_size business_type jobs_retained ein bin naics zip county city}
+    
+  #   CSV.generate(headers: true) do |csv|
+  #     csv << column_names
+  #     all.find_each do |application|
+  #       #csv << result.attributes.values_at(*column_names)
+  #       csv << column_names.map{ |attr| application.send(attr) }
+  #     end
+  #   end
+  # end
 
 end

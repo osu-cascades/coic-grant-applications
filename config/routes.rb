@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get '/new_query', to: 'static_pages#home'
   get '/download.csv', to: 'uploads#download'
+  get '/exportquery.csv', to: 'queries#export'
 
   #match 'DownloadHeader', to: 'home#DownloadHeader', as: 'DownloadHeader', via: :get
   

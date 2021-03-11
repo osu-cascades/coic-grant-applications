@@ -13,6 +13,16 @@ class QueriesController < ApplicationController
     @applications = Query.filter(params)
   end
 
+  def export
+    @applications = Query.filter(params)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @applications.to_csv }
+    end
+  end
+
+
   # GET /queries/new
   def new
     @query = Query.new

@@ -152,4 +152,7 @@ class Query < ApplicationRecord
 
     return biz_min >= query_min && biz_max <= query_max  
   end
+
+
+
 end

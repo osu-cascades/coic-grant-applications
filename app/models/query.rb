@@ -115,9 +115,9 @@ class Query < ApplicationRecord
           value = value.gsub(/\'/, "''")
 
           if query.empty?
-              query += "applications." + a.to_s + " = " + "'" + value + "'"
+              query += "applications." + a.to_s + " LIKE " + "'" + value + "%'" 
           else
-              query += " OR applications." + a.to_s + " = " + "'" + value + "'"
+              query += " OR applications." + a.to_s + " LIKE " + "'" + value + "%'"
           end
         end  
     end 

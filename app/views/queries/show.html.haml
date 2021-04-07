@@ -78,6 +78,7 @@
   %h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"
   %h3{:class => 'query-result-header'}= "Amount Awarded: " + "$" + number_with_delimiter(sum_award_amounts(@applications), :delimiter => ',')
     
+  %p{:class => 'help-message'} Select the business name to edit an appilcation.
 
 %div{:id => 'query-table'}
   %table

@@ -40,4 +40,4 @@
   %div{:class => 'edit-check-options-row'}
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', data: { confirm: "Would you like to save these changes to the database?" }

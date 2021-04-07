@@ -117,7 +117,7 @@ class Query < ApplicationRecord
           if query.empty?
               query += "applications." + a.to_s + " LIKE " + "'" + value + "%'" 
           else
-              query += " OR applications." + a.to_s + " LIKE " + "'" + value + "%'"
+              query += " AND applications." + a.to_s + " = " + "'" + value + "'"
           end
         end  
     end 

@@ -40,4 +40,4 @@
     =text_field_tag(:percent_ownership, @owner.try(:percent_ownership))
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', data: { confirm: "Would you like to save these changes to the database?" }

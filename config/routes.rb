@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :queries
   resources :owners
   resources :applications
   resources :companies do 
@@ -7,14 +8,15 @@ Rails.application.routes.draw do
   end
   
   resources :uploads
-  root 'static_pages#home'
+  root 'queries#show'
   get '/browse', to: 'companies#index'
   get '/upload', to: 'uploads#index'
-  get '/query', to: 'static_pages#home'
+  get '/query', to: 'queires#show'
   get '/company', to: 'companies#index'
 
   get '/new_query', to: 'static_pages#home'
   get '/download.csv', to: 'uploads#download'
+  get '/exportquery.csv', to: 'queries#export'
 
   #match 'DownloadHeader', to: 'home#DownloadHeader', as: 'DownloadHeader', via: :get
   

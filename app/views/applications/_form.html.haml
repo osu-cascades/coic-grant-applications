@@ -31,15 +31,15 @@
     =f.text_field(:city)
   %div{:class => 'edit-check-options-row'}
   %h4{:class => 'demo-header'} Business Type:
-  =f.check_box(:business_type)
-  =label_tag(:business_type, "Sole Proprietorship")
-  =f.check_box(:business_type)
+  =f.radio_button(:business_type, "Sole Proprietorship")
+  =label_tag(:business_type, "Sole prop")
+  =f.radio_button(:business_type, "Prop Partnership")
   =label_tag(:business_type, "Prop Partnership")
-  =f.check_box(:business_type)
+  =f.radio_button(:business_type, "Corporation")
   =label_tag(:business_type, "Corporation")
-  =check_box_tag(:business_type)
+  =f.radio_button(:business_type, "LLC")
   =label_tag(:business_type, "LLC")
-  =check_box_tag(:business_type)
+  =f.radio_button(:business_type, "501(c)3")
   =label_tag(:business_type, "501(c)(3)")
   %div{:class => 'edit-check-options-row'}
   .actions

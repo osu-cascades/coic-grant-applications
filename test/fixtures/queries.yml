@@ -5,14 +5,8 @@
 # below each fixture, per the syntax in the comments below
 #
 one: {
-  name: "test",
-  percent_ownership: "test",
-  race: "test",
-  ethnicity: "test",
-  gender: "test",
   created_at: DateTime.now,
-  updated_at: DateTime.now,
-  ein: "test"
+  updated_at: DateTime.now
 }
 # column: value
 #

@@ -4,24 +4,28 @@
 
 %table
   %tr
-    %th Business Name
-    %th EIN
-    %th BIN
-    %th NAICS
+    %th Phone
+    %th Address
     %th Zip
     %th County
     %th City
+    %th EIN
+    %th BIN
+    %th NAICS
     %th Business Type
+    %th Notes
     %th 
   %tr
-    %td= @company.business_name
-    %td= @company.ein
-    %td= @company.bin
-    %td= @company.naics
+    %td= @company.phone
+    %td= @company.street_address
     %td= @company.zip
     %td= @company.county
     %td= @company.city
+    %td= @company.ein
+    %td= @company.bin
+    %td= @company.naics
     %td= @company.business_type
+    %td= @company.notes
     %td= link_to 'Edit', edit_company_path(@company)
 
 %h3= "Owners"

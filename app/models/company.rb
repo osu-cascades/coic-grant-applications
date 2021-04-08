@@ -14,6 +14,7 @@ class Company < ApplicationRecord
       c.city = row["City"] || "n/a"
       c.business_type = row["Business Type"] || "n/a"
       c.phone = row["Telephone"] || "n/a"
+      c.street_address = row["Street Address"] || "n/a"
       c.save
     end
   end

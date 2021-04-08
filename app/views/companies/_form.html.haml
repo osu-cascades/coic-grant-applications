@@ -21,6 +21,9 @@
   %div{:class => 'edit-options-row'}
     =label_tag(:phone, "Phone", :id => 'text-field-label')
     =f.text_field(:phone)
+    =label_tag(:email, "Email", :id => 'text-field-label')
+    =f.text_field(:email)
+  %div{:class => 'edit-options-row'}
     =label_tag(:street_address, "Street Address", :id => 'text-field-label')
     =f.text_area(:street_address)
   %div{:class => 'edit-options-row'}

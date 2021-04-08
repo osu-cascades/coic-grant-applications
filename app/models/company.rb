@@ -13,6 +13,7 @@ class Company < ApplicationRecord
       c.county = row["County"] || "n/a"
       c.city = row["City"] || "n/a"
       c.business_type = row["Business Type"] || "n/a"
+      c.phone = row["Telephone"] || "n/a"
       c.save
     end
   end

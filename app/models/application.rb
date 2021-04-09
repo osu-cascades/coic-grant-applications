@@ -4,8 +4,9 @@ class Application < ApplicationRecord
 
   def self.import(round_file, round_number)
     CSV.foreach(round_file.path, headers: true) do |row|
-      a = Application.find_or_initialize_by(ein: row["Employer Identification Number (Federal EIN)"], round: round_number)
-      a.business_name = row["Business Name"] || "n/a"
+      #a = Application.find_or_initialize_by(ein: row["Employer Identification Number (Federal EIN)"], round: round_number)
+      a = Application.find_or_initialize_by(business_name: row["Business Name"], round: round_number)
+      a.ein = row["Employer Identification Number (Federal EIN)"] || "n/a"
       a.bin = row["Business Identification Number (BIN issued by Oregon Employment Department)"] || "n/a"
       a.zip = row["Zip Code"] || "n/a"
       a.county = row["County"] || "n/a"

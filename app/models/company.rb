@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
 
   has_many :applications
+  has_many :notes
   has_and_belongs_to_many :owners, :uniq => true, join_table: 'companies_owners'
 
   def self.import(round_file)

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'notes/index'
+  get 'notes/show'
+  get 'notes/edit'
+  get 'notes/new'
   resources :queries
   resources :owners
   resources :applications

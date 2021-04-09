@@ -45,10 +45,5 @@
   =label_tag(:business_type, "LLC")
   =f.radio_button(:business_type, "501(c)3")
   =label_tag(:business_type, "501(c)(3)")
-  %div{:class => 'edit-options-row'}
-    =label_tag(:notes, "Notes", :id => 'text-field-label')
-    =f.text_area(:notes)
-  %div{:class => 'edit-check-options-row'}
-
   .actions
     = f.submit 'Save'

@@ -16,7 +16,7 @@ class Application < ApplicationRecord
       a.business_size = row["Number of Employees"] || "n/a"
       a.jobs_retained = row["Jobs Retained"] || "n/a"
       a.amount_approved = row["Total $ Approved:"] || "n/a"
-      company = Company.find_by(ein: a.ein)
+      company = Company.find_by(business_name: a.business_name)
       a.company_id = company.id
       a.save
     end

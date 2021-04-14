@@ -15,7 +15,7 @@ class Owner < ApplicationRecord
 
         max_owners.times do |i|
           if row["Business Owner Name #{i}"]
-            o = Owner.find_or_initialize_by(ein: row["Employer Identification Number (Federal EIN)"], name: row["Business Owner Name #{i}"])
+            o = Owner.find_or_initialize_by(business_name: row["Business Name"], name: row["Business Owner Name #{i}"])
             o.percent_ownership = row["% Ownership #{i}"] || "n/a"
             o.percent_ownership = "0" unless o.percent_ownership !~ /\D/
             o.business_name = row["Business Name"]

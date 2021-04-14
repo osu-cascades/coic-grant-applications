@@ -25,7 +25,7 @@ class Owner < ApplicationRecord
             o.gender = row["Gender #{i}"] || "n/a"
             o.save
 
-            companies = Company.where(ein: o.ein)
+            companies = Company.where(business_name: o.business_name)
             companies.each do |c|
               c.owners << o unless c.owners.include?(o)
               # I'm not sure if this is needed, I'm getting duplicate

@@ -8,6 +8,8 @@
   %div{:class => 'edit-check-options-row'}
     =f.hidden_field(:company_id)
     =f.hidden_field(:author)
+    =label_tag(:subject, "Subject", :id => 'text-field-label')
+    =f.text_field(:subject)
     =label_tag(:body, "Note", :id => 'text-field-label')
     =f.text_area(:body)
 

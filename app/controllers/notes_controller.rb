@@ -11,6 +11,7 @@ class NotesController < ApplicationController
   def new
   	@note = Note.new
   	@note.company_id = params[:id]
+  	@note.author = current_user
   end
 
   def create
@@ -28,6 +29,6 @@ class NotesController < ApplicationController
   end
 
 	def note_params
-		params.require(:note).permit(:body, :company_id)
+		params.require(:note).permit(:body, :company_id, :author)
 	end
 end

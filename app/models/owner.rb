@@ -28,13 +28,27 @@ class Owner < ApplicationRecord
             companies = Company.where(business_name: o.business_name)
             companies.each do |c|
               c.owners << o unless c.owners.include?(o)
-              # I'm not sure if this is needed, I'm getting duplicate
-              #values when including it
-              # o.companies << c
             end
+
+          else
+            o = Owner.new(
+              name: "n/a",
+              percent_ownership: "n/a",
+              race: "n/a",
+              ethnicity: "n/a",
+              gender: "n/a"
+            )
+
+            o.save
+            companies = Company.where(business_name: row["Business Name"])
+            companies.each do |c|
+              c.owners << o unless c.owners.include?(o)
+            end
+
+            break
+
           end
         end
-
-      end
     end
+  end
 end

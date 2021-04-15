@@ -5,6 +5,10 @@
       %ul
         - @note.errors.full_messages.each do |message|
           %li= message
+  %div{:class => 'edit-check-options-row'}
+    =f.hidden_field(:company_id)
+    =label_tag(:body, "Note", :id => 'text-field-label')
+    =f.text_area(:body)
 
   .actions
     = f.submit 'Save'

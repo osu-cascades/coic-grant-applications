@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'notes/index'
-  get 'notes/show'
-  get 'notes/edit'
-  get 'notes/new'
   resources :queries
   resources :owners
   resources :applications
@@ -12,6 +8,7 @@ Rails.application.routes.draw do
   end
   
   resources :uploads
+  resources :notes
   root 'queries#show'
   get '/browse', to: 'companies#index'
   get '/upload', to: 'uploads#index'
@@ -21,6 +18,10 @@ Rails.application.routes.draw do
   get '/new_query', to: 'static_pages#home'
   get '/download.csv', to: 'uploads#download'
   get '/exportquery.csv', to: 'queries#export'
+  get 'notes/index'
+  get 'notes/show'
+  get 'notes/edit'
+  get 'notes/new/:id', to: 'notes#new'
 
   #match 'DownloadHeader', to: 'home#DownloadHeader', as: 'DownloadHeader', via: :get
   

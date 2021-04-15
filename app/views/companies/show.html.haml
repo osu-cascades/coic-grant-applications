@@ -75,7 +75,9 @@
       %td= link_to 'Edit', edit_application_path(application)
 
 %h3= "Notes" 
-%button{href: '/notes/new', :type => "button", :id => 'newNote'} Add Note
+/ %button{href: 'notes/new', :type => "button", :id => 'newNote'} Add Note
+= link_to 'New Note', new_note_path(id: @company.id)
+
 
 %table
   %tr

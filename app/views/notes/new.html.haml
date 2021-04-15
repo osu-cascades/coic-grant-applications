@@ -1,2 +1,7 @@
-%h1 Notes#new
-%p Find me in app/views/notes/new.html.haml
+%h1 New Note
+
+= render 'form'
+
+= link_to 'Show', @note
+\|
+= link_to 'Back', notes_path

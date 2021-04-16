@@ -13,8 +13,8 @@ class Owner < ApplicationRecord
     CSV.foreach(round_file.path, headers: true) do |row|
         max_owners = 3
 
-        max_owners.times do |i|
-          if row["Business Owner Name #{i}"]
+        1.upto(max_owners) do |i|
+          if row["Business Owner Name #{i}"] and !row["Business Owner Name #{i}"].strip.empty?
             o = Owner.find_or_initialize_by(business_name: row["Business Name"], name: row["Business Owner Name #{i}"])
             o.percent_ownership = row["% Ownership #{i}"] || "n/a"
             o.percent_ownership = "0" unless o.percent_ownership !~ /\D/
@@ -31,6 +31,10 @@ class Owner < ApplicationRecord
             end
 
           else
+            if i > 1
+              break
+            end
+
             o = Owner.new(
               name: "n/a",
               percent_ownership: "n/a",
@@ -44,8 +48,6 @@ class Owner < ApplicationRecord
             companies.each do |c|
               c.owners << o unless c.owners.include?(o)
             end
-
-            break
 
           end
         end

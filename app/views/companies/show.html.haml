@@ -92,6 +92,6 @@
       %td= note.subject
       %td= note.author
       %td= note.body
-      %td= link_to 'Edit', edit_note_path(note)
+      %td= link_to 'Edit', edit_note_path(id: note.id)
 \|
 = link_to 'Back', companies_path

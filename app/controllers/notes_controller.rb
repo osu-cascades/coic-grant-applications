@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   end
 
   def edit
+    @note = Note.find(params[:id])
   end
 
   def new
@@ -23,6 +24,21 @@ class NotesController < ApplicationController
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /notes/1
+  # PATCH/PUT /notes/1.json
+  def update
+    @note = Note.find(params[:id])
+    respond_to do |format|
+      if @note.update(note_params)
+        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.json { render :edit, status: :ok, location: @note }
+      else
+        format.html { render :edit }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end

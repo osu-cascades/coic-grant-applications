@@ -88,7 +88,7 @@
     %th 
   - @notes.each do |note|
     %tr
-      %td= note.created_at
+      %td= note.updated_at.to_time.strftime('%B %e at %l:%M %p')
       %td= note.subject
       %td= note.author
       %td= note.body

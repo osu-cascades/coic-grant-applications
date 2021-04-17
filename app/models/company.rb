@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
 
   has_many :applications
+  has_many :notes, dependent: :destroy
   has_and_belongs_to_many :owners, :uniq => true, join_table: 'companies_owners'
 
   def self.import(round_file)
@@ -14,6 +15,8 @@ class Company < ApplicationRecord
       c.county = row["County"] || "n/a"
       c.city = row["City"] || "n/a"
       c.business_type = row["Business Type"] || "n/a"
+      c.phone = row["Telephone"] || "n/a"
+      c.street_address = row["Street Address"] || "n/a"
       c.save
     end
   end

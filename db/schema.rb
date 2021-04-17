@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2021_04_14_040958) do
     t.string "street_address"
     t.string "amount_requested"
     t.string "number_of_employees"
+    t.string "phone"
+    t.string "email"
   end
 
   create_table "companies_owners", id: false, force: :cascade do |t|
@@ -56,6 +58,16 @@ ActiveRecord::Schema.define(version: 2021_04_14_040958) do
     t.bigint "owner_id", null: false
     t.index ["company_id", "owner_id"], name: "index_companies_owners_on_company_id_and_owner_id"
     t.index ["owner_id", "company_id"], name: "index_companies_owners_on_owner_id_and_company_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "subject"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "author"
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_notes_on_company_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -109,4 +121,5 @@ ActiveRecord::Schema.define(version: 2021_04_14_040958) do
   end
 
   add_foreign_key "applications", "companies"
+  add_foreign_key "notes", "companies"
 end

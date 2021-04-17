@@ -14,6 +14,7 @@ class CompaniesController < ApplicationController
   def show
     # @applications = Application.all
     @applications = Application.where(ein: @company.ein).or(Application.where(business_name: @company.business_name))
+    @notes = Note.where(company_id: @company.id)
   end
 
   # GET /companies/new
@@ -82,6 +83,6 @@ class CompaniesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def company_params
       #params.fetch(:company, {})
-      params.require(:company).permit(:search,:city, :business_name, :business_type, :business_size, :ein, :bin, :naics, :zip, :county)
+      params.require(:company).permit(:search,:city, :business_name, :business_type, :business_size, :ein, :bin, :naics, :zip, :county, :phone, :email, :street_address)
     end
 end

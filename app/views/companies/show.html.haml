@@ -4,23 +4,25 @@
 
 %table
   %tr
-    %th Business Name
-    %th EIN
-    %th BIN
-    %th NAICS
+    %th Phone
+    %th Address
     %th Zip
     %th County
     %th City
+    %th EIN
+    %th BIN
+    %th NAICS
     %th Business Type
     %th 
   %tr
-    %td= @company.business_name
-    %td= @company.ein
-    %td= @company.bin
-    %td= @company.naics
+    %td= @company.phone
+    %td= @company.street_address
     %td= @company.zip
     %td= @company.county
     %td= @company.city
+    %td= @company.ein
+    %td= @company.bin
+    %td= @company.naics
     %td= @company.business_type
     %td= link_to 'Edit', edit_company_path(@company)
 
@@ -74,5 +76,24 @@
       %td= application.business_type
       %td= link_to 'Edit', edit_application_path(application)
 
+%h3= "Notes" 
+/ %button{href: 'notes/new', :type => "button", :id => 'newNote'} Add Note
+= link_to 'New Note', new_note_path(id: @company.id)
+
+
+%table
+  %tr
+    %th Date
+    %th Subject
+    %th Author
+    %th Body
+    %th 
+  - @notes.each do |note|
+    %tr
+      %td= note.created_at
+      %td= note.subject
+      %td= note.author
+      %td= note.body
+      %td= link_to 'Edit', edit_note_path(id: note.id)
 \|
 = link_to 'Back', companies_path

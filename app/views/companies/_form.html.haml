@@ -19,6 +19,14 @@
     =label_tag(:naics, "NAICS", :id => 'text-field-label')
     =f.text_field(:naics)
   %div{:class => 'edit-options-row'}
+    =label_tag(:phone, "Phone", :id => 'text-field-label')
+    =f.text_field(:phone)
+    =label_tag(:email, "Email", :id => 'text-field-label')
+    =f.text_field(:email)
+  %div{:class => 'edit-options-row'}
+    =label_tag(:street_address, "Street Address", :id => 'text-field-label')
+    =f.text_area(:street_address)
+  %div{:class => 'edit-options-row'}
     =label_tag(:zip, "ZIP", :id => 'text-field-label')
     =f.text_field(:zip)
     =label_tag(:county, "County", :id => 'text-field-label')
@@ -37,7 +45,5 @@
   =label_tag(:business_type, "LLC")
   =f.radio_button(:business_type, "501(c)3")
   =label_tag(:business_type, "501(c)(3)")
-  %div{:class => 'edit-check-options-row'}
-
   .actions
     = f.submit 'Save', data: { confirm: "Would you like to save these changes to the database?" }

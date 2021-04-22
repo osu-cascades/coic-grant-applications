@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root 'queries#show'
   get '/browse', to: 'companies#index'
   get '/upload', to: 'uploads#index'
-  get '/query', to: 'queires#show'
+  get '/query', to: 'queries#show'
   get '/company', to: 'companies#index'
 
   get '/new_query', to: 'static_pages#home'

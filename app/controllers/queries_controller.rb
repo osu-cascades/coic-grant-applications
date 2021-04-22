@@ -10,7 +10,16 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
-    @applications = Query.filter(params)
+    if params[:commit] == "Submit Query"
+      @applications = Query.filter(params)
+    elsif params[:commit] == "Export Query"
+      @applications = Query.filter(params)
+      respond_to do |format|
+        format.html
+        format.csv { send_data Query.to_csv(@applications), filename: "export-query-#{Date.today}.csv"}
+      end
+    end
+    
   end
 
   def export
@@ -79,5 +88,6 @@ class QueriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def query_params
+      #params.permit(:round,:business_name, :business_size, :business_type, :jobs_retained, :ein, :bin, :naics, :zip, :county, :phone, :email, :street_address)
     end
 end

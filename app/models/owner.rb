@@ -13,27 +13,44 @@ class Owner < ApplicationRecord
     CSV.foreach(round_file.path, headers: true) do |row|
         max_owners = 3
 
-        max_owners.times do |i|
-          if row["Business Owner Name #{i}"]
-            o = Owner.find_or_initialize_by(ein: row["Employer Identification Number (Federal EIN)"], name: row["Business Owner Name #{i}"])
+        1.upto(max_owners) do |i|
+          if row["Business Owner Name #{i}"] and !row["Business Owner Name #{i}"].strip.empty?
+            o = Owner.find_or_initialize_by(business_name: row["Business Name"], name: row["Business Owner Name #{i}"])
             o.percent_ownership = row["% Ownership #{i}"] || "n/a"
             o.percent_ownership = "0" unless o.percent_ownership !~ /\D/
+            o.business_name = row["Business Name"]
 
             o.race = row["Race #{i}"] || "n/a"
             o.ethnicity = row["Ethnicity #{i}"] || "n/a"
             o.gender = row["Gender #{i}"] || "n/a"
             o.save
 
-            companies = Company.where(ein: o.ein)
+            companies = Company.where(business_name: o.business_name)
             companies.each do |c|
               c.owners << o unless c.owners.include?(o)
-              # I'm not sure if this is needed, I'm getting duplicate
-              #values when including it
-              # o.companies << c
             end
+
+          else
+            if i > 1
+              break
+            end
+
+            o = Owner.new(
+              name: "n/a",
+              percent_ownership: "n/a",
+              race: "n/a",
+              ethnicity: "n/a",
+              gender: "n/a"
+            )
+
+            o.save
+            companies = Company.where(business_name: row["Business Name"])
+            companies.each do |c|
+              c.owners << o unless c.owners.include?(o)
+            end
+
           end
         end
-
-      end
     end
+  end
 end

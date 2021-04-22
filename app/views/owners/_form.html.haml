@@ -38,6 +38,10 @@
   %div{:class => 'edit-options-row'}
     =label_tag(:percent_ownership, "Percent Ownership >=", :id => 'text-field-label')
     =text_field_tag(:percent_ownership, @owner.try(:percent_ownership))
+  %div{:class => 'edit-options-row'}
+    =label_tag(:business_name, "Business Name", :id => 'text-field-label')
+    =text_field_tag(:business_name, @owner.try(:business_name))
+    
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', data: { confirm: "Would you like to save these changes to the database?" }

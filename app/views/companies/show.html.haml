@@ -26,6 +26,7 @@
     %td= @company.business_type
     %td= link_to 'Edit', edit_company_path(@company)
 
+%br
 %h3= "Owners"
 
 %table
@@ -45,6 +46,7 @@
       %td= owner.gender
       %td= link_to 'Edit', edit_owner_path(owner)
 
+%br
 %h3= "Applications" 
 
 %table
@@ -74,6 +76,7 @@
       %td= application.business_type
       %td= link_to 'Edit', edit_application_path(application)
 
+%br
 %h3= "Notes" 
 / %button{href: 'notes/new', :type => "button", :id => 'newNote'} Add Note
 = link_to 'New Note', new_note_path(id: @company.id)

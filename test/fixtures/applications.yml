@@ -4,23 +4,24 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {
-  round: "test",
-  jobs_retained: "test",
-  amount_approved: "test",
-  created_at: DateTime.now,
-  updated_at: DateTime.now,
-  ein: "test",
-  business_name: "test",
-  bin: "test",
-  naics: "test",
-  zip: "test",
-  county: "test",
-  city: "test",
-  business_type: "test",
-  business_size: "test",
+one:
+  id: 1
+  round: test
+  jobs_retained: test
+  amount_approved: test
+  created_at: <%= DateTime.now %>
+  updated_at: <%= DateTime.now %>
+  ein: test
+  business_name: test
+  bin: test
+  naics: test
+  zip: test
+  county: test
+  city: test
+  business_type: test
+  business_size: test
   company_id: 1
-}
+
 # column: value
 #
 two: {}

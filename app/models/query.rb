@@ -117,7 +117,7 @@ class Query < ApplicationRecord
           if query.empty?
               query += "applications." + a.to_s + " LIKE " + "'" + value + "%'" 
           else
-              query += " OR applications." + a.to_s + " LIKE " + "'" + value + "%'"
+              query += " AND applications." + a.to_s + " = " + "'" + value + "'"
           end
         end  
     end 
@@ -153,6 +153,16 @@ class Query < ApplicationRecord
     return biz_min >= query_min && biz_max <= query_max  
   end
 
-
+  def self.to_csv(applications)
+    column_names = %w{round business_name business_size business_type jobs_retained ein bin naics zip county city}
+    
+    CSV.generate(headers: true) do |csv|
+      csv << column_names
+      applications.each do |application|
+        #csv << result.attributes.values_at(*column_names)
+        csv << column_names.map{ |attr| application.send(attr) }
+      end
+    end
+  end 
 
 end

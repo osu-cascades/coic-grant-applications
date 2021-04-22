@@ -46,4 +46,4 @@
   =f.radio_button(:business_type, "501(c)3")
   =label_tag(:business_type, "501(c)(3)")
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', data: { confirm: "Would you like to save these changes to the database?" }

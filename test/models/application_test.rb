@@ -10,4 +10,13 @@ class ApplicationTest < ActiveSupport::TestCase
 
     assert a.valid?
   end
+
+  test 'invalid without round' do
+    a = Application.new(
+      jobs_retained: "test",
+      amount_approved: "test",
+    )   
+
+    refute a.valid?
+  end
 end

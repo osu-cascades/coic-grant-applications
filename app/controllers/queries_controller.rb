@@ -10,16 +10,7 @@ class QueriesController < ApplicationController
   # GET /queries/1
   # GET /queries/1.json
   def show
-    if params[:commit] == "Submit Query"
-      @applications = Query.filter(params)
-    elsif params[:commit] == "Export Query"
-      @applications = Query.filter(params)
-      respond_to do |format|
-        format.html
-        format.csv { send_data Query.to_csv(@applications), filename: "export-query-#{Date.today}.csv"}
-      end
-    end
-    
+    @applications = Query.filter(params)
   end
 
   def export

@@ -73,7 +73,7 @@
     %div{:class => 'query-options-row'}
       =submit_tag("Submit Query", :class => 'submit-button')
       //= link_to 'Export Query', "/exportquery.csv", id: 'exportButton'
-      =submit_tag('Export Query', :class => 'submit-button')
+      =submit_tag('Export Query', formaction: "/exportquery.csv", :class => 'submit-button')
 %div{:id => 'query-results'}
   %h3{:class => 'query-result-header'}= "Number of Awards: " + @applications.length().to_s()
   %h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"

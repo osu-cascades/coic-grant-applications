@@ -28,16 +28,6 @@ class UploadsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_upload_url(@upload)
-    assert_response :success
-  end
-
-  test "should update upload" do
-    patch upload_url(@upload), params: { upload: {  } }
-    assert_redirected_to upload_url(@upload)
-  end
-
   test "should destroy upload" do
     assert_difference('Upload.count', -1) do
       delete upload_url(@upload)

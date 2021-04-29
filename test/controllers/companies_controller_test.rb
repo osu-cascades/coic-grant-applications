@@ -3,6 +3,11 @@ require 'test_helper'
 class CompaniesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @company = companies(:one)
+
+    get '/users/sign_in'
+    sign_in users(:admin)
+    post user_session_url
+
   end
 
   test "should get index" do

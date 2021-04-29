@@ -3,7 +3,7 @@
 one:
   subject: MyString
   body: MyString
+  company_id: 1
+  created_at: <%= DateTime.now %>
+  updated_at: <%= DateTime.now %>
 
-two:
-  subject: MyString
-  body: MyString

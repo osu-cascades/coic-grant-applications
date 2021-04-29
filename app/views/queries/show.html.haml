@@ -29,7 +29,7 @@
       =check_box_tag(:sole, params[:sole], params[:sole].present?)
       =label_tag(:sole, "Sole prop")
       =check_box_tag(:prop_partnership, params[:prop_partnership], params[:prop_partnership].present?)
-      =label_tag(:prop_partnership, "Prop Partnership")
+      =label_tag(:prop_partnership, "Partnership")
       =check_box_tag(:corporation, params[:corporation], params[:corporation].present?)
       =label_tag(:corporation, "Corporation")
       =check_box_tag(:llc, params[:llc], params[:llc].present?)
@@ -72,8 +72,8 @@
       =text_field_tag(:percent_ownership, params[:percent_ownership])
     %div{:class => 'query-options-row'}
       =submit_tag("Submit Query", :class => 'submit-button')
-      = link_to 'Export Query', "/exportquery.csv", id: 'exportButton'
-
+      //= link_to 'Export Query', "/exportquery.csv", id: 'exportButton'
+      =submit_tag('Export Query', formaction: "/exportquery.csv", :class => 'submit-button')
 %div{:id => 'query-results'}
   %h3{:class => 'query-result-header'}= "Number of Awards: " + @applications.length().to_s()
   %h3{:class => 'query-result-header'}= "Percentage of Applicants: " + percentage_of_applicants(@applications) + "%"

@@ -79,5 +79,6 @@ class QueriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def query_params
+      #params.permit(:round,:business_name, :business_size, :business_type, :jobs_retained, :ein, :bin, :naics, :zip, :county, :phone, :email, :street_address)
     end
 end

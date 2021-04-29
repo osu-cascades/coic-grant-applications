@@ -9,4 +9,10 @@ class ActiveSupport::TestCase
     controller_class._process_action_callbacks.map {|c| c.filter if c.kind == :before}.compact.include? method_symbol
   end
 
+  include Devise::Test::IntegrationHelpers
+
+  def log_in(user)
+    sign_in(user)
+  end
+
 end

@@ -19,7 +19,12 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create application" do
     assert_difference('Application.count') do
-      post applications_url, params: { application: {  } }
+      post applications_url, params: { application: { 
+        round: "test",
+        jobs_retained: "test",
+        amount_approved: "test",
+        company_id: 1
+       } }
     end
 
     assert_redirected_to application_url(Application.last)
@@ -36,7 +41,7 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update application" do
-    patch application_url(@application), params: { application: {  } }
+    patch application_url(@application), params: { application: { round: "new" } }
     assert_redirected_to application_url(@application)
   end
 

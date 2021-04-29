@@ -1,6 +1,6 @@
 # COIC Grant Applications
 
-TODO: Two-sentence description
+This project is in partnership with the Central Oregon Intergovermental Council (COIC) and is aimed at enabling COIC to better utilize the data collected from Covid relief fund applications for communicating the level of impact they've made on the community and analyzing what underserved demographics might be better served in future outreach programs.
 
 ## Expectations
 

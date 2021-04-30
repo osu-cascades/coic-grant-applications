@@ -22,7 +22,7 @@ class UploadsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create upload" do
     assert_difference('Upload.count') do
-      post uploads_url, params: { upload: {  } }
+      post uploads_url, params: { upload: { round: "test", data: file_fixture("test.csv").read } }
     end
 
     assert_redirected_to upload_url(Upload.last)

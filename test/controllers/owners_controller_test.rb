@@ -22,7 +22,13 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create owner" do
     assert_difference('Owner.count') do
-      post owners_url, params: { owner: {  } }
+      post owners_url, params: { owner: { 
+        name: "test",
+        percent_ownership: "test",
+        race: "test",
+        ethnicity: "test",
+        gender: "test"
+      } }
     end
 
     assert_redirected_to owner_url(Owner.last)

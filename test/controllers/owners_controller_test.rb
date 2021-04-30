@@ -23,11 +23,11 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
   test "should create owner" do
     assert_difference('Owner.count') do
       post owners_url, params: { owner: { 
-        name: "test",
-        percent_ownership: "test",
-        race: "test",
-        ethnicity: "test",
-        gender: "test"
+        name: "test_name",
+        percent_ownership: "test_po",
+        race: "test_race",
+        ethnicity: "test_eth",
+        gender: "test_gen"
       } }
     end
 
@@ -45,7 +45,7 @@ class OwnersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update owner" do
-    patch owner_url(@owner), params: { owner: {  } }
+    patch owner_url(@owner), params: { owner: { name: "new name" } }
     assert_redirected_to owner_url(@owner)
   end
 

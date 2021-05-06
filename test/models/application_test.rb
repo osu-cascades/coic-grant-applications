@@ -6,6 +6,7 @@ class ApplicationTest < ActiveSupport::TestCase
       round: "test",
       jobs_retained: "test",
       amount_approved: "test",
+      company_id: 1
     )
 
     assert a.valid?

@@ -15,10 +15,10 @@ class Owner < ApplicationRecord
 
         1.upto(max_owners) do |i|
           if row["Business Owner Name #{i}"] and !row["Business Owner Name #{i}"].strip.empty?
-            o = Owner.find_or_initialize_by(business_name: row["Business Name"], name: row["Business Owner Name #{i}"])
+            o = Owner.find_or_initialize_by(business_name: row["Business Name"].titleize, name: row["Business Owner Name #{i}"])
             o.percent_ownership = row["% Ownership #{i}"] || "n/a"
             o.percent_ownership = "0" unless o.percent_ownership !~ /\D/
-            o.business_name = row["Business Name"]
+            o.business_name = row["Business Name"].titleize
 
             o.race = row["Race #{i}"] || "n/a"
             o.ethnicity = row["Ethnicity #{i}"] || "n/a"

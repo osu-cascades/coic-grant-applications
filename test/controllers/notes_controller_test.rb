@@ -7,25 +7,26 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     post user_session_url
 
     @note = notes(:one)
+    @company = companies(:one)
   end
 
   test "should get index" do
-    get notes_index_url
+    get notes_url
     assert_response :success
   end
 
   test "should get show" do
-    get notes_show_url
+    get notes_url(@note)
     assert_response :success
   end
 
   test "should get edit" do
-    get notes_edit_url
+    get edit_note_path(@note)
     assert_response :success
   end
 
   test "should get new" do
-    get notes_new_url
+    get new_note_path(id: @company.id)
     assert_response :success
   end
 

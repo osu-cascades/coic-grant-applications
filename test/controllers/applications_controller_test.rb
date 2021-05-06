@@ -20,6 +20,7 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
   test "should create application" do
     assert_difference('Application.count') do
       post applications_url, params: { application: { 
+        id: 2,
         round: "test",
         jobs_retained: "test",
         amount_approved: "test",

@@ -24,16 +24,6 @@ class UploadsTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "updating a Upload" do
-    visit uploads_url
-    click_on "Edit", match: :first
-
-    click_on "Update Upload"
-
-    assert_text "Upload was successfully updated"
-    click_on "Back"
-  end
-
   test "destroying a Upload" do
     visit uploads_url
     page.accept_confirm do

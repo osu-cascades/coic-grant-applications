@@ -51,6 +51,14 @@ class QueriesTest < ApplicationSystemTestCase
     assert_selector "h3", text: "Percentage of Applicants: 5.75%"
     assert_selector "h3", text: "Number of Awards: 5"
     assert_selector "h3", text: "Amount Awarded: $12,500.0"
-  
+
+    visit root_path
+
+    check "Asian"
+    click_on "Submit Query"
+
+    assert_selector "h3", text: "Percentage of Applicants: 1.15%"
+    assert_selector "h3", text: "Number of Awards: 1"
+    assert_selector "h3", text: "Amount Awarded: $2,500.0"   
   end
 end

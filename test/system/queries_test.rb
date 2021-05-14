@@ -22,7 +22,7 @@ class QueriesTest < ApplicationSystemTestCase
     assert_selector "h3", text: "Percentage of Applicants: 100.0%"
   end
 
-  test "run a Query" do
+  test "run a Query for gender" do
     visit root_path
 
     check "Female"

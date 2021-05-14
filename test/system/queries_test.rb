@@ -4,14 +4,15 @@ class QueriesTest < ApplicationSystemTestCase
   setup do
     @query = queries(:one)
 
-    get '/users/sign_in'
+    visit '/users/sign_in'
     sign_in users(:admin)
-    post user_session_url
+    visit user_session_url
   end
 
   test "visiting the index" do
-    visit queries_url
-    assert_selector "h1", text: "Queries"
+    visit root_path
+    #0% with no uploads in applicants in database
+    assert_selector "h3", text: "Percentage of Applicants: 0%"
   end
 
   test "creating a Query" do

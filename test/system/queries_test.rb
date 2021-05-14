@@ -22,14 +22,15 @@ class QueriesTest < ApplicationSystemTestCase
     assert_selector "h3", text: "Percentage of Applicants: 100.0%"
   end
 
-  test "creating a Query" do
-    visit queries_url
-    click_on "New Query"
+  test "run a Query" do
+    visit root_path
 
-    click_on "Create Query"
+    check "Female"
+    click_on "Submit Query"
 
-    assert_text "Query was successfully created"
-    click_on "Back"
+    assert_selector "h3", text: "Percentage of Applicants: 60.92%"
+    assert_selector "h3", text: "Number of Awards: 53"
+    assert_selector "h3", text: "Amount Awarded: $151,074.28"
   end
 
 end

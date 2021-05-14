@@ -4,9 +4,9 @@ class UploadsTest < ApplicationSystemTestCase
   setup do
     @upload = uploads(:one)
 
-    get '/users/sign_in'
+    visit '/users/sign_in'
     sign_in users(:admin)
-    post user_session_url
+    visit user_session_url
   end
 
   test "visiting the index" do

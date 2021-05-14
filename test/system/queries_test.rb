@@ -42,4 +42,15 @@ class QueriesTest < ApplicationSystemTestCase
     assert_selector "h3", text: "Amount Awarded: $95,616.14"   
   end
 
+  test "run a Query for race" do
+    visit root_path
+
+    check "American Indian or Alaska Native"
+    click_on "Submit Query"
+
+    assert_selector "h3", text: "Percentage of Applicants: 5.75%"
+    assert_selector "h3", text: "Number of Awards: 5"
+    assert_selector "h3", text: "Amount Awarded: $12,500.0"
+  
+  end
 end

@@ -2,6 +2,8 @@
 
 This project is in partnership with the Central Oregon Intergovermental Council (COIC) and is aimed at enabling COIC to better utilize the data collected from Covid relief fund applications for communicating the level of impact they've made on the community and analyzing what underserved demographics might be better served in future outreach programs.
 
+This app allows the user to upload csv files of of small business data collected during an application round and provides an interface to search the resulting database based on common business and owner demographic information to help quantify the amount of aid provided to different districts and demographics in Central Oregon. 
+
 ## Expectations
 
 This is a Rails 5.x app with Ruby \~2.7, PostgreSQL, and AWS for storage.

@@ -3,6 +3,10 @@ require "application_system_test_case"
 class UploadsTest < ApplicationSystemTestCase
   setup do
     @upload = uploads(:one)
+
+    visit '/users/sign_in'
+    sign_in users(:admin)
+    visit user_session_url
   end
 
   test "visiting the index" do
@@ -17,16 +21,6 @@ class UploadsTest < ApplicationSystemTestCase
     click_on "Create Upload"
 
     assert_text "Upload was successfully created"
-    click_on "Back"
-  end
-
-  test "updating a Upload" do
-    visit uploads_url
-    click_on "Edit", match: :first
-
-    click_on "Update Upload"
-
-    assert_text "Upload was successfully updated"
     click_on "Back"
   end
 

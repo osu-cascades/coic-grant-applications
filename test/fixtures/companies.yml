@@ -5,6 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
+  id: 1
   created_at: <%= DateTime.now %>
   updated_at: <%= DateTime.now %>
   business_name: "test"
@@ -13,5 +14,5 @@ one:
 
 # column: value
 #
-two: {}
+#two: {}
 # column: value

@@ -3,6 +3,11 @@ require 'test_helper'
 class UploadsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @upload = uploads(:one)
+
+    get '/users/sign_in'
+    sign_in users(:admin)
+    post user_session_url
+    
   end
 
   test "should get index" do
@@ -17,7 +22,7 @@ class UploadsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create upload" do
     assert_difference('Upload.count') do
-      post uploads_url, params: { upload: {  } }
+      post uploads_url, params: { upload: { round: "test", data: fixture_file_upload("files/test_round.csv", "csv")} }
     end
 
     assert_redirected_to upload_url(Upload.last)
@@ -26,16 +31,6 @@ class UploadsControllerTest < ActionDispatch::IntegrationTest
   test "should show upload" do
     get upload_url(@upload)
     assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_upload_url(@upload)
-    assert_response :success
-  end
-
-  test "should update upload" do
-    patch upload_url(@upload), params: { upload: {  } }
-    assert_redirected_to upload_url(@upload)
   end
 
   test "should destroy upload" do

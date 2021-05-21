@@ -28,18 +28,18 @@ class QueriesTest < ApplicationSystemTestCase
     check "Female"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 60.92%"
-    assert_selector "h3", text: "Number of Awards: 53"
-    assert_selector "h3", text: "Amount Awarded: $151,074.28"
+    assert_selector "h3", text: "Percentage of Applicants: 44.44%"
+    assert_selector "h3", text: "Number of Awards: 4"
+    assert_selector "h3", text: "Amount Awarded: $10,000.0"
 
     visit root_path
 
     check "Male"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 39.08%"
-    assert_selector "h3", text: "Number of Awards: 34"
-    assert_selector "h3", text: "Amount Awarded: $95,616.14"   
+    assert_selector "h3", text: "Percentage of Applicants: 44.44%"
+    assert_selector "h3", text: "Number of Awards: 4"
+    assert_selector "h3", text: "Amount Awarded: $10,000.0" 
   end
 
   test "run a Query for race" do
@@ -48,54 +48,54 @@ class QueriesTest < ApplicationSystemTestCase
     check "American Indian or Alaska Native"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 5.75%"
-    assert_selector "h3", text: "Number of Awards: 5"
-    assert_selector "h3", text: "Amount Awarded: $12,500.0"
+    assert_selector "h3", text: "Percentage of Applicants: 11.11%"
+    assert_selector "h3", text: "Number of Awards: 1"
+    assert_selector "h3", text: "Amount Awarded: $2,500.0"
 
     visit root_path
 
     check "Asian"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 1.15%"
-    assert_selector "h3", text: "Number of Awards: 1"
-    assert_selector "h3", text: "Amount Awarded: $2,500.0"   
+    assert_selector "h3", text: "Percentage of Applicants: 33.33%"
+    assert_selector "h3", text: "Number of Awards: 3"
+    assert_selector "h3", text: "Amount Awarded: $7,500.0"   
 
     visit root_path
 
     check "Native Hawaiian or Pacific Islander"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 2.3%"
-    assert_selector "h3", text: "Number of Awards: 2"
-    assert_selector "h3", text: "Amount Awarded: $5,000.0"  
+    assert_selector "h3", text: "Percentage of Applicants: 11.11%"
+    assert_selector "h3", text: "Number of Awards: 1"
+    assert_selector "h3", text: "Amount Awarded: $2,500.0"  
 
     visit root_path
 
     check "White"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 70.11%"
-    assert_selector "h3", text: "Number of Awards: 61"
-    assert_selector "h3", text: "Amount Awarded: $180,484.42"   
+    assert_selector "h3", text: "Percentage of Applicants: 33.33%"
+    assert_selector "h3", text: "Number of Awards: 3"
+    assert_selector "h3", text: "Amount Awarded: $7,500.0"   
 
     visit root_path
 
     check "Other"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 8.05%"
-    assert_selector "h3", text: "Number of Awards: 7"
-    assert_selector "h3", text: "Amount Awarded: $18,706.0"   
+    assert_selector "h3", text: "Percentage of Applicants: 22.22%"
+    assert_selector "h3", text: "Number of Awards: 2"
+    assert_selector "h3", text: "Amount Awarded: $5,000.0"   
 
     visit root_path
 
     check "race_no_answer"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 11.49%"
-    assert_selector "h3", text: "Number of Awards: 10"
-    assert_selector "h3", text: "Amount Awarded: $26,434.0"   
+    assert_selector "h3", text: "Percentage of Applicants: 11.11%"
+    assert_selector "h3", text: "Number of Awards: 1"
+    assert_selector "h3", text: "Amount Awarded: $2,500.0"   
   end
 
   test "run a Query for ethnicity" do
@@ -104,18 +104,18 @@ class QueriesTest < ApplicationSystemTestCase
     check "Non-Hispanic Latino"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 44.83%"
-    assert_selector "h3", text: "Number of Awards: 39"
-    assert_selector "h3", text: "Amount Awarded: $112,520.91"
+    assert_selector "h3", text: "Percentage of Applicants: 66.67%"
+    assert_selector "h3", text: "Number of Awards: 6"
+    assert_selector "h3", text: "Amount Awarded: $15,000.0"
   
     visit root_path
 
     check "Hispanic Latino"
     click_on "Submit Query"
 
-    assert_selector "h3", text: "Percentage of Applicants: 20.69%"
-    assert_selector "h3", text: "Number of Awards: 18"
-    assert_selector "h3", text: "Amount Awarded: $46,206.0"
+    assert_selector "h3", text: "Percentage of Applicants: 11.11%"
+    assert_selector "h3", text: "Number of Awards: 1"
+    assert_selector "h3", text: "Amount Awarded: $2,500.0"
   
   end
 end

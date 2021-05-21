@@ -14,10 +14,21 @@
 		%p Please take care to match exact spelling and capitalization. Order does not matter.
 		= link_to 'Export Headers', "/download.csv", id: 'downloadButton'
 		
+		%br
 		%p#headers Total $ Approved:, Business Name, Business Type, Telephone, Street Address, City, Zip Code, County,Employer Identification Number (Federal EIN), Business Identification Number (BIN issued by Oregon Employment Department), NAICS, Contact Name, Title, Phone, Email, Number of Employees, Jobs Retained, Business Demographics, Business Owner Name 1, Business Owner Name 2, Business Owner Name 3, % Ownership 1, % Ownership 2, % Ownership 3, Race 1, Race 2, Race 3, Ethnicity 1, Ethnicity 2, Ethnicity 3, Gender 1, Gender 2, Gender 3
 		
 		%p Please make sure each business name is unique and spelled correctly for each round.
 		%p If no owner information is available, use "n/a" in the "Business Owner Name 1" column. The other owner columns can be blank.
+
+		%p In order to ensure accurate search results, please use the following values, if applicable, for the following %fields: 
+		%h4 Ethnicity:
+		%p "Non-Hispanic/Latino", "Hispanic/Latino"
+		%h4 Gender:
+		%p "Female", "Male"
+		%h4 Race:
+		%p  "American Indian or Alaska Native", "Asian", "Native Hawaiian or Pacific Islander", "White", "Other", "Prefer not to answer"
+		%h4 Business Type:
+		%p  "Sole Proprietorship", "Partnership", "Corporation", "LLC", "501(c)3"
 		%button#close{href: '#', onclick: 'closePopUp(); return false;', :type => "button"} Close
 
 = link_to 'Back', uploads_path

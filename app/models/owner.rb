@@ -11,7 +11,7 @@ class Owner < ApplicationRecord
 
   def self.import(round_file)
     CSV.foreach(round_file.path, headers: true) do |row|
-        max_owners = 3
+        max_owners = 4
 
         1.upto(max_owners) do |i|
           if row["Business Owner Name #{i}"] and !row["Business Owner Name #{i}"].strip.empty?

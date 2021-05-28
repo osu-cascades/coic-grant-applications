@@ -21,7 +21,7 @@
         %td= company.ein
         %td= company.bin
         %td= company.naics
-        %td= company.notes.exists? ? "Note Available" : ""
+        %td= company.notes.any? ? "Note Available" : ""
         %td= link_to 'More Info', company
         %td= link_to 'Create Note', new_note_path(id: company.id)
         %td= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure? This will delete all applications for this company.' }

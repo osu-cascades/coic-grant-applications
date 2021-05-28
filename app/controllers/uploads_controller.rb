@@ -32,7 +32,7 @@ class UploadsController < ApplicationController
     Company.import(params[:upload][:data].tempfile)
     Application.import(params[:upload][:data].tempfile, params[:upload][:round])
     Owner.import(params[:upload][:data].tempfile)
-    params[:upload][:data] = CSV(params[:upload][:data].tempfile).read.join(",")
+    params[:upload][:data] = CSV(params[:upload][:data].tempfile).readline.join(",")
     @upload = Upload.new(upload_params)
 
     respond_to do |format|

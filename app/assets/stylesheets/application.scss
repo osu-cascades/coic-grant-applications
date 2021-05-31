@@ -190,9 +190,18 @@ label{
   text-decoration: none;
 }
 
-.nav-button:hover {
+.nav-button:hover, .delete-button:hover {
   border-radius: 25px;
   color: white;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+  border-radius: 20px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-decoration: none;
 }
 
 .demo-header {

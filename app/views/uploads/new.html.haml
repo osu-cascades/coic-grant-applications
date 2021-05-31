@@ -1,7 +1,7 @@
 %h1 New upload
 
 %div{:id => 'uploadOptions'}
-	%p{:id => 'uploadMessage'} Before you upload please make sure to review the required header names and field types. 
+	%p{:id => 'uploadMessage'} Before you upload please make sure to review the required header names and field types. To ensure spreadsheets are uploaded correctly, spreadsheets should be limited to 250 rows per spreadsheet.
 	%button{href: '#', onclick: 'popUp(); return false;', :type => "button", :id => 'uploadButton'} File Format Info
 
 
@@ -12,6 +12,7 @@
 	%div{:id => 'popupContent'}
 		%h1 Required Header Names
 		%p Please take care to match exact spelling and capitalization. Order does not matter.
+
 		= link_to 'Export Headers', "/download.csv", id: 'downloadButton'
 		
 		%br

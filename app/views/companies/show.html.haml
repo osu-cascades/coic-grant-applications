@@ -24,7 +24,7 @@
     %td= @company.bin
     %td= @company.naics
     %td= @company.business_type
-    %td= link_to 'Edit', edit_company_path(@company)
+    %td= link_to 'Edit', edit_company_path(@company), {:class => 'nav-button'}
 
 %br
 %h3{:class => 'sub-header'}= "Owners"
@@ -44,7 +44,7 @@
       %td= owner.race
       %td= owner.ethnicity
       %td= owner.gender
-      %td= link_to 'Edit', edit_owner_path(owner)
+      %td= link_to 'Edit', edit_owner_path(owner), {:class => 'nav-button'}
 
 %br
 %h3{:class => 'sub-header'}= "Applications" 
@@ -74,7 +74,7 @@
       %td= application.county
       %td= application.city
       %td= application.business_type
-      %td= link_to 'Edit', edit_application_path(application)
+      %td= link_to 'Edit', edit_application_path(application), {:class => 'nav-button'}
 
 %br
 %h3{:class => 'sub-header'}= "Notes" 
@@ -95,6 +95,7 @@
       %td= note.subject
       %td= note.author
       %td= note.body
-      %td= link_to 'Edit', edit_note_path(id: note.id)
-\|
-= link_to 'Back', companies_path
+      %td= link_to 'Edit', edit_note_path(id: note.id), {:class => 'nav-button'}
+
+%br
+= link_to 'Back', companies_path, {:class => 'nav-button'}

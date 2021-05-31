@@ -45,6 +45,10 @@ class Query < ApplicationRecord
       :round
     ]
 
+    if params[:business_name]
+      params[:business_name] = params[:business_name].titleize
+    end
+
     race_query = create_checkbox_query(params, races, "race", "owners")
     ethnicity_query = create_checkbox_query(params, ethnicities, "ethnicity", "owners")
     gender_query = create_checkbox_query(params, genders, "gender", "owners")

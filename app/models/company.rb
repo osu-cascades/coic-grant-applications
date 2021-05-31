@@ -24,6 +24,7 @@ class Company < ApplicationRecord
 
   def self.search(search)
     if search
+      search = search.titleize
       if Company.where('business_name LIKE ?', "%#{search}%") != nil
         Company.where('business_name LIKE ?', "%#{search}%")
       else

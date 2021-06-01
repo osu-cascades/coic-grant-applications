@@ -25,13 +25,15 @@ There are a few steps to get up and running in development.
 
 See _.env.example_ for a complete list of expected environment variables.
 
-### TODO
-
 ## Testing
 
 This app is using minitest / Rails default tests. Run the suite with:
 
 `rails test`
+
+Run system tests with:
+
+`rails test:system`
 
 Note: There is a _Guardfile_ should you wish to use guard.
 
@@ -65,4 +67,4 @@ Configure env vars in staging and production:
 Note: See _.env.example_ for a complete list of expected environment
 variables that need set in both staging & production environments.
 
-&copy; 2020 TODO. All rights reserved.
+&copy; 2020 Central Oregon Intergovernmental Council. All rights reserved.
